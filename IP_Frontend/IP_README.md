@@ -11,3 +11,5 @@ Backend
     - Installed npm i dotenv for storing environment variables
     - Installed npm install --save cors for cross-origin resource sharing
     - Installed npm install mongoose 
+
+removed DS_store and node modules legacy from github
