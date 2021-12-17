@@ -89,9 +89,18 @@ export default function UserProfileEdit() {
                     </div>
                 </div>
 
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <input type="button" value="Submit profile changes" class="btn btn-primary btn-custom" />
-                    {/* <input type="button" value="Click Me!" onclick={submitForms()} /> */}
+                <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                    <div className="row">
+                        <div className="col-sm-5">
+                            <button type="submit" className="btn btn-primary btn-custom">Submit Profile Changes</button>
+                        </div>
+                        <div className="col-sm-5">
+                            <button type="button" className="btn btn-info btn-custom">Cancel Changes and Reset</button>
+                        </div>
+                        <div className="col-sm-2">
+                            <button type="reset" className="btn btn-danger btn-custom">Reset</button>
+                        </div>
+                    </div>
                 </div>
 
             </body>
