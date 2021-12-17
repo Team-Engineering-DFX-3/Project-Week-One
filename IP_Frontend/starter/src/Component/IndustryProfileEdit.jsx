@@ -46,7 +46,7 @@ export default function IndustryProfileEdit() {
             <body class='body'>
                 <div class='container shadow p-3 mb-5 bg-body rounded'>
                     <div class='row'>
-                        <h1>
+                        <h1 class="align-left">
                             Edit profile
                             <Link to="/">
                                 <button id="editButton" type="button" class="btn btn-primary">
@@ -67,55 +67,40 @@ export default function IndustryProfileEdit() {
                                     <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
                                 </ul>
                             </div>
-                            <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                                <input type="submit" value="Submit profile changes" className="btn btn-primary btn-custom" />
-
-                            </div>
-
                         </form >
 
+                        {/* <div className="row">
+                                <div className="col-sm-5">
+                                    <button type="submit" className="btn btn-primary btn-custom">Submit Profile Changes</button>
+                                </div>
+                                <div className="col-sm-5">
+                                    <button type="reset" className="btn btn-danger btn-custom">Reset</button>
+                                </div>
+                                <div className="col-sm-5">
+                                    <button type="submit" className="btn btn-info btn-custom">Info</button>
+                                </div>
+                            </div> */}
+
+                        {/* <input type="submit" value="Submit profile changes" className="btn btn-primary btn-custom" />
+                                <input type="reset" value="Reset" className="btn btn-primary btn-custom" />
+                                <input type="submit" value="Submit profile changes" className="btn btn-primary btn-custom" /> */}
+                    </div>
+
+                </div>
+
+                <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                    <div className="row">
+                        <div className="col-sm-5">
+                            <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-custom">Submit Profile Changes</button>
+                        </div>
+                        <div className="col-sm-5">
+                            <button type="button" className="btn btn-info btn-custom">Cancel Changes and Reset</button>
+                        </div>
+                        <div className="col-sm-2">
+                            <button type="reset" className="btn btn-danger btn-custom">Reset</button>
+                        </div>
                     </div>
                 </div>
-                {/* <div>
-            <div classNameName="container c2">
-                <form onSubmit={handleSubmit}>
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row mb-3">
-                                <label for="company_name" className="col-sm-2 col-form-label">Company Name</label>
-                                <div className="col-sm-10">
-                                    <input type="text" className="form-control" id="company_name" name="name" value={industryData.name} onChange={handleChange} placeholder="Company Name" required />
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <label for="description" className="col-sm-2 col-form-label">Company Description</label>
-                                <div className="col-sm-10">
-                                    <input type="text" className="form-control" id="description" name="description" value={industryData.description} onChange={handleChange} placeholder="Company Description" required />
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <label for="location" className="col-sm-2 col-form-label">Location</label>
-                                <div className="col-sm-10">
-                                    <input type="text" className="form-control" id="location" name="location" value={industryData.location} onChange={handleChange} placeholder="Company Location" required />
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <label className="col-sm-2 col-form-label" for="customFile" >Upload Logo</label>
-                                <div className="col-sm-10">
-                                    <input type="file" className="form-control" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" />
-                                    <button type="submit">Upload</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <button type="submit" className="btn btn-outline-primary">Save Changes</button>
-                        </div>
-                        <br />
-                    </div>
-                </form>
-            </div>
-        </div
-        > */}
             </body>
         </>
     )
