@@ -9,11 +9,7 @@ p{text-align: justify;}
 
 .edit{text-align: left;}
 
-header{
-   
-    color:white;
-    background-color:#001450;
-}
+
 .heading{text-align: left;}
 
 .logo{text-align: right;
@@ -57,9 +53,6 @@ li a {
 
 
 
-.active {
-  background-color:#6abce2;
-}
 
 .vacancy{width: 18rem;
 height:20rem;} */

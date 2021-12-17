@@ -2,11 +2,6 @@
   text-align: center;
   /* background-color:rgb(255, 248, 248); */
 }
-
-.body {
-  padding: 48px;
-  background-color: rgb(233, 233, 233);
-}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -17,11 +12,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.margin-right {
-  margin-right: 20px;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -37,6 +27,19 @@
   color: #61dafb;
 }
 
+
+.align {
+    display: flex;
+    justify-content: space-between;
+}
+.align-left {
+  text-align: left;
+}
+
+.align-left {
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -46,6 +49,37 @@
   }
 }
 
+.body {
+  padding: 48px;
+  background-color: rgb(233, 233, 233);
+}
+
+.btn-custom {
+  align-self: center;
+  width: 100%;
+}
+
+.body-align-left {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.body-align-right {
+  margin-right: 15px;
+  text-align: right;
+}
+
+.containerHeight {
+  max-height: 200px;
+}
+
+.colForm {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+
 .dfxHeader {
   background-color: #001450;
   align-items: center;
@@ -53,57 +87,12 @@
   height: 100px;
 }
 
-.list {
-  list-style: none;
-  padding-left: 0px;
-}
-
-.header-img {
-  padding-top: 10%;
-}
-
-.header-text {
-  padding-top: 23%;
+#dropdown-basic-button {
   color: white;
-}
-
-.overflow {
-  overflow-y: auto;
-  max-height: 400px;
-}
-
-.containerHeight {
-  max-height: 200px;
 }
 
 #editButton {
   margin-left: 10px;
-}
-
-.sub-entry {
-      width: 50%;
-    float: left;
-}
-
-.input {
-width: 400px;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-
-.align {
-    display: flex;
-    justify-content: space-between;
-}
-
-.modalForm {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.colForm {
-  padding-left: 1px;
-  padding-right: 1px;
 }
 
 
@@ -120,41 +109,59 @@ margin-bottom: 5px;
     color: rgb(255, 248, 248);
 }
 
-#dropdown-basic-button {
+
+.header-img {
+  padding-top: 10%;
+}
+
+.header-text {
+  padding-top: 23%;
   color: white;
 }
+.img-fluid {
+  margin-bottom: 20px;
+}
+
+.input {
+width: 400px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.modalForm {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.margin-right {
+  margin-right: 20px;
+}
+
 
 .modal-div {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.btn-custom {
-  align-self: center;
-  width: 100%;
-}
-
-.align-left {
-  text-align: left;
-}
-
-.body-align-left {
-  margin-left: 15px;
-  text-align: left;
-}
-
-.body-align-right {
-  margin-right: 15px;
-  text-align: right;
-}
 
 .margin {
   margin-left: 10px;
 }
-
-.img-fluid {
-  margin-bottom: 20px;
+.overflow {
+  overflow-y: auto;
+  max-height: 400px;
 }
 
+
+.sub-entry {
+      width: 50%;
+    float: left;
+}
 .vacancy{
 height:20rem;}
