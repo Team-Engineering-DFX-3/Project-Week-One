@@ -1,15 +1,21 @@
 import React from 'react'
 import '../Component/css/App.css';
 import { Link } from 'react-router-dom';
+import ContainerHeader from './Header/ContainerHeader'
 
 export default function UserProfile() {
+
     return (
         <>
             <body class='body'>
-                <div class='container shadow p-3 mb-5 bg-body rounded'>
+                <div class='container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"Your Profile"} />
+                    </div>
+
                     <div class='row'>
                         <h1 class="align-left">
-                            Your profile
+
                             <Link to="/UserEdit">
                                 <button id="editButton" type="button" class="btn btn-primary">
                                     Edit
@@ -38,19 +44,18 @@ export default function UserProfile() {
                             </div>
                         </ul>
                         <div>
-                            <div class="progress">
+                            <div class="progress row">
                                 <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class='container shadow p-3 mb-5 bg-body rounded'>
+                <div class='container shadow mb-5 bg-body rounded'>
                     <div class='row'>
-                        <h1 class="align-left" >
-                            Your Training
-                        </h1>
-
+                        <ContainerHeader title={"Your Training"} />
+                    </div>
+                    <div class='row'>
                         <ul class='list col-sm body-align-left' id='left'>
                             <li>Cohort:</li>
                             <li>Learning:</li>
@@ -72,11 +77,11 @@ export default function UserProfile() {
                     </div>
                 </div>
 
-                <div class='container shadow p-3 mb-5 bg-body rounded'>
+                <div class='container shadow mb-5 bg-body rounded'>
                     <div class='row'>
-                        <h1 class="align-left">
-                            Your Information
-                        </h1>
+                        <ContainerHeader title={"Your Information"} />
+                    </div>
+                    <div class='row'>
 
                         <ul class="list col-sm body-align-left">
                             <div class='container shadow p-3 mb-5 bg-body rounded'>
