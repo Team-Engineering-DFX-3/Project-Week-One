@@ -6,10 +6,14 @@ import Vacancies from './Vacancies';
 function Home({ industryData }) {
     const location = useLocation();
     return (
-        <div>
-            <IndustryProfile industryData={industryData} />
-            <Vacancies />
-        </div>
+        <>
+            <body class='body'>
+                <div>
+                    <IndustryProfile industryData={industryData} />
+                    <Vacancies />
+                </div>
+            </body>
+        </>
     )
 }
 
