@@ -126,7 +126,6 @@ margin-bottom: 5px;
 }
 
 .modal-div {
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -159,3 +158,9 @@ margin-bottom: 5px;
 
 .vacancy{
 height:20rem;}
+
+.container-header-text {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+}

@@ -6,7 +6,7 @@ export default function ContainerHeader(props) {
         <>
             <header className='dfxHeader'>
                 <div className="inside">
-                    <h1 class="header-text" style={{ float: 'right' }}>{props.title}</h1>
+                    <h1 class="container-header-text" style={{ float: 'right' }}>{props.title}</h1>
                 </div>
             </header>
         </>
