@@ -55,7 +55,7 @@ export default function IndustryProfileEdit() {
                     </div>
                 </div>
                 <form >
-                    <div class='modal-div container shadow mb-5 bg-body rounded '>
+                    <div class='container shadow mb-5 bg-body rounded '>
                         <ul className='list body-align-left' id='left' >
                             <li><label for="company_name">Company Name:</label><br></br></li>
                             <li><input className='input' type="text" id="company_name" name="name" value={industryData.name} onChange={handleChange} placeholder="Company Name" required /><br></br></li>
@@ -63,12 +63,12 @@ export default function IndustryProfileEdit() {
                             <li><input className='input' type="text" id="description" name="description" value={industryData.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
                             <li><label for="location">Company Location:</label><br></br></li>
                             <li><input className='input' type="text" id="location" name="location" value={industryData.location} onChange={handleChange} placeholder="Company Location" required /><br></br></li>
-                            <li><label for="customFile">Upload Company Logo:</label><br></br></li>
-                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
+                            {/* <li><label for="customFile">Upload Company Logo:</label><br></br></li>
+                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li> */}
                         </ul>
                     </div>
 
-                    <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                    <div className=' container shadow p-3 mb-5 bg-body rounded'>
                         <div className="row">
                             <div className="col-sm-5">
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>

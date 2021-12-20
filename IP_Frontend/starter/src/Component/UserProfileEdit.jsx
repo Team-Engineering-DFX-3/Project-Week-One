@@ -33,38 +33,38 @@ export default function UserProfileEdit() {
                     </div>
                 </div>
 
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Degree"} />
                     </div>
                     <DegreeModal />
                 </div>
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"School Qualifications"} />
                     </div>
                     <SchoolModal />
                 </div>
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Work Experience"} />
                     </div>
                     <WorkModal />
                 </div>
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Certificates and Awards"} />
                     </div>
                     <AwardModal />
                 </div>
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Portfolio"} />
                     </div>
                     <PortfolioModal />
                 </div>
 
-                <div className='modal-div container shadow mb-5 bg-body rounded'>
+                <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Your Training"} />
                     </div>
@@ -98,21 +98,21 @@ export default function UserProfileEdit() {
                     </div>
                 </div>
 
-                <div classNameName='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <div classNameName="row">
-                        <div classNameName="col-sm-5">
-                            <button type="submit" classNameName="btn btn-primary btn-custom">Submit Profile Changes</button>
+                <div className=' container shadow p-3 mb-5 bg-body rounded'>
+                    <div className="row">
+                        <div className="col-sm-5">
+                            <button type="submit" className="btn btn-primary btn-custom">Submit Profile Changes</button>
                         </div>
-                        <div classNameName="col-sm-5">
-                            <button type="button" classNameName="btn btn-info btn-custom">Cancel Changes </button>
+                        <div className="col-sm-5">
+                            <button type="button" className="btn btn-info btn-custom">Cancel Changes </button>
                         </div>
-                        <div classNameName="col-sm-2">
-                            <button type="reset" classNameName="btn btn-danger btn-custom">Reset</button>
+                        <div className="col-sm-2">
+                            <button type="reset" className="btn btn-danger btn-custom">Reset</button>
                         </div>
                     </div>
                 </div>
 
-                {/* <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                {/* <div className=' container shadow p-3 mb-5 bg-body rounded'>
                     <input type="button" value="Submit profile changes" className="btn btn-primary btn-custom" /> */}
                 {/* <input type="button" value="Click Me!" onclick={submitForms()} /> */}
                 {/* </div> */}

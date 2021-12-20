@@ -11,7 +11,7 @@ const Industry_Profile = ({ industryData }) => {
     };
     return (
         <>
-            <div className="container shadow mb-5 bg-body rounded" >
+            <div className="container shadow mb-5 bg-body rounded " >
                 <div className='row'>
                     <ContainerHeader title={state?.profile?.name} />
                 </div>
