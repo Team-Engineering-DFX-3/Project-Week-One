@@ -2,7 +2,7 @@ import '../src/Component/css/App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './Component/Home';
-import Header from './Component/Header';
+import Header from './Component/Header/Header';
 import IndustryProfile from './Component/IndustryProfile';
 import IndustryProfileEdit from './Component/IndustryProfileEdit';
 import Vacancies from './Component/Vacancies';

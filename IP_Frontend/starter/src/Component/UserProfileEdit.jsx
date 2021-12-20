@@ -7,8 +7,7 @@ import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
 import { Link } from 'react-router-dom';
 import FormOne from './Forms/FormOne'
-
-
+import ContainerHeader from './Header/ContainerHeader'
 
 const submitForms = () => {
     document.getElementById("1").submit();
@@ -20,46 +19,56 @@ export default function UserProfileEdit() {
     return (
         <>
             <body class='body'>
-                <div class='container shadow p-3 mb-5 bg-body rounded'>
+                <div class='container shadow mb-5 bg-body rounded'>
                     <div class='row'>
-                        <h1 class="align-left">
-                            Edit profile
-                            <Link to="/user">
-                                <button id="editButton" type="button" class="btn btn-primary">
-                                    Home
-                                </button>
-                            </Link>
-                        </h1>
+                        <ContainerHeader title={"Editing Profile"} />
+                    </div>
+                    <div class='row'>
+                        <Link to="/user">
+                            <button id="editButton" type="button" class="btn btn-primary">
+                                Home
+                            </button>
+                        </Link>
                         <FormOne />
                     </div>
                 </div>
 
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <h2 class="align-left">Degree</h2>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"Degree"} />
+                    </div>
                     <DegreeModal />
                 </div>
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <h2 class="align-left">School Qualifications</h2>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"School Qualifications"} />
+                    </div>
                     <SchoolModal />
                 </div>
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <h2 class="align-left">Work Experience</h2>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"Work Experience"} />
+                    </div>
                     <WorkModal />
                 </div>
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <h2 class="align-left">Certificates and Awards</h2>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"Certificates and Awards"} />
+                    </div>
                     <AwardModal />
                 </div>
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                    <h2 class="align-left">Portfolio</h2>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
+                    <div class='row'>
+                        <ContainerHeader title={"Portfolio"} />
+                    </div>
                     <PortfolioModal />
                 </div>
 
-                <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                <div class='modal-div container shadow mb-5 bg-body rounded'>
                     <div class='row'>
-                        <h1 class="align-left">
-                            Your training
-                        </h1>
+                        <ContainerHeader title={"Your Training"} />
+                    </div>
+                    <div class='row'>
                         <form action="/" id="2">
                             <div class='sub-entry'>
                                 <ul class='list' id='left'>
@@ -102,6 +111,11 @@ export default function UserProfileEdit() {
                         </div>
                     </div>
                 </div>
+
+                {/* <div class='modal-div container shadow p-3 mb-5 bg-body rounded'>
+                    <input type="button" value="Submit profile changes" class="btn btn-primary btn-custom" /> */}
+                {/* <input type="button" value="Click Me!" onclick={submitForms()} /> */}
+                {/* </div> */}
 
             </body>
         </>
