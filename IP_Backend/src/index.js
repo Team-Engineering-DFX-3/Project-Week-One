@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { editIndustry } from '../routes/editIndustry.js';
+import { editVacancy } from '../routes/editVacancy.js';
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(`/edit`, editIndustry);
+app.use(`/editVacancy`, editVacancy);
 
 app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 

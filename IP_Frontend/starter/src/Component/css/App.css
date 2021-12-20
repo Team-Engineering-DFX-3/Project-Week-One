@@ -50,7 +50,9 @@
   padding: 48px;
   background-color: rgb(233, 233, 233);
 }
-
+.btn {
+  margin-top: 10px;
+}
 .btn-custom {
   align-self: center;
   width: 100%;
@@ -75,6 +77,7 @@
 .containerHeight {
   max-height: 200px;
 }
+
 
 .colForm {
   padding-left: 1px;

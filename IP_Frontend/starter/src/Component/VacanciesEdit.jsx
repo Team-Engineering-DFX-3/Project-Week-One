@@ -5,34 +5,34 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 
-// import IndustryProfileEditForm from '../Component/Forms/IndustryProfileEditForm';
 
-export default function IndustryProfileEdit() {
+
+export default function VacanciesEdit() {
     const navigate = useNavigate();
-    const [industryData, setIndustryData] = useState({
-        name: ``,
+    const [vacanciesData, setVacanciesData] = useState({
+        title: ``,
         description: ``,
         location: ``,
-        image: ``
+        
     });
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setIndustryData({
-            ...industryData,
+        setVacanciesData({
+            ...vacanciesData,
             [name]: value
         });
-        console.dir("Industry data: " + industryData);
+        console.dir("Vacancy data: " + vacanciesData);
     };
 
     const handleSubmit = async (e) => {
         console.log("entered handle");
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/edit', industryData);
+            const response = await axios.post('http://127.0.0.1:4000/editVacancy', vacanciesData);
             console.log('hi');
             alert(response.data.message);
-            setIndustryData(response.data.profile);
+            setVacanciesData(response.data.vacancy);
             navigate('/', { state: response.data });
 
         }
@@ -57,21 +57,19 @@ export default function IndustryProfileEdit() {
                 <form >
                     <div class='modal-div container shadow mb-5 bg-body rounded '>
                         <ul className='list body-align-left' id='left' >
-                            <li><label for="company_name">Company Name:</label><br></br></li>
-                            <li><input className='input' type="text" id="company_name" name="name" value={industryData.name} onChange={handleChange} placeholder="Company Name" required /><br></br></li>
-                            <li><label for="description">Company Description:</label><br></br></li>
-                            <li><input className='input' type="text" id="description" name="description" value={industryData.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
-                            <li><label for="location">Company Location:</label><br></br></li>
-                            <li><input className='input' type="text" id="location" name="location" value={industryData.location} onChange={handleChange} placeholder="Company Location" required /><br></br></li>
-                            <li><label for="customFile">Upload Company Logo:</label><br></br></li>
-                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
+                            <li><label for="company_name">Job Title:</label><br></br></li>
+                            <li><input className='input' type="text" id="company_name" name="title" value={vacanciesData.title} onChange={handleChange} placeholder="Vacancy Title" required /><br></br></li>
+                            <li><label for="description"> Job Description:</label><br></br></li>
+                            <li><input className='input' type="text" id="description" name="description" value={vacanciesData.description} onChange={handleChange} placeholder=" Vacancy Description" required /><br></br></li>
+                            <li><label for="location"> Job Location:</label><br></br></li>
+                            <li><input className='input' type="text" id="location" name="location" value={vacanciesData.location} onChange={handleChange} placeholder="Vacancy Location" required /><br></br></li>
                         </ul>
                     </div>
 
                     <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
                         <div className="row">
                             <div className="col-sm-5">
-                                <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
+                                <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Vacancy Changes</button>
                             </div>
                             <div className="col-sm-5">
                                 <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
@@ -89,4 +87,3 @@ export default function IndustryProfileEdit() {
         </>
     )
 }
-
