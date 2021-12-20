@@ -1,6 +1,7 @@
 import barclays from '../Component/images/barclays.png';
 import '../Component/css/App.css';
 import { Link, useLocation } from "react-router-dom";
+import ContainerHeader from './Header/ContainerHeader'
 const Industry_Profile = ({ industryData }) => {
     const location = useLocation();
     const state = location.state || {
@@ -10,15 +11,15 @@ const Industry_Profile = ({ industryData }) => {
     };
     return (
         <>
-            <div class="container shadow p-3 mb-5 bg-body rounded" >
+            <div class="container shadow mb-5 bg-body rounded" >
+                <div class='row'>
+                    <ContainerHeader title={state?.profile?.name} />
+                </div>
                 <div class="row">
                     <div class=" col-sm body-align-left" id='left'>
-                        <h1>
-                            {state?.profile?.name}
-                            <Link to="/edit">
-                                <button id="editButton" type="button" class="btn btn-primary">Edit Profile</button>
-                            </Link>
-                        </h1>
+                        <Link to="/edit">
+                            <button id="editButton" type="button" class="btn btn-primary">Edit Profile</button>
+                        </Link>
 
                         <ul class="list">
                             <li>Company Description: {state?.profile?.description}</li>
