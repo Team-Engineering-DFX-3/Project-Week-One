@@ -39,20 +39,21 @@ export default function DegreeModal() {
     };
 
     const handleSubmit = async (e) => {
-        // console.log("entered handle");
+        console.log("entered handle");
         setShow(false);
-        // e.preventDefault();
-        // try {
-        //     const response = await axios.post('http://127.0.0.1:4000/edit', degreeData);
-        //     console.log('hi');
-        //     alert(response.data.message);
-        //     setDegreeData(response.data.profile);
-        //     navigate('/', { state: response.data });
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
+            console.log('hi');
+            alert(response.data.message);
+            console.log(response.data.degree);
+            setDegreeData(response.data.degree);
+            navigate('/UserEdit', { state: response.data });
 
-        // }
-        // catch (e) {
-        //     return "failure";
-        // }
+        }
+        catch (e) {
+            return "failure";
+        }
     };
 
     return (

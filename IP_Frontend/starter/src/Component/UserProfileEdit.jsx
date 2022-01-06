@@ -5,17 +5,24 @@ import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
-const submitForms = () => {
-    document.getElementById("1").submit();
-    document.getElementById("2").submit();
-}
+// const submitForms = () => {
+//     document.getElementById("1").submit();
+//     document.getElementById("2").submit();
+// }
+
 
 
 export default function UserProfileEdit() {
+    const location = useLocation();
+    const state = location.state || {
+        profile: {
+            institution: "DigitalFutures", subject: "Lorem ipsum", level: "London", grade: "grade", dateFrom: "21-32-5434", dateTo: "21-32-5434", description: "Lorem ipsum"
+        }
+    };
     return (
         <>
             <body className='body'>
@@ -38,6 +45,7 @@ export default function UserProfileEdit() {
                         <ContainerHeader title={"Degree"} />
                     </div>
                     <DegreeModal />
+                    <p>institution: {state?.degree?.institution}</p>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>

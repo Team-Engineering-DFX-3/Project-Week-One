@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { editIndustry } from '../routes/editIndustry.js';
 import { editVacancy } from '../routes/editVacancy.js';
+import { editDegree } from '../routes/editDegree.js';
 
 dotenv.config();
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(`/editIndustry`, editIndustry);
 app.use(`/editVacancy`, editVacancy);
+app.use(`/editDegree`, editDegree);
 
 app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 
