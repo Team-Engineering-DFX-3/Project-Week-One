@@ -29,8 +29,7 @@ export default function IndustryProfileEdit() {
         console.log("entered handle");
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/edit', industryData);
-            console.log('hi');
+            const response = await axios.post('http://127.0.0.1:4000/editIndustry', industryData);
             alert(response.data.message);
             setIndustryData(response.data.profile);
             navigate('/', { state: response.data });
@@ -63,8 +62,8 @@ export default function IndustryProfileEdit() {
                             <li><input className='input' type="text" id="description" name="description" value={industryData.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
                             <li><label for="location">Company Location:</label><br></br></li>
                             <li><input className='input' type="text" id="location" name="location" value={industryData.location} onChange={handleChange} placeholder="Company Location" required /><br></br></li>
-                            {/* <li><label for="customFile">Upload Company Logo:</label><br></br></li>
-                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li> */}
+                            <li><label for="customFile">Upload Company Logo:</label><br></br></li>
+                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
                         </ul>
                     </div>
 
