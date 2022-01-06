@@ -1,6 +1,6 @@
 import React from 'react'
-import '../Component/css/App.css';
-import logo from '../DF-logo.png'
+import '../css/App.css';
+import logo from '../images/logo.png'
 
 export default function Header() {
     return (
