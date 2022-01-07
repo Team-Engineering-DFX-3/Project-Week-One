@@ -6,7 +6,7 @@ const Industry_Profile = ({ industryData }) => {
     const location = useLocation();
     const state = location.state || {
         profile: {
-            name: "Digital Futures", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?", location: "London"
+            name: "DigitalFutures", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?", location: "London"
         }
     };
     return (
@@ -16,8 +16,8 @@ const Industry_Profile = ({ industryData }) => {
                     <ContainerHeader title={state?.profile?.name} />
                 </div>
                 <div className="row">
-                    <div className="col-sm body-align-left" id='left'>
-                        <Link to="/edit">
+                    <div className=" col-sm body-align-left" id='left'>
+                        <Link to="/editIndustry/">
                             <button id="editButton" type="button" className="btn btn-primary">Edit </button>
                         </Link>
 
@@ -30,12 +30,13 @@ const Industry_Profile = ({ industryData }) => {
                     <div className='list col-md body-align-right' id='right'>
                         <li>
                             <div>
-                                <img src={barclays} alt="Industry Logo" className="img-fluid" />
+                                {/* <img src={barclays} alt="Industry Logo" className="img-fluid" /> */}
+                                {/* <img src={state?.image} alt="Industry Logo" className="img-fluid" /> */}
                             </div>
                         </li>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
