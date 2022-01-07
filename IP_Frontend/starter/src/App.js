@@ -17,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/industries" element={<Industry />} />
-        <Route path="/industry/:id" element={<IndustryProfile industryData={industryData} />} />
-        <Route path="/editIndustry" element={<IndustryProfileEdit />} />
+        <Route path="/industry/:id" element={<IndustryProfile />} />
+        <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
