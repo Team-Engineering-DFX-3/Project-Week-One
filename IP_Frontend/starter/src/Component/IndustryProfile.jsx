@@ -35,7 +35,7 @@ const Industry_Profile = () => {
 
     return (
         <>
-            <div className="container shadow mb-5 bg-body rounded " >
+            <div className="container shadow mb-5 bg-body rounded" >
                 <div className='row'>
                     <ContainerHeader title={state ? state.name : industry.name} />
                 </div>

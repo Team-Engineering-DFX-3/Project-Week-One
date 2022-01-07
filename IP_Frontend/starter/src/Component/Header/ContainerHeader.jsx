@@ -4,7 +4,7 @@ import '../css/App.css';
 export default function ContainerHeader(props) {
     return (
         <>
-            <header className='dfxHeader'>
+            <header className='dfxHeader round-corner'>
                 <div className="inside">
                     <h1 class="container-header-text" style={{ float: 'right' }}>{props.title}</h1>
                 </div>
