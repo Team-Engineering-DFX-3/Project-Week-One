@@ -11,7 +11,6 @@ import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
 
 function App() {
-  const [industryData, setIndustryData] = useState({});
   return (
     <div className="App">
       <Header />
@@ -19,8 +18,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile industryData={industryData} />} />
-        {/* <Route path="/" element={<IndustryProfile industryData={industryData} />} /> */}
-        {/* <Route path="/" element={<IndustryProfile />} /> */}
         <Route path="/editIndustry" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />

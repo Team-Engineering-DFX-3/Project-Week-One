@@ -40,13 +40,12 @@ const Industry_Profile = ({ industryData }) => {
 
     return (
         <>
-            <div className="container shadow mb-5 bg-body rounded " >
+            <div className="container shadow mb-5 bg-body rounded" >
                 <div className='row'>
                     <ContainerHeader title={state ? state.name : industry.name} />
                 </div>
                 <div className="row">
                     <div className=" col-sm body-align-left" id='left'>
-                        {/* <Link to={`/editIndustry/` + `${industry._id}`}> */}
                         <Link to="/editIndustry/">
                             <button id="editButton" type="button" className="btn btn-primary">Edit </button>
                         </Link>
