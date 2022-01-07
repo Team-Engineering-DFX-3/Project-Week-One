@@ -1,9 +1,11 @@
 import React from 'react'
+import { useState } from 'react';
 import '../Component/css/App.css';
 import { Link } from 'react-router-dom';
 import ContainerHeader from './Header/ContainerHeader'
 
-export default function UserProfile() {
+export default function UserProfile({degreeData}) {
+  
 
     return (
         <>
@@ -35,7 +37,7 @@ export default function UserProfile() {
                             <li>Personal story summary</li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li>Degree:</li>
+                                    <li>Degree:{ degreeData.institution  }</li>
                                     <li>School qualifications:</li>
                                     <li>Work experience:</li>
                                     <li>Personal Achievements:</li>

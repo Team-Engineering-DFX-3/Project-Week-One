@@ -17,6 +17,15 @@ function App() {
   //     name: "DigitalFutures", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?", location: "London"
   //   }
   // };
+  const [degreeData, setDegreeData] = useState({
+    institution: ``,
+    subject: ``,
+    level: ``,
+    grade: ``,
+    dateFrom: ``,
+    dateTo: ``,
+    description: ``
+  });
   return (
     <div className="App">
       <Header />
@@ -26,8 +35,8 @@ function App() {
         <Route path="/editIndustry" element={<IndustryProfileEdit />} />
         {/* <Route path={`/editIndustry/${state?.profile?.name}`} element={<IndustryProfileEdit />} /> */}
         <Route path="/vacancies" element={<Vacancies />} />
-        <Route path="/user" element={<UserProfile />} />
-        <Route path="/UserEdit" element={<UserProfileEdit />} />
+        <Route path="/user" element={<UserProfile degreeData={degreeData}/> } />
+        <Route path="/UserEdit" element={<UserProfileEdit setDegreeData={setDegreeData }/>} />
       </Routes>
     </div>
   )

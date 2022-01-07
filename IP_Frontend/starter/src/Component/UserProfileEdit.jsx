@@ -16,13 +16,32 @@ import ContainerHeader from './Header/ContainerHeader'
 
 
 
-export default function UserProfileEdit() {
+export default function UserProfileEdit({setDegreeData}) {
     const location = useLocation();
     const state = location.state || {
-        profile: {
+        degree: {
             institution: "DigitalFutures", subject: "Lorem ipsum", level: "London", grade: "grade", dateFrom: "21-32-5434", dateTo: "21-32-5434", description: "Lorem ipsum"
         }
     };
+
+   
+    // const handleSubmit = async (e) => {
+    //     console.log("entered handle");
+        
+    //     e.preventDefault();
+    //     try {
+    //         const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
+    //         console.log('hi');
+    //         alert(response.data.message);
+    //         console.log(response.data.degree);
+    //         setDegreeData(response.data.degree);
+    //         navigate('/UserEdit', { state: response.data });
+
+    //     }
+    //     catch (e) {
+    //         return "failure";
+    //     }
+    // };
     return (
         <>
             <body className='body'>
@@ -45,7 +64,33 @@ export default function UserProfileEdit() {
                         <ContainerHeader title={"Degree"} />
                     </div>
                     <DegreeModal />
-                    <p>institution: {state?.degree?.institution}</p>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">institution</th>
+                                <th scope="col">subject</th>
+                                <th scope="col">level</th>
+                                <th scope="col">grade</th>
+                                <th scope="col">date from</th>
+                                <th scope="col">date to </th>
+                                <th scope="col">description </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td >{state?.degree?.institution}</td>
+                            <td>{state?.degree?.subject}</td>
+                            <td>{state?.degree?.level}</td>
+                            <td>{state?.degree?.grade}</td>
+                            <td>{state?.degree?.dateFrom}</td>
+                            <td>{state?.degree?.dateTo}</td>
+                            <td>{state?.degree?.description}</td>
+                        </tr>
+                        </tbody> 
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
@@ -109,7 +154,7 @@ export default function UserProfileEdit() {
                 <div className=' container shadow p-3 mb-5 bg-body rounded'>
                     <div className="row">
                         <div className="col-sm-5">
-                            <button type="submit" className="btn btn-primary btn-custom">Submit Profile Changes</button>
+                            <button type="submit" className="btn btn-primary btn-custom" >Submit Profile Changes</button>
                         </div>
                         <div className="col-sm-5">
                             <button type="button" className="btn btn-info btn-custom">Cancel Changes </button>
