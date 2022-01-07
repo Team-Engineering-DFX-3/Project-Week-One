@@ -1,23 +1,18 @@
-import barclays from '../Component/images/barclays.png';
 import '../Component/css/App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
 import axios from 'axios';
-const Industry_Profile = ({ industryData }) => {
-    // const Industry_Profile = () => {
-    // var details;
+
+const Industry_Profile = () => {
+
     const [industry, setIndustry] = useState({});
+    // const [state, setState] = useState({});
     const { id } = useParams();
     const location = useLocation();
-    const state = location.state;
-    // const state = location.state || {
-    //     profile: {
-    //         name: "DigitalFutures", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?", location: "London"
-    //     }
-    // };
-
+    const state = location.states;
+    // setState(location.state);
     const getIndustry = async () => {
         try {
             const response = await axios.get('http://127.0.0.1:4000/industry/' + `${id}`);
@@ -46,8 +41,8 @@ const Industry_Profile = ({ industryData }) => {
                 </div>
                 <div className="row">
                     <div className=" col-sm body-align-left" id='left'>
-                        {/* <Link to={`/editIndustry/` + `${industry._id}`}> */}
-                        <Link to="/editIndustry/">
+                        <Link to={`/editIndustry/` + `${industry._id}`}>
+                            {/* <Link to="/editIndustry/"> */}
                             <button id="editButton" type="button" className="btn btn-primary">Edit </button>
                         </Link>
                         <ul className="list">
@@ -67,43 +62,6 @@ const Industry_Profile = ({ industryData }) => {
             </div >
         </>
     )
-
-
-
-
-
-
-    // return (
-    //     <>
-    //         <div className="container shadow mb-5 bg-body rounded " >
-    //             <div className='row'>
-    //                 <ContainerHeader title={state?.profile?.name} />
-    //             </div>
-    //             <div className="row">
-    //                 <div className=" col-sm body-align-left" id='left'>
-
-    //                     <Link to="/editIndustry/">
-    //                         <button id="editButton" type="button" className="btn btn-primary">Edit </button>
-    //                     </Link>
-
-    //                     <ul className="list">
-    //                         <li>Company Description: {state?.profile?.description}</li>
-    //                         <li>Location: {state?.profile?.location}</li>
-    //                     </ul>
-    //                 </div>
-
-    //                 <div className='list col-md body-align-right' id='right'>
-    //                     <li>
-    //                         <div>
-    //                             {/* <img src={barclays} alt="Industry Logo" className="img-fluid" /> */}
-    //                             {/* <img src={state?.image} alt="Industry Logo" className="img-fluid" /> */}
-    //                         </div>
-    //                     </li>
-    //                 </div>
-    //             </div>
-    //         </div >
-    //     </>
-    // )
 }
 
 export default Industry_Profile;
