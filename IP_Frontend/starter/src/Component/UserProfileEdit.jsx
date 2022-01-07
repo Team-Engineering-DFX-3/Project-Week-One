@@ -1,5 +1,7 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import '../Component/css/App.css';
+import axios from 'axios';
 import DegreeModal from './Modal/DegreeModal';
 import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
@@ -9,52 +11,45 @@ import { Link, useLocation} from 'react-router-dom';
 import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
-// const submitForms = () => {
-//     document.getElementById("1").submit();
-//     document.getElementById("2").submit();
-// }
-
-
 
 export default function UserProfileEdit() {
-    const location = useLocation();
-    const state = location.state || {
-        degree: {
-            institution: "DigitalFutures", subject: "Lorem ipsum", level: "London", grade: "grade", dateFrom: "21-32-5434", dateTo: "21-32-5434", description: "Lorem ipsum"
-        },
+    
+    const [allDegreeData, setAllDegreeData] = useState([]);
+    const [allWorkData, setAllWorkData] = useState([]);
+    const [allSchoolData, setAllSchoolData] = useState([]);
 
-        work: {
-            experience: `Experience`,
-            institution: `Digital Futures`,
-            position: `Software Engineer`,
-            dateFrom: `1-1-2022`,
-            dateTo: `21-12-2022`,
-            description: `Lorem ipsum`
-        },
-        
-        school: {
-            school: `name`, examType: `qualification `,subject: ` subject type `, grade: `A-E`,year: `0000-0000`,description: `Lorem ipsum`
+
+    useEffect(() => {
+        async function getDegrees() {
+            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            setAllDegreeData(response.data.degrees)
+            console.log(response.data.degrees);
         }
-    };
+
+        getDegrees()
+    }, [])
+    useEffect(() => {
+        async function getWork() {
+            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            setAllWorkData(response.data.work)
+            console.log(response.data.work);
+        }
+
+        getWork()
+    }, [])
+
+    useEffect(() => {
+        async function getSchool() {
+            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            setAllSchoolData(response.data.schools)
+            console.log(response.data.schools);
+        }
+
+        getSchool()
+    }, [])
+
 
    
-    // const handleSubmit = async (e) => {
-    //     console.log("entered handle");
-        
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
-    //         console.log('hi');
-    //         alert(response.data.message);
-    //         console.log(response.data.degree);
-    //         setDegreeData(response.data.degree);
-    //         navigate('/UserEdit', { state: response.data });
-
-    //     }
-    //     catch (e) {
-    //         return "failure";
-    //     }
-    // };
     return (
         <>
             <body className='body'>
@@ -81,17 +76,17 @@ export default function UserProfileEdit() {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">institution</th>
-                                <th scope="col">subject</th>
-                                <th scope="col">level</th>
-                                <th scope="col">grade</th>
-                                <th scope="col">date from</th>
-                                <th scope="col">date to </th>
-                                <th scope="col">description </th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Level</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Starting Date</th>
+                                <th scope="col">End Date</th>
+                                <th scope="col">Description</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        {/* <tr>
                             <th scope="row">1</th>
                             <td>{state?.degree?.institution}</td>
                             <td>{state?.degree?.subject}</td>
@@ -100,7 +95,14 @@ export default function UserProfileEdit() {
                             <td>{state?.degree?.dateFrom}</td>
                             <td>{state?.degree?.dateTo}</td>
                             <td>{state?.degree?.description}</td>
-                        </tr>
+                        </tr> */}
+                        
+                        <tr>
+                                <th scope="row">1</th>
+                                {allDegreeData[0] ? allDegreeData.map(degree =>
+                                    <><td>{degree.institution}</td><td>{degree.subject}</td> <td>{degree.level}</td> <td>{degree.grade}</td><td>{degree.dateFrom}</td><td>{degree.dateTo}</td> <td>{degree.description}</td></>) : <td> No Degree Found </td>}
+                                 
+                            </tr>
                         </tbody> 
 
                     </table>
@@ -114,16 +116,16 @@ export default function UserProfileEdit() {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">school</th>
-                                <th scope="col"> Exam Type </th>
+                                <th scope="col">School</th>
+                                <th scope="col">Exam Type </th>
                                 <th scope="col">Subject</th>
                                 <th scope="col">Grade</th>
                                 <th scope="col">Year</th>
-                                <th scope="col">description </th>
+                                <th scope="col">Description </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {/* <tr>
                                 <th scope="row">1</th>
                                 <td>{state?.school?.school}</td>
                                 <td>{state?.school?.examType}</td>
@@ -131,6 +133,12 @@ export default function UserProfileEdit() {
                                 <td>{state?.school?.grade}</td>
                                 <td>{state?.school?.year}</td>
                                 <td>{state?.school?.description}</td>
+                            </tr> */}
+                            <tr>
+                                <th scope="row">1</th>
+                                {allSchoolData[0] ? allSchoolData.map(school =>
+                                    <><td>{school.school}</td><td>{school.examType}</td> <td>{school.subject}</td> <td>{school.grade}</td><td>{school.year}</td> <td>{school.description}</td></>) : <td> No School Found </td>}
+                                 
                             </tr>
                         </tbody>
 
@@ -145,23 +153,21 @@ export default function UserProfileEdit() {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">experience</th>
-                                <th scope="col">institution</th>
-                                <th scope="col">subject</th>
+                                <th scope="col">Experience</th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Position</th>
                                 <th scope="col">Starting date</th>
                                 <th scope="col">End date</th>
-                                <th scope="col">description</th>
+                                <th scope="col">Description</th>
                             </tr>
                         </thead>
                         <tbody>
+                           
                             <tr>
                                 <th scope="row">1</th>
-                                <td>{state?.work?.experience}</td>
-                                <td>{state?.work?.institution}</td>
-                                <td>{state?.work?.position}</td>
-                                <td>{state?.work?.dateFrom}</td>
-                                <td>{state?.work?.dateTo}</td>
-                                <td>{state?.work?.description}</td>
+                                {allWorkData[0] ? allWorkData.map(work =>
+                                    <><td>{work.experience}</td><td>{work.institution}</td> <td>{work.position}</td> <td>{work.dateFrom}</td><td>{work.dateTo}</td> <td>{work.description}</td></>) : <td> No Work Found </td>}
+                                 
                             </tr>
                         </tbody>
 

@@ -59,7 +59,7 @@ export default function DegreeModal() {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add degree
+                Add Degree
             </Button>
 
             {/* <p>{degreeData}</p> */}

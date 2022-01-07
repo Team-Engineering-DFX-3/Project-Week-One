@@ -7,6 +7,8 @@ import ContainerHeader from './Header/ContainerHeader'
 
 export default function UserProfile() {
     const [allDegreeData, setAllDegreeData] = useState([]);
+    const [allWorkData, setAllWorkData] = useState([]);
+    const [allSchoolData, setAllSchoolData] = useState([]);
 
     useEffect(() => {
         async function getDegrees() {
@@ -18,7 +20,27 @@ export default function UserProfile() {
         getDegrees()
     }, [])
 
+    
+
+    useEffect(() => {
+        async function getWork() {
+            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            setAllWorkData(response.data.work)
+            console.log(response.data.work);
+        }
+
+        getWork()
+    }, [])
    
+    useEffect(() => {
+        async function getSchool() {
+            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            setAllSchoolData(response.data.schools)
+            console.log(response.data.schools);
+        }
+
+        getSchool()
+    }, [])
 
     return (
         <>
@@ -51,7 +73,7 @@ export default function UserProfile() {
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
                                     <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
-                                    <li>School qualifications:</li>
+                                    <li>School qualifications: {allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
                                     <li>Work experience:</li>
                                     <li>Personal Achievements:</li>
                                     <li>Portfolio:</li>

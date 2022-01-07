@@ -50,7 +50,7 @@ export default function WorkModal() {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add Work Experience/ positions held
+                Add Work Experience/ Positions Held
             </Button>
 
             <Modal size="xl" show={show} onHide={handleClose}>
