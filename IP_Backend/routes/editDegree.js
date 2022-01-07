@@ -22,4 +22,14 @@ router.route('/').post((req, res) => {
     });
 });
 
+router.route('/').get((req, res) => {
+    Degree.find({}, (err, degrees) => {
+        if (err) {
+            res.send(err);
+            next();
+        }
+        res.send({ degrees });
+    })
+})
+
 export { router as editDegree };

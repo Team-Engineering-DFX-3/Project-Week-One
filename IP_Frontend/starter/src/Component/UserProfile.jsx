@@ -1,11 +1,24 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Component/css/App.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 
-export default function UserProfile({degreeData}) {
-  
+export default function UserProfile() {
+    const [allDegreeData, setAllDegreeData] = useState([]);
+
+    useEffect(() => {
+        async function getDegrees() {
+            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            setAllDegreeData(response.data.degrees)
+            console.log(response.data.degrees);
+        }
+
+        getDegrees()
+    }, [])
+
+   
 
     return (
         <>
@@ -37,7 +50,7 @@ export default function UserProfile({degreeData}) {
                             <li>Personal story summary</li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li>Degree:{ degreeData.institution  }</li>
+                                    <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br></div>) : <div >No Degrees found!</div>}</li>
                                     <li>School qualifications:</li>
                                     <li>Work experience:</li>
                                     <li>Personal Achievements:</li>
