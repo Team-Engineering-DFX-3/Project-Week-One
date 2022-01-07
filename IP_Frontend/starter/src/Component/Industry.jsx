@@ -10,7 +10,6 @@ const Industry = () => {
         try {
             const response = await axios.get('http://127.0.0.1:4000/industries');
             return response;
-
         }
         catch (e) {
             return "failure";
@@ -39,7 +38,7 @@ const Industry = () => {
                                         <div className="card vacancy">
                                             <div className="card-body">
                                                 <div className='row'>
-                                                    <Link to={`/` + `${industry._id}`}>
+                                                    <Link to={`/industry/` + `${industry._id}`}>
                                                         <ContainerHeader key={industry._id} title={industry.name} />
                                                     </Link>
                                                 </div>
