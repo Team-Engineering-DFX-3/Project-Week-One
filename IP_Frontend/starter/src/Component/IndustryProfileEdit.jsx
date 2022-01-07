@@ -1,18 +1,43 @@
 import React from 'react';
 import '../Component/css/App.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 
 export default function IndustryProfileEdit() {
     const navigate = useNavigate();
+
+    const [state, setState] = useState({});
     const [industryData, setIndustryData] = useState({
-        name: ``,
-        description: ``,
-        location: ``,
-        image: ``
+        name: state.name,
+        description: state.description,
+        location: state.location,
+        image: state.image
     });
+
+    const { id } = useParams();
+    const getIndustry = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:4000/editindustry/' + `${id}`);
+            return response;
+        }
+        catch (e) {
+            return "failure";
+        }
+    };
+
+    useEffect(() => {
+        getIndustry().then((resp) => {
+            if (resp !== "failure" && resp.status === 200) {
+                setState(resp.data);
+                console.log(resp.data);
+            }
+        }).catch((err) => {
+            throw (err);
+        })
+    }, []);
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -24,13 +49,13 @@ export default function IndustryProfileEdit() {
     };
 
     const handleSubmit = async (e) => {
-        console.log("entered handle");
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editIndustry', industryData);
-            alert(response.data.message);
-            setIndustryData(response.data.profile);
-            navigate('/', { state: response.data });
+            const response = await axios.put(`http://127.0.0.1:4000/editIndustry/` + `${id}`, industryData);
+            alert(response.status);
+            setIndustryData(response.data);
+            console.log("Updated " + response.data);
+            navigate(`/industry/` + `${id}`, { states: response.data });
 
         }
         catch (e) {
@@ -55,13 +80,13 @@ export default function IndustryProfileEdit() {
                     <div class='container shadow mb-5 bg-body rounded '>
                         <ul className='list body-align-left' id='left' >
                             <li><label for="company_name">Company Name:</label><br></br></li>
-                            <li><input className='input' type="text" id="company_name" name="name" value={industryData.name} onChange={handleChange} placeholder="Company Name" required /><br></br></li>
+                            <li><input className='input' type="text" id="company_name" name="name" defaultValue={state.name} onChange={handleChange} placeholder="Company Name" required /><br></br></li>
                             <li><label for="description">Company Description:</label><br></br></li>
-                            <li><input className='input' type="text" id="description" name="description" value={industryData.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
+                            <li><input className='input' type="text" id="description" name="description" defaultValue={state.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
                             <li><label for="location">Company Location:</label><br></br></li>
-                            <li><input className='input' type="text" id="location" name="location" value={industryData.location} onChange={handleChange} placeholder="Company Location" required /><br></br></li>
+                            <li><input className='input' type="text" id="location" name="location" defaultValue={state.location} onChange={handleChange} placeholder="Company Location" required /><br></br></li>
                             <li><label for="customFile">Upload Company Logo:</label><br></br></li>
-                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} value={industryData.image} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
+                            <li><input className='input' type="file" id="location" name="image" onChange={handleChange} accept="image/png, image/jpeg" id="customFile" /><br></br></li>
                         </ul>
                     </div>
 
