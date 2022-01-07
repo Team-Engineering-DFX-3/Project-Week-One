@@ -10,21 +10,14 @@ import UserProfile from './Component/UserProfile'
 import UserProfileEdit from './Component/UserProfileEdit'
 
 function App() {
-  const [industryData, setIndustryData] = useState({});
-  // const location = useLocation();
-  // const state = location.state || {
-  //   profile: {
-  //     name: "DigitalFutures", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consequuntur ?", location: "London"
-  //   }
-  // };
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/edit" element={<IndustryProfileEdit />} />
         <Route path="/" element={<IndustryProfile industryData={industryData} />} />
         <Route path="/editIndustry" element={<IndustryProfileEdit />} />
-        {/* <Route path={`/editIndustry/${state?.profile?.name}`} element={<IndustryProfileEdit />} /> */}
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
