@@ -15,6 +15,7 @@ router.route('/').post((req, res) => {
             res.send(err);
         }
         else {
+            // res.send({ message: `Updating industry profile`, industryprofile });
             res.send({ message: `Updating industry profile`, profile: req.body });
         }
     });

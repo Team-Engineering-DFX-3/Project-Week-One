@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { editIndustry } from '../routes/editIndustry.js';
 import { editVacancy } from '../routes/editVacancy.js';
+import { industries } from '../routes/industries.js';
+import { industry } from '../routes/industry.js';
 
 dotenv.config();
 const app = express();
@@ -15,6 +17,8 @@ const host = process.env.HOST;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(`/industry`, industry);
+app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/editVacancy`, editVacancy);
 
