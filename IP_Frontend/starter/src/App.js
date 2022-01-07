@@ -10,13 +10,11 @@ import UserProfile from './Component/UserProfile'
 import UserProfileEdit from './Component/UserProfileEdit'
 
 function App() {
-  const [industryData, setIndustryData] = useState({});
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<IndustryProfile industryData={industryData} />} />
         <Route path="/edit" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />
