@@ -8,6 +8,9 @@ import { editIndustry } from '../routes/editIndustry.js';
 import { editVacancy } from '../routes/editVacancy.js';
 import { industries } from '../routes/industries.js';
 import { industry } from '../routes/industry.js';
+import { editDegree } from '../routes/editDegree.js';
+import { editSchool } from '../routes/editSchool.js';
+import { editWork } from '../routes/editWork.js';
 
 dotenv.config();
 const app = express();
@@ -21,6 +24,9 @@ app.use(`/industry`, industry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/editVacancy`, editVacancy);
+app.use(`/editDegree`, editDegree);
+app.use(`/editSchool`, editSchool);
+app.use(`/editWork`, editWork);
 
 app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 

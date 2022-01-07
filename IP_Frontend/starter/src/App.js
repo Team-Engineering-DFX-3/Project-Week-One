@@ -11,16 +11,19 @@ import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
 
 function App() {
+ 
+  
+  
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/industries" element={<Industry />} />
-        <Route path="/industry/:id" element={<IndustryProfile industryData={industryData} />} />
+        <Route path="/industry/:id" element={<IndustryProfile />} />
         <Route path="/editIndustry" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
-        <Route path="/user" element={<UserProfile />} />
+        <Route path="/user" element={<UserProfile /> } />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
       </Routes>
     </div>

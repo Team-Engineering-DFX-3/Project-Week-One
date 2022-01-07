@@ -1,21 +1,55 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import '../Component/css/App.css';
+import axios from 'axios';
 import DegreeModal from './Modal/DegreeModal';
 import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
-const submitForms = () => {
-    document.getElementById("1").submit();
-    document.getElementById("2").submit();
-}
-
 
 export default function UserProfileEdit() {
+    
+    const [allDegreeData, setAllDegreeData] = useState([]);
+    const [allWorkData, setAllWorkData] = useState([]);
+    const [allSchoolData, setAllSchoolData] = useState([]);
+
+
+    useEffect(() => {
+        async function getDegrees() {
+            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            setAllDegreeData(response.data.degrees)
+            console.log(response.data.degrees);
+        }
+
+        getDegrees()
+    }, [])
+    useEffect(() => {
+        async function getWork() {
+            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            setAllWorkData(response.data.work)
+            console.log(response.data.work);
+        }
+
+        getWork()
+    }, [])
+
+    useEffect(() => {
+        async function getSchool() {
+            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            setAllSchoolData(response.data.schools)
+            console.log(response.data.schools);
+        }
+
+        getSchool()
+    }, [])
+
+
+   
     return (
         <>
             <body className='body'>
@@ -38,18 +72,106 @@ export default function UserProfileEdit() {
                         <ContainerHeader title={"Degree"} />
                     </div>
                     <DegreeModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Level</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Starting Date</th>
+                                <th scope="col">End Date</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {/* <tr>
+                            <th scope="row">1</th>
+                            <td>{state?.degree?.institution}</td>
+                            <td>{state?.degree?.subject}</td>
+                            <td>{state?.degree?.level}</td>
+                            <td>{state?.degree?.grade}</td>
+                            <td>{state?.degree?.dateFrom}</td>
+                            <td>{state?.degree?.dateTo}</td>
+                            <td>{state?.degree?.description}</td>
+                        </tr> */}
+                        
+                        <tr>
+                                <th scope="row">1</th>
+                                {allDegreeData[0] ? allDegreeData.map(degree =>
+                                    <><td>{degree.institution}</td><td>{degree.subject}</td> <td>{degree.level}</td> <td>{degree.grade}</td><td>{degree.dateFrom}</td><td>{degree.dateTo}</td> <td>{degree.description}</td></>) : <td> No Degree Found </td>}
+                                 
+                            </tr>
+                        </tbody> 
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"School Qualifications"} />
                     </div>
                     <SchoolModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">School</th>
+                                <th scope="col">Exam Type </th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Description </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* <tr>
+                                <th scope="row">1</th>
+                                <td>{state?.school?.school}</td>
+                                <td>{state?.school?.examType}</td>
+                                <td>{state?.school?.subject}</td>
+                                <td>{state?.school?.grade}</td>
+                                <td>{state?.school?.year}</td>
+                                <td>{state?.school?.description}</td>
+                            </tr> */}
+                            <tr>
+                                <th scope="row">1</th>
+                                {allSchoolData[0] ? allSchoolData.map(school =>
+                                    <><td>{school.school}</td><td>{school.examType}</td> <td>{school.subject}</td> <td>{school.grade}</td><td>{school.year}</td> <td>{school.description}</td></>) : <td> No School Found </td>}
+                                 
+                            </tr>
+                        </tbody>
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Work Experience"} />
                     </div>
                     <WorkModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Experience</th>
+                                <th scope="col">Institution</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Starting date</th>
+                                <th scope="col">End date</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                            <tr>
+                                <th scope="row">1</th>
+                                {allWorkData[0] ? allWorkData.map(work =>
+                                    <><td>{work.experience}</td><td>{work.institution}</td> <td>{work.position}</td> <td>{work.dateFrom}</td><td>{work.dateTo}</td> <td>{work.description}</td></>) : <td> No Work Found </td>}
+                                 
+                            </tr>
+                        </tbody>
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
@@ -101,7 +223,7 @@ export default function UserProfileEdit() {
                 <div className=' container shadow p-3 mb-5 bg-body rounded'>
                     <div className="row">
                         <div className="col-sm-5">
-                            <button type="submit" className="btn btn-primary btn-custom">Submit Profile Changes</button>
+                            <button type="submit" className="btn btn-primary btn-custom" >Submit Profile Changes</button>
                         </div>
                         <div className="col-sm-5">
                             <button type="button" className="btn btn-info btn-custom">Cancel Changes </button>
