@@ -73,8 +73,8 @@ export default function UserProfile() {
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
                                     <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
-                                    <li>School qualifications: {allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
-                                    <li>Work experience:</li>
+                                    <li>School qualifications: {allSchoolData[0] ? allSchoolData.map(school => <div>{school.school}<br></br>"{school.examType}"<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br/>
+                                    <li>Work experience:{allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br/>
                                     <li>Personal Achievements:</li>
                                     <li>Portfolio:</li>
                                 </ul>
