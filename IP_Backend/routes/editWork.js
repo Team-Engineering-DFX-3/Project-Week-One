@@ -1,29 +1,29 @@
 import express from 'express';
 const router = express.Router();
-import Degree from '../models/degreeSchema.js';
+import Work from '../models/workSchema.js';
 
 router.route('/').post((req, res) => {
-   // const {} = req.body;
+    // const {} = req.body;
     console.log(req.body);
-    const degree = new Degree(req.body);
-    degree.save(err => {
+    const work = new Work(req.body);
+    work.save(err => {
         if (err) {
             res.send(err);
         }
         else {
-            res.send({ message: `Updating degree profile`, degree: req.body });
+            res.send({ message: `Updating work experience`, work: req.body });
         }
     });
 });
 
 router.route('/').get((req, res) => {
-    Degree.find({}, (err, degrees) => {
+    Work.find({}, (err, work) => {
         if (err) {
             res.send(err);
             next();
         }
-        res.send({ degrees });
+        res.send({ work });
     })
 })
 
-export { router as editDegree };
+export { router as editWork };

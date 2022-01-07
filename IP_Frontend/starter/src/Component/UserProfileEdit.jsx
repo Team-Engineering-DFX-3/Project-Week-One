@@ -16,11 +16,24 @@ import ContainerHeader from './Header/ContainerHeader'
 
 
 
-export default function UserProfileEdit({setDegreeData}) {
+export default function UserProfileEdit() {
     const location = useLocation();
     const state = location.state || {
         degree: {
             institution: "DigitalFutures", subject: "Lorem ipsum", level: "London", grade: "grade", dateFrom: "21-32-5434", dateTo: "21-32-5434", description: "Lorem ipsum"
+        },
+
+        work: {
+            experience: `Experience`,
+            institution: `Digital Futures`,
+            position: `Software Engineer`,
+            dateFrom: `1-1-2022`,
+            dateTo: `21-12-2022`,
+            description: `Lorem ipsum`
+        },
+        
+        school: {
+            school: `name`, examType: `qualification `,subject: ` subject type `, grade: `A-E`,year: `0000-0000`,description: `Lorem ipsum`
         }
     };
 
@@ -80,7 +93,7 @@ export default function UserProfileEdit({setDegreeData}) {
                         <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td >{state?.degree?.institution}</td>
+                            <td>{state?.degree?.institution}</td>
                             <td>{state?.degree?.subject}</td>
                             <td>{state?.degree?.level}</td>
                             <td>{state?.degree?.grade}</td>
@@ -97,12 +110,62 @@ export default function UserProfileEdit({setDegreeData}) {
                         <ContainerHeader title={"School Qualifications"} />
                     </div>
                     <SchoolModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">school</th>
+                                <th scope="col"> Exam Type </th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">description </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{state?.school?.school}</td>
+                                <td>{state?.school?.examType}</td>
+                                <td>{state?.school?.subject}</td>
+                                <td>{state?.school?.grade}</td>
+                                <td>{state?.school?.year}</td>
+                                <td>{state?.school?.description}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Work Experience"} />
                     </div>
                     <WorkModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">experience</th>
+                                <th scope="col">institution</th>
+                                <th scope="col">subject</th>
+                                <th scope="col">Starting date</th>
+                                <th scope="col">End date</th>
+                                <th scope="col">description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{state?.work?.experience}</td>
+                                <td>{state?.work?.institution}</td>
+                                <td>{state?.work?.position}</td>
+                                <td>{state?.work?.dateFrom}</td>
+                                <td>{state?.work?.dateTo}</td>
+                                <td>{state?.work?.description}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
