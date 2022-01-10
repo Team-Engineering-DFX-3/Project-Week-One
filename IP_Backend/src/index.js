@@ -15,9 +15,10 @@ const port = process.env.PORT;
 const host = process.env.HOST;
 
 app.use(bodyParser.json());
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use(`/industry`, industry);
+app.use(`/industry`, editIndustry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/editVacancy`, editVacancy);
