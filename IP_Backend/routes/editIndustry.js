@@ -1,12 +1,15 @@
 import express from 'express';
 const router = express.Router();
+import multer from 'multer';
+const upload = multer({ dest: './public/data/uploads/' })
 import IndustryProfile from '../models/industryProfileSchema.js';
-// import mongo from 'mongodb';
 
-router.route('/:id').put(async function (req, res) {
-    // const id = mongo.ObjectId(req.params.id);
+router.route('/:id').put(upload.single('image'), async function (req, res) {
     const id = req.params.id;
-    const { name, description, location, image } = req.body;
+    const imagePath = req.file.path;
+    const image = imagePath.substring(7);
+
+    const { name, description, location } = JSON.parse(req.body.industry);
     let updatedIndustry = await IndustryProfile.findOneAndUpdate(
         { _id: id },
         { name: name, description: description, location: location, image: image }
@@ -14,48 +17,12 @@ router.route('/:id').put(async function (req, res) {
     res.status(200).send(updatedIndustry);
 });
 
-
-
-
-//     query: { _id: id },
-//     update: { name: name, description: description, location: location, image: image },
-//     new: true,
-//     fields: industryprofiles,
-//     upsert: true
-// }).exec((error, fields) => {
-//     error ? res.status(400) : res.status(200).send(fields);
-// });
-
-// IndustryProfile.findOne({ _id: id }).exec((error, industryprofiles) => {
-//     if (industryprofiles) {
-//         industryprofiles.save().then(response => {
-//             res.status(200).send(industryprofiles);
-//         });
-//     }
-//         else {
-//         const industryprofile = new IndustryProfile(req.body);
-//         industryprofile.save(err => {
-//             if (err) {
-//                 res.send(err);
-//             }
-//             else {
-//                 // res.send({ message: `Updating industry profile`, industryprofile });
-//                 res.status(200).send(industryprofiles);
-//             }
-//         });
-
-//     }
-// });
-// });
-
 router.route(`/:id`).get((req, res) => {
-    // const id = mongo.ObjectId(req.params.id);
     const id = req.params.id;
     IndustryProfile.findOne({ _id: id }).exec((error, industryprofiles) => {
         error ? res.status(400) : res.status(200).send(industryprofiles);
     });
 });
-
 
 export { router as editIndustry };
 
