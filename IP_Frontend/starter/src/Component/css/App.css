@@ -69,6 +69,11 @@
   text-align: right;
 }
 
+.body-align-center {
+  margin:10px;
+  text-align: center;
+}
+
 .card-body {
   padding-top: 0px;
   padding-left: 12px;
@@ -119,6 +124,15 @@
   color: white;
 }
 
+.img{
+  margin-top: 10px;
+  margin-bottom:10px;
+  margin-right:75px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
 .img-fluid {
   margin-bottom: 20px;
 }
@@ -127,6 +141,12 @@
 width: 400px;
 margin-top: 5px;
 margin-bottom: 5px;
+}
+
+.inputImage {
+margin-top: 10px;
+margin-bottom: 10px;
+width: 250px;
 }
 
 .list {
@@ -152,6 +172,7 @@ margin-bottom: 5px;
 .margin {
   margin-left: 10px;
 }
+
 .overflow {
   overflow-y: auto;
   max-height: 400px;
@@ -169,3 +190,9 @@ margin-bottom: 5px;
 .vacancy{
   height:20rem;
 }
+
+
+
+
+
+
