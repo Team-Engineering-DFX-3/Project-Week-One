@@ -121,10 +121,12 @@ export default function IndustryProfileEdit() {
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                             </div>
                             <div className="col-sm-5">
-                                <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
+                                <Link to="/">
+                                    <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
+                                </Link>
                             </div>
                             <div className="col-sm-2">
-                                <button type="reset" className="btn btn-danger btn-custom">Reset</button>
+                                <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
                             </div>
                         </div>
                     </div>

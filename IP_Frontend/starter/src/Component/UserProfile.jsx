@@ -1,9 +1,46 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import '../Component/css/App.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 
 export default function UserProfile() {
+    const [allDegreeData, setAllDegreeData] = useState([]);
+    const [allWorkData, setAllWorkData] = useState([]);
+    const [allSchoolData, setAllSchoolData] = useState([]);
+
+    useEffect(() => {
+        async function getDegrees() {
+            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            setAllDegreeData(response.data.degrees)
+            console.log(response.data.degrees);
+        }
+
+        getDegrees()
+    }, [])
+
+    
+
+    useEffect(() => {
+        async function getWork() {
+            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            setAllWorkData(response.data.work)
+            console.log(response.data.work);
+        }
+
+        getWork()
+    }, [])
+   
+    useEffect(() => {
+        async function getSchool() {
+            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            setAllSchoolData(response.data.schools)
+            console.log(response.data.schools);
+        }
+
+        getSchool()
+    }, [])
 
     return (
         <>
@@ -35,9 +72,9 @@ export default function UserProfile() {
                             <li>Personal story summary</li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li>Degree:</li>
-                                    <li>School qualifications:</li>
-                                    <li>Work experience:</li>
+                                    <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
+                                    <li>School qualifications: {allSchoolData[0] ? allSchoolData.map(school => <div>{school.school}<br></br>"{school.examType}"<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br/>
+                                    <li>Work experience:{allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br/>
                                     <li>Personal Achievements:</li>
                                     <li>Portfolio:</li>
                                 </ul>

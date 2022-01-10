@@ -26,6 +26,7 @@ const Industry_Profile = () => {
         getIndustry().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setIndustry(resp.data);
+                console.log(resp.data);
             }
         }).catch((err) => {
             throw (err);
