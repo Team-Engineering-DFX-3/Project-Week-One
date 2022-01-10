@@ -7,8 +7,8 @@ import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link, useLocation } from 'react-router-dom';
-import FormOne from './Forms/FormOne'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
 
@@ -17,10 +17,66 @@ export default function UserProfileEdit() {
     const [allDegreeData, setAllDegreeData] = useState([]);
     const [allWorkData, setAllWorkData] = useState([]);
     const [allSchoolData, setAllSchoolData] = useState([]);
+    const [allPortfolioData, setAllPortfolioData] = useState([]);
+    const [allAwardData, setAllAwardData] = useState([]);
 
     let degreeTableRow = 1;
     let schoolTableRow = 1;
     let workTableRow = 1;
+    let portfolioTableRow = 1;
+    let awardTableRow = 1;
+
+
+    //const [show, setShow] = useState(false);
+
+
+
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState({
+        name: ``,
+        pemail: ``,
+        dfemail: ``,
+        github: ``,
+        linkedin: ``,
+        phone: ``,
+        cohort: ``,
+        learning: ``,
+        trainer: ``,
+        grade: ``,
+        traineeFinishingDate: ``,
+    });
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value
+        });
+        console.dir("User data: " + userData);
+    };
+
+
+
+    const handleSubmit = async (e) => {
+        console.log("entered handle");
+        // setShow(false);
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://127.0.0.1:4000/editUser', userData);
+            alert(response.data.message);
+            console.log(response.data.user);
+            setUserData(response.data.user);
+            console.log('hi');
+            navigate('/User', { state: response.data });
+
+        }
+        catch (e) {
+            return "failure";
+        }
+    };
 
 
     useEffect(() => {
@@ -52,6 +108,26 @@ export default function UserProfileEdit() {
         getSchool()
     }, [])
 
+    useEffect(() => {
+        async function getPortfolio() {
+            let response = await axios.get('http://127.0.0.1:4000/editPortfolio');
+            setAllPortfolioData(response.data.portfolio)
+            console.log(response.data.portfolio);
+        }
+
+        getPortfolio()
+    }, [])
+
+    useEffect(() => {
+        async function getAward() {
+            let response = await axios.get('http://127.0.0.1:4000/editAward');
+            setAllAwardData(response.data.awards)
+            console.log(response.data.awards);
+        }
+
+        getAward()
+    }, [])
+
 
 
     return (
@@ -67,7 +143,29 @@ export default function UserProfileEdit() {
                                 Home
                             </button>
                         </Link>
-                        <FormOne />
+                        <form action="/" id="1" >
+                            <div class='sub-entry'>
+                                <ul class='list' id='left'>
+                                    <li><label for="name">Full Name:</label><br></br></li>
+                                    <li><input class='input' type="text" id="name" name="name" placeholder="John Doe" onChange={handleChange} /><br></br></li>
+                                    <li><label for="pemail">Personal Email:</label><br></br></li>
+                                    <li><input class='input' type="email" id="pemail" name="pemail" placeholder="JohnDoe@email.com" onChange={handleChange} /><br></br></li>
+                                    <li><label for="demail">Digital Futures Email:</label><br></br></li>
+                                    <li><input class='input' type="email" id="demail" name="dfemail" placeholder="JohnDoe@DFemail.com" onChange={handleChange} /><br></br></li>
+                                </ul>
+                            </div>
+                            <div class='sub-entry'>
+                                <ul class='list' id='right'>
+                                    <li><label for="github">Github:</label><br></br></li>
+                                    <li><input class='input' type="url" id="github" name="github" placeholder="https://github.com/JohnDoe" onChange={handleChange} /><br></br></li>
+                                    <li><label for="linkedin">LinkedIn:</label><br></br></li>
+                                    <li><input class='input' type="email" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/userID/" onChange={handleChange} /><br></br></li>
+                                    <li><label for="phone">Phone:</label><br></br></li>
+                                    <li><input class='input' type="tel" id="phone" name="phone" placeholder="0123456789" onChange={handleChange} /><br></br></li>
+                                    <br></br>
+                                </ul>
+                            </div>
+                        </form >
                     </div>
                 </div>
 
@@ -210,12 +308,76 @@ export default function UserProfileEdit() {
                         <ContainerHeader title={"Certificates and Awards"} />
                     </div>
                     <AwardModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Issuer</th>
+                                <th scope="col">Award</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Date Awarded </th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {allAwardData.map(award => {
+                                return (
+                                    <tr>
+                                        <th scope="row">{awardTableRow++}</th>
+                                        <td>{award.type}</td>
+                                        <td>{award.issuer}</td>
+                                        <td>{award.award}</td>
+                                        <td>{award.grade}</td>
+                                        <td>{award.dateAwarded}</td>
+                                        <td>{award.description}</td>
+                                    </tr>)
+                            }
+                            )
+
+
+
+                            }
+
+
+
+                        </tbody>
+
+                    </table>
                 </div>
                 <div className=' container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Portfolio"} />
                     </div>
                     <PortfolioModal />
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {allPortfolioData.map(portfolio => {
+                                return (
+                                    <tr>
+                                        <th scope="row">{portfolioTableRow++}</th>
+                                        <td>{portfolio.title}</td>
+                                        <td>{portfolio.url}</td>
+                                        <td>{portfolio.description}</td>
+                                    </tr>)
+                            }
+                            )
+
+                            }
+
+
+
+                        </tbody>
+
+                    </table>
                 </div>
 
                 <div className=' container shadow mb-5 bg-body rounded'>
@@ -227,11 +389,11 @@ export default function UserProfileEdit() {
                             <div className='sub-entry'>
                                 <ul className='list' id='left'>
                                     <li><label for="cohort">Cohort:</label><br></br></li>
-                                    <li><input className='input' type="text" id="name" name="name" placeholder="John Doe" /><br></br></li>
+                                    <li><input className='input' type="text" id="name" name="name" placeholder="John Doe" onChange={handleChange} /><br></br></li>
                                     <li><label for="learning">Learning:</label><br></br></li>
-                                    <li><input className='input' type="text" id="learning" name="learning" placeholder="Learning path" /><br></br></li>
+                                    <li><input className='input' type="text" id="learning" name="learning" placeholder="Learning path" onChange={handleChange} /><br></br></li>
                                     <li><label for="trainer">Trainer:</label><br></br></li>
-                                    <li><input className='input' type="text" id="trainer" name="trainer" placeholder="John Doe" /><br></br></li>
+                                    <li><input className='input' type="text" id="trainer" name="trainer" placeholder="John Doe" onChange={handleChange} /><br></br></li>
                                     <li><label for="trainer">Trainee finishing date:</label><br></br></li>
                                     <li><input className='input' type="date" id="trainee" name="trainee" /><br></br></li>
                                 </ul>
@@ -239,12 +401,11 @@ export default function UserProfileEdit() {
                             <div className='sub-entry'>
                                 <ul className='list' id='right'>
                                     <li><label for="github">Challenges:</label><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-a" name="challenge-a" placeholder="Challenge A" /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-b" name="challenge-b" placeholder="Challenge B" /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-c" name="challenge-c" placeholder="Challenge C" /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-d" name="challenge-d" placeholder="Challenge D" /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-e" name="challenge-e" placeholder="Challenge E" /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-f" name="challenge-f" placeholder="Challenge F" /><br></br></li>
+                                    <li><input className='input' type="text" id="challenge-a" name="challenge-a" placeholder="Challenge A" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challenge-b" name="challenge-b" placeholder="Challenge B" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challenge-c" name="challenge-c" placeholder="Challenge C" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challenge-d" name="challenge-d" placeholder="Challenge D" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challenge-f" name="challenge-f" placeholder="Challenge F" onChange={handleChange} /><br></br></li>
                                     <br></br>
                                 </ul>
                             </div>
@@ -255,7 +416,7 @@ export default function UserProfileEdit() {
                 <div className=' container shadow p-3 mb-5 bg-body rounded'>
                     <div className="row">
                         <div className="col-sm-5">
-                            <button type="submit" className="btn btn-primary btn-custom" >Submit Profile Changes</button>
+                            <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                         </div>
                         <div className="col-sm-5">
                             <button type="button" className="btn btn-info btn-custom">Cancel Changes </button>

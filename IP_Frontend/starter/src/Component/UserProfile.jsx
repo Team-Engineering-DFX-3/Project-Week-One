@@ -9,6 +9,9 @@ export default function UserProfile() {
     const [allDegreeData, setAllDegreeData] = useState([]);
     const [allWorkData, setAllWorkData] = useState([]);
     const [allSchoolData, setAllSchoolData] = useState([]);
+    const [allUserData, setAllUserData] = useState([]);
+    const [allPortfolioData, setAllPortfolioData] = useState([]);
+    const [allAwardData, setAllAwardData] = useState([]);
 
     useEffect(() => {
         async function getDegrees() {
@@ -20,7 +23,7 @@ export default function UserProfile() {
         getDegrees()
     }, [])
 
-    
+
 
     useEffect(() => {
         async function getWork() {
@@ -31,7 +34,7 @@ export default function UserProfile() {
 
         getWork()
     }, [])
-   
+
     useEffect(() => {
         async function getSchool() {
             let response = await axios.get('http://127.0.0.1:4000/editSchool');
@@ -40,6 +43,34 @@ export default function UserProfile() {
         }
 
         getSchool()
+    }, [])
+
+    useEffect(() => {
+        async function getPortfolio() {
+            let response = await axios.get('http://127.0.0.1:4000/editPortfolio');
+            setAllSchoolData(response.data.portfolio)
+            console.log(response.data.portfolio);
+        }
+
+        getPortfolio()
+    }, [])
+
+    useEffect(() => {
+        async function getAward() {
+            let response = await axios.get('http://127.0.0.1:4000/editAward');
+            setAllUserData(response.data.awards)
+            console.log(response.data.awards);
+        }
+        getAward()
+    }, [])
+
+    useEffect(() => {
+        async function getUser() {
+            let response = await axios.get('http://127.0.0.1:4000/editUser');
+            setAllUserData(response.data.users)
+            console.log(response.data.users);
+        }
+        getUser()
     }, [])
 
     return (
@@ -61,22 +92,22 @@ export default function UserProfile() {
                         </h1>
 
                         <ul className='list col-sm body-align-left' id='left'>
-                            <li>Name:</li>
-                            <li>Personal email:</li>
-                            <li>Digital Futures email:</li>
-                            <li>Github:</li>
-                            <li>LinkedIn:</li>
-                            <li>Phone:</li>
+                            <li>Name:{allUserData[0] ? allUserData.map(user => <div>{user.name}<br></br> </div>) : <div >No Name found!</div>} </li> <br />
+                            <li>Personal email:{allUserData[0] ? allUserData.map(user => <div>{user.pemail}<br></br> </div>) : <div >No personal email found!</div>} </li><br />
+                            <li>Digital Futures email:{allUserData[0] ? allUserData.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li> <br />
+                            <li>Github:{allUserData[0] ? allUserData.map(user => <div>{user.github}<br></br> </div>) : <div >No github found!</div>} </li> <br />
+                            <li>LinkedIn:{allUserData[0] ? allUserData.map(user => <div>{user.linkedin}<br></br> </div>) : <div >No LinkedIn found!</div>} </li> <br />
+                            <li>Phone:{allUserData[0] ? allUserData.map(user => <div>{user.phone}<br></br> </div>) : <div >No Number found!</div>} </li> <br />
                         </ul>
                         <ul className='list col-md body-align-left' id='right'>
                             <li>Personal story summary</li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br/>
-                                    <li>School qualifications: {allSchoolData[0] ? allSchoolData.map(school => <div>{school.school}<br></br>"{school.examType}"<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br/>
-                                    <li>Work experience:{allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br/>
-                                    <li>Personal Achievements:</li>
-                                    <li>Portfolio:</li>
+                                    <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br />
+                                    <li>School qualifications: {allSchoolData[0] ? allSchoolData.map(school => <div>{school.school}<br></br>"{school.examType}"<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br />
+                                    <li>Work experience:{allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br />
+                                    <li>Personal Achievements:{allAwardData[0] ? allAwardData.map(award => <div>{award.type}<br></br>{award.issuer}<br></br> {award.award}<br></br>{award.grade}<br></br>{award.dateAwarded}<br></br>{award.description}<br></br></div>) : <div >No Award found!</div>}</li><br />
+                                    <li>Portfolio:{allPortfolioData[0] ? allPortfolioData.map(portfolio => <div>{portfolio.title}<br></br>"{portfolio.url}"<br></br> {portfolio.description}<br></br></div>) : <div >No Portfolio found!</div>}</li>  <br />
                                 </ul>
                             </div>
                         </ul>
@@ -94,10 +125,10 @@ export default function UserProfile() {
                     </div>
                     <div className='row'>
                         <ul className='list col-sm body-align-left' id='left'>
-                            <li>Cohort:</li>
-                            <li>Learning:</li>
-                            <li>Trainer:</li>
-                            <li>Trainee finishing date:</li>
+                            <li>Cohort:{allUserData[0] ? allUserData.map(user => <div>{user.cohort}<br></br> </div>) : <div >No Cohort email found!</div>}</li>
+                            <li>Learning:{allUserData[0] ? allUserData.map(user => <div>{user.learning}<br></br> </div>) : <div >No found!</div>}</li>
+                            <li>Trainer:{allUserData[0] ? allUserData.map(user => <div>{user.tainer}<br></br> </div>) : <div >No Trainer found!</div>}</li>
+                            <li>Trainee finishing date:{allUserData[0] ? allUserData.map(user => <div>{user.grade}<br></br> </div>) : <div >No Grade found!</div>}</li>
                         </ul>
                         <ul className='list col-md' id='right'>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
