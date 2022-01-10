@@ -13,7 +13,7 @@ export default function VacanciesEdit() {
         title: ``,
         description: ``,
         location: ``,
-        
+
     });
 
     const handleChange = e => {
@@ -43,25 +43,25 @@ export default function VacanciesEdit() {
 
     return (
         <>
-            <body class='body'>
-                <div class='container shadow mb-5 bg-body rounded'>
-                    <div class='row'>
+            <body className='body'>
+                <div className='container shadow mb-5 bg-body rounded'>
+                    <div className='row'>
                         <ContainerHeader title="Edit profile" />
                         <Link to="/">
-                            <button id="editButton" type="button" class="btn btn-primary">
+                            <button id="editButton" type="button" className="btn btn-primary">
                                 Home
                             </button>
                         </Link>
                     </div>
                 </div>
                 <form >
-                    <div class='modal-div container shadow mb-5 bg-body rounded '>
+                    <div className='modal-div container shadow mb-5 bg-body rounded '>
                         <ul className='list body-align-left' id='left' >
-                            <li><label for="company_name">Job Title:</label><br></br></li>
+                            <li><label htmlFor="company_name">Job Title:</label><br></br></li>
                             <li><input className='input' type="text" id="company_name" name="title" value={vacanciesData.title} onChange={handleChange} placeholder="Vacancy Title" required /><br></br></li>
-                            <li><label for="description"> Job Description:</label><br></br></li>
+                            <li><label htmlFor="description"> Job Description:</label><br></br></li>
                             <li><input className='input' type="text" id="description" name="description" value={vacanciesData.description} onChange={handleChange} placeholder=" Vacancy Description" required /><br></br></li>
-                            <li><label for="location"> Job Location:</label><br></br></li>
+                            <li><label htmlFor="location"> Job Location:</label><br></br></li>
                             <li><input className='input' type="text" id="location" name="location" value={vacanciesData.location} onChange={handleChange} placeholder="Vacancy Location" required /><br></br></li>
                         </ul>
                     </div>
