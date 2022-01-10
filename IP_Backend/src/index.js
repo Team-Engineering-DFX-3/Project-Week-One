@@ -1,13 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
-// import morgan from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { editIndustry } from '../routes/editIndustry.js';
 import { editVacancy } from '../routes/editVacancy.js';
 import { industries } from '../routes/industries.js';
-import { industry } from '../routes/industry.js';
 import { editDegree } from '../routes/editDegree.js';
 import { editSchool } from '../routes/editSchool.js';
 import { editWork } from '../routes/editWork.js';
