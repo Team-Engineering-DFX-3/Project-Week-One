@@ -6,8 +6,12 @@ import Industry from './Component/Industry';
 import IndustryProfile from './Component/IndustryProfile';
 import IndustryProfileEdit from './Component/IndustryProfileEdit';
 import Vacancies from './Component/Vacancies';
-import UserProfile from './Component/UserProfile';
-import UserProfileEdit from './Component/UserProfileEdit';
+// import UserProfile from './Component/UserProfile';
+// import UserProfileEdit from './Component/UserProfileEdit';
+import Vacancy from './Component/Vacancy';
+import VacancyRegister from './Component/VacancyRegister';
+import UserProfile from './Component/UserProfile'
+import UserProfileEdit from './Component/UserProfileEdit'
 
 function App() {
   return (
@@ -18,6 +22,9 @@ function App() {
         <Route path="/industry/:id" element={<IndustryProfile />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/edit" element={<IndustryProfileEdit />} />
+        <Route path="/registerVacancy" element={<VacancyRegister />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
       </Routes>
