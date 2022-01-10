@@ -100,7 +100,7 @@ export default function UserProfileEdit() {
                         <tr>
                                 <th scope="row">1</th>
                                 {allDegreeData[0] ? allDegreeData.map(degree =>
-                                    <><td>{degree.institution}</td><td>{degree.subject}</td> <td>{degree.level}</td> <td>{degree.grade}</td><td>{degree.dateFrom}</td><td>{degree.dateTo}</td> <td>{degree.description}</td></>) : <td> No Degree Found </td>}
+                                    <><td>{degree.institution}</td><td>{degree.subject}</td> <td>{degree.level}</td> <td>{degree.grade}</td><td>{degree.dateFrom}</td><td>{degree.dateT}</td> <td>{degree.description}</td></>) : <td> No Degree Found </td>}
                                  
                             </tr>
                         </tbody> 
