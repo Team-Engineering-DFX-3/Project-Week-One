@@ -1,6 +1,5 @@
 import '../src/Component/css/App.css';
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 import Home from './Component/Home';
 import Header from './Component/Header/Header';
 import Industry from './Component/Industry';
@@ -15,7 +14,6 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
