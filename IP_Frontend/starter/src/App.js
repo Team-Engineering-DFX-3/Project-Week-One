@@ -5,7 +5,8 @@ import Home from './Component/Home';
 import Header from './Component/Header/Header';
 import IndustryProfile from './Component/IndustryProfile';
 import IndustryProfileEdit from './Component/IndustryProfileEdit';
-import Vacancies from './Component/Vacancies';
+import Vacancy from './Component/Vacancy';
+import VacancyRegister from './Component/VacancyRegister';
 import UserProfile from './Component/UserProfile'
 import UserProfileEdit from './Component/UserProfileEdit'
 
@@ -18,7 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<IndustryProfile industryData={industryData} />} />
         <Route path="/edit" element={<IndustryProfileEdit />} />
-        <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/registerVacancy" element={<VacancyRegister />} />
+
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
       </Routes>
