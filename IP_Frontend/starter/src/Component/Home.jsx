@@ -1,15 +1,14 @@
 import React from 'react'
-import { Navigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import IndustryProfile from './IndustryProfile';
 import Vacancies from './Vacancies';
 
-function Home({ industryData }) {
-    const location = useLocation();
+function Home() {
     return (
         <>
-            <body class='body'>
+            <body className='body'>
                 <div>
-                    <IndustryProfile industryData={industryData} />
+                    <IndustryProfile />
                     <Vacancies />
                 </div>
             </body>
