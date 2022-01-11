@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh -t -t ec2-user@ip-172-31-82-130<172.31.95.86> <<EOF 
+ssh -t -t ec2-user@ip-172-31-95-86 <<EOF 
 
   cd ~/IP-Backend
 
