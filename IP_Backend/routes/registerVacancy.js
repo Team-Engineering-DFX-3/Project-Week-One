@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import Vacancy from '../models/vacancySchema.js';
+import VacancyRegisterData from '../models/vacancyRegisterSchema.js';
 
 router.route('/').post((req, res) => {
     const { name,discipline,title, description, location} = req.body;
@@ -21,3 +21,4 @@ router.route('/').post((req, res) => {
 });
 
 export { router as registerVacancy};
+

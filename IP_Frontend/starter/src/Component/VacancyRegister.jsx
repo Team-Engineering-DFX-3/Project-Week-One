@@ -28,7 +28,7 @@ export default function VacanciesRegister() {
         console.log("entered handle");
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/VacancyRegister', vacanciesData);
+            const response = await axios.post('http://127.0.0.1:4000/registerVacancy', vacanciesData);
             alert(response.data.message);
             setVacanciesData(response.data.registration);
             navigate('/', { state: response.data });
@@ -39,7 +39,6 @@ export default function VacanciesRegister() {
         }
     };
 
-    
 		return (
 			<>
 				<body class='body'>
@@ -58,19 +57,19 @@ export default function VacanciesRegister() {
 							<ul className='list body-align-left' id='left' >
 
 								<li><label for="applicant_name">Applicant Name:</label><br></br></li>
-								<li><input className='input' type="text" id="applicant_name" name="name" value={vacanciesData.name} onChange={handleChange} placeholder="Applicant Name" required /><br></br></li>
+								<li><input className='input' type="text" id="applicant_name" name="name"  onChange={handleChange} placeholder="Applicant Name" required /><br></br></li>
 								
 								<li><label for="applicant_discipline"> Applicant Discipline:</label><br></br></li>
-								<li><input className='input' type="text" id="applicant_discipline" name="discipline" value={vacanciesData.discipline} onChange={handleChange} placeholder=" Applicant Discipline" required /><br></br></li>
+								<li><input className='input' type="text" id="applicant_discipline" name="discipline"  onChange={handleChange} placeholder=" Applicant Discipline" required /><br></br></li>
 
 								<li><label for="applicant_jobtitle"> Applicant JobTitle:</label><br></br></li>
-								<li><input className='input' type="text" id="applicant_jobtitle" name="jobtitle" value={vacanciesData.jobtitle} onChange={handleChange} placeholder="Applicant JobTitle" required /><br></br></li>
+								<li><input className='input' type="text" id="applicant_jobtitle" name="title"  onChange={handleChange} placeholder="Applicant JobTitle" required /><br></br></li>
 
 								<li><label for="applicant_jobdescription"> Applicant JobDescription</label><br></br></li>
-								<li><input className='input' type="text" id="applicant_jobdescription" name="jobdescription" value={vacanciesData.jobdescription} onChange={handleChange} placeholder="Applicant JobDescription" required /><br></br></li>
+								<li><input className='input' type="text" id="applicant_jobdescription" name="description"  onChange={handleChange} placeholder="Applicant JobDescription" required /><br></br></li>
 
 								<li><label for="applicant_location"> Applicant Location:</label><br></br></li>
-								<li><input className='input' type="text" id="applicant_location" name="location" value={vacanciesData.location} onChange={handleChange} placeholder="Applicant Location" required /><br></br></li>
+								<li><input className='input' type="text" id="applicant_location" name="location"  onChange={handleChange} placeholder="Applicant Location" required /><br></br></li>
 
 							</ul>
 						</div>

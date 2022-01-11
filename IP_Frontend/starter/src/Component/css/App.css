@@ -11,6 +11,7 @@
     color: rgb(255, 248, 248);
 }
 
+
 .App {
   text-align: center;
   /* background-color:rgb(255, 248, 248); */
@@ -46,7 +47,12 @@
 
 .body {
   padding: 48px;
+  background-image: url("../images/DF_background.jpg");
   background-color: rgb(233, 233, 233);
+}
+
+.border {
+  padding: 10px;
 }
 
 .btn {
@@ -104,6 +110,11 @@
   align-items: center;
   display: flex;
   height: 100px;
+}
+
+.disabledCursor { 
+  cursor: default;
+  display:none;
 }
 
 #dropdown-basic-button {
@@ -189,9 +200,3 @@ width: 250px;
 .vacancy{
   height:20rem;
 }
-
-
-
-
-
-

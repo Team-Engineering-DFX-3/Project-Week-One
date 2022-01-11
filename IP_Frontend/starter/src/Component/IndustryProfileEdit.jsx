@@ -34,7 +34,6 @@ export default function IndustryProfileEdit() {
         getIndustry().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setState(resp.data);
-
             }
         }).catch((err) => {
             throw (err);
@@ -52,7 +51,6 @@ export default function IndustryProfileEdit() {
             ...industryData,
             [name]: value
         });
-        console.dir("Industry data: " + industryData);
     };
 
     const handleSubmit = async (e) => {
@@ -68,9 +66,7 @@ export default function IndustryProfileEdit() {
                     'content-type': 'multipart/form-data'
                 }
             });
-            alert(response.status);
             setIndustryData(response.data);
-            console.log("Updated " + industryData.name);
             navigate(`/industry/` + `${id}`, { states: response.data });
 
         }
@@ -109,8 +105,8 @@ export default function IndustryProfileEdit() {
 
                             <div className=' col-sm body-align-right' id='right'>
                                 <ul className='list body-align-right' id='right' >
-                                    <li><img src={'http://127.0.0.1:4000/' + `${state.image}`} alt="Industry Logo" className="img" /></li>
-                                    <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} /></li>
+                                    <li><img src={state.image && `http://127.0.0.1:4000/` + `${state.image}`} alt="Industry Logo" className="img" /></li>
+                                    <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} required /></li>
                                 </ul>
                             </div>
                         </div>
@@ -121,7 +117,8 @@ export default function IndustryProfileEdit() {
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                             </div>
                             <div className="col-sm-5">
-                                <Link to="/">
+                                <Link to={`/editIndustry/` + `${id}`}>
+                                    {/* <Link to="/"> */}
                                     <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                 </Link>
                             </div>
