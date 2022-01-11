@@ -48,7 +48,7 @@ export default function UserProfile() {
     useEffect(() => {
         async function getPortfolio() {
             let response = await axios.get('http://127.0.0.1:4000/editPortfolio');
-            setAllSchoolData(response.data.portfolio)
+            setAllPortfolioData(response.data.portfolio)
             console.log(response.data.portfolio);
         }
 
@@ -58,7 +58,7 @@ export default function UserProfile() {
     useEffect(() => {
         async function getAward() {
             let response = await axios.get('http://127.0.0.1:4000/editAward');
-            setAllUserData(response.data.awards)
+            setAllAwardData(response.data.awards)
             console.log(response.data.awards);
         }
         getAward()
@@ -92,22 +92,22 @@ export default function UserProfile() {
                         </h1>
 
                         <ul className='list col-sm body-align-left' id='left'>
-                            <li>Name:{allUserData[0] ? allUserData.map(user => <div>{user.name}<br></br> </div>) : <div >No Name found!</div>} </li> <br />
-                            <li>Personal email:{allUserData[0] ? allUserData.map(user => <div>{user.pemail}<br></br> </div>) : <div >No personal email found!</div>} </li><br />
-                            <li>Digital Futures email:{allUserData[0] ? allUserData.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li> <br />
-                            <li>Github:{allUserData[0] ? allUserData.map(user => <div>{user.github}<br></br> </div>) : <div >No github found!</div>} </li> <br />
-                            <li>LinkedIn:{allUserData[0] ? allUserData.map(user => <div>{user.linkedin}<br></br> </div>) : <div >No LinkedIn found!</div>} </li> <br />
-                            <li>Phone:{allUserData[0] ? allUserData.map(user => <div>{user.phone}<br></br> </div>) : <div >No Number found!</div>} </li> <br />
+                            <li><strong>Name:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.name}<br></br> </div>) : <div >No Name found!</div>} </li> <br />
+                            <li><strong>Personal email:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.pemail}<br></br> </div>) : <div >No personal email found!</div>} </li><br />
+                            <li><strong>Digital Futures email:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li> <br />
+                            <li><strong>Github:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.github}<br></br> </div>) : <div >No github found!</div>} </li> <br />
+                            <li><strong>LinkedIn:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.linkedin}<br></br> </div>) : <div >No LinkedIn found!</div>} </li> <br />
+                            <li><strong>Phone:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.phone}<br></br> </div>) : <div >No Number found!</div>} </li> <br />
                         </ul>
                         <ul className='list col-md body-align-left' id='right'>
-                            <li>Personal story summary</li>
+                            <li><strong>Personal Story Summary</strong></li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li>Degree:{allDegreeData[0] ? allDegreeData.map(degree => <div>{degree.institution}<br></br>"{degree.subject}"<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br />
-                                    <li>School qualifications: {allSchoolData[0] ? allSchoolData.map(school => <div>{school.school}<br></br>"{school.examType}"<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br />
-                                    <li>Work experience:{allWorkData[0] ? allWorkData.map(work => <div>{work.experience}<br></br>"{work.institution}"<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br />
-                                    <li>Personal Achievements:{allAwardData[0] ? allAwardData.map(award => <div>{award.type}<br></br>{award.issuer}<br></br> {award.award}<br></br>{award.grade}<br></br>{award.dateAwarded}<br></br>{award.description}<br></br></div>) : <div >No Award found!</div>}</li><br />
-                                    <li>Portfolio:{allPortfolioData[0] ? allPortfolioData.map(portfolio => <div>{portfolio.title}<br></br>"{portfolio.url}"<br></br> {portfolio.description}<br></br></div>) : <div >No Portfolio found!</div>}</li>  <br />
+                                    <li><strong>Degree:</strong>{allDegreeData[0] ? allDegreeData.map(degree => <div className="p-3 mb-2 bg-light text-dark">{degree.institution}<br></br>{degree.subject}<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br />
+                                    <li><strong>School qualifications: </strong> {allSchoolData[0] ? allSchoolData.map(school => <div className="p-3 mb-2 bg-light text-dark">{school.school}<br></br>{school.examType}<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br />
+                                    <li><strong>Work experience:</strong>{allWorkData[0] ? allWorkData.map(work => <div className="p-3 mb-2 bg-light text-dark">{work.experience}<br></br>{work.institution}<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br />
+                                    <li><strong>Personal Achievements:</strong>{allAwardData[0] ? allAwardData.map(award => <div className="p-3 mb-2 bg-light text-dark">{award.type}<br></br>{award.issuer}<br></br> {award.award}<br></br>{award.grade}<br></br>{award.dateAwarded}<br></br>{award.description}<br></br></div>) : <div >No Award found!</div>}</li><br />
+                                    <li><strong>Portfolio:</strong>{allPortfolioData[0] ? allPortfolioData.map(portfolio => <div className="p-3 mb-2 bg-light text-dark">{portfolio.title}<br></br>{portfolio.url}<br></br> {portfolio.description}<br></br></div>) : <div >No Portfolio found!</div>}</li>  <br />
                                 </ul>
                             </div>
                         </ul>
@@ -125,20 +125,19 @@ export default function UserProfile() {
                     </div>
                     <div className='row'>
                         <ul className='list col-sm body-align-left' id='left'>
-                            <li>Cohort:{allUserData[0] ? allUserData.map(user => <div>{user.cohort}<br></br> </div>) : <div >No Cohort email found!</div>}</li>
-                            <li>Learning:{allUserData[0] ? allUserData.map(user => <div>{user.learning}<br></br> </div>) : <div >No found!</div>}</li>
-                            <li>Trainer:{allUserData[0] ? allUserData.map(user => <div>{user.tainer}<br></br> </div>) : <div >No Trainer found!</div>}</li>
-                            <li>Trainee finishing date:{allUserData[0] ? allUserData.map(user => <div>{user.grade}<br></br> </div>) : <div >No Grade found!</div>}</li>
+                            <li><strong>Cohort:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.cohort}<br></br> </div>) : <div >No Cohort email found!</div>}</li><br />
+                            <li><strong>Trainer:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.trainer}<br></br> </div>) : <div >No Trainer found!</div>}</li><br />
+                            <li><strong>Trainee finishing date:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.traineeFinishingDate}<br></br> </div>) : <div >No Grade found!</div>}</li><br />
                         </ul>
                         <ul className='list col-md' id='right'>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm body-align-left'>
-                                    <li>Challenge 1:</li>
-                                    <li>Challenge 2:</li>
-                                    <li>Challenge 3:</li>
-                                    <li>Challenge 4:</li>
-                                    <li>Challenge 5:</li>
-                                    <li>Challenge 6:</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 1:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeOne}<br></br> </div>) : <div >No Challenge found!</div>}</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 2:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeTwo}<br></br> </div>) : <div >No Challenge found!</div>}</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 3:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeThree}<br></br> </div>) : <div >No Challenge found!</div>}</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 4:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeFour}<br></br> </div>) : <div >No Challenge found!</div>}</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 5:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeFive}<br></br> </div>) : <div >No Challenge found!</div>}</li>
+                                    <li className="p-3 mb-2 bg-light text-dark"><strong>Challenge 6:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.challengeSix}<br></br> </div>) : <div >No Challenge found!</div>}</li>
                                 </ul>
                             </div>
                         </ul>
@@ -169,7 +168,7 @@ export default function UserProfile() {
                         </div>
 
                         <ul className="list col-md body-align-left">
-                            <li className="margin">Scores:</li>
+                            <li className="margin"><strong>Scores:</strong></li>
                             <div className='container containerHeight shadow p-3 mb-5 bg-body rounded overflow'>
                                 <ul className='list col-md'>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non neque unde temporibus possimus, velit, fuga voluptate quidem harum cumque fugit voluptatem nemo adipisci nulla eos doloremque assumenda numquam consequuntur. Nihil vero a, quod delectus nesciunt fugiat illo asperiores unde earum dolorum tenetur minima veniam quidem rerum qui necessitatibus doloremque ex accusantium culpa ipsa minus rem ipsam autem obcaecati. Delectus recusandae nulla facilis. Enim dolore mollitia ipsam possimus. Consequatur doloremque reprehenderit iusto illo ad libero voluptas? Neque saepe, magni deserunt sit odio architecto ex maiores ratione optio fugit doloribus dolor, corporis aspernatur error similique accusamus distinctio, iusto quos impedit. Voluptatibus itaque aliquam velit, quo est numquam minus officiis magnam cupiditate dignissimos voluptas explicabo ipsum aliquid sint. Harum odit libero, exercitationem ipsam asperiores id. Doloribus, placeat. Placeat itaque deserunt totam quos, impedit veniam repudiandae optio vel quidem maxime esse nisi maiores odio quia iusto, assumenda reiciendis dolore enim ad cupiditate saepe aperiam est. Non eius voluptas officiis dignissimos nesciunt animi unde quam accusantium nobis consectetur, recusandae quaerat ad totam, neque ipsum porro dolores libero. Est veritatis sequi modi. Dolorem, aut illo dolore accusantium quae, commodi aperiam laudantium reprehenderit modi enim distinctio! Illo, voluptate. Earum excepturi maxime hic, atque temporibus possimus, placeat impedit quas nulla tempora, quia facere? Molestias incidunt, quis iure ut sed fugiat saepe adipisci deserunt totam ipsum dolorem, alias officiis excepturi. Esse, nulla? In quidem dolore eum adipisci, minima vitae illum similique, praesentium ipsum provident nisi ipsa at nesciunt numquam odio dicta, expedita sequi maxime ut? Corrupti, odit laudantium porro amet officia ab vitae inventore facere tenetur fugiat quia error perspiciatis nisi pariatur esse nesciunt enim non accusantium dignissimos velit tempore eligendi! Nam maxime harum eum vitae debitis a eaque vero! Dolores natus, cumque quae nesciunt nobis eligendi itaque asperiores porro mollitia modi autem, possimus provident, doloremque vel recusandae consequuntur corporis! Doloremque beatae consequuntur molestiae? Aspernatur esse ipsa totam est rem doloribus id nostrum autem velit minus atque ea ad veritatis quod quisquam enim, iusto nesciunt et vitae quidem ducimus eos excepturi? Quas quaerat ad, dolor deserunt saepe doloremque, nihil qui sed laborum voluptas ratione enim culpa! Commodi reiciendis temporibus ducimus praesentium perferendis nostrum fuga deserunt laboriosam dolor eveniet. Perspiciatis error libero nisi tempora ducimus ad accusantium ullam, qui minus, ut eveniet et voluptatum sunt? Nesciunt enim molestiae, excepturi perspiciatis, optio corporis expedita similique deserunt deleniti, rerum nostrum laboriosam reiciendis. Delectus dolorum quis repellendus minima. Saepe repellendus minima tenetur aspernatur beatae doloremque repudiandae corrupti adipisci quod expedita delectus, sequi, quam perspiciatis asperiores, facilis possimus officia ut sapiente laboriosam reprehenderit non dignissimos. Odio quae aut quia ipsam cumque nobis odit sequi molestiae. Vero, quam optio quaerat odit placeat aut quibusdam, est non sunt voluptate rem consequuntur ex distinctio deleniti quos molestias voluptates laboriosam temporibus corrupti hic incidunt soluta saepe. Vel beatae ut, recusandae repellat unde incidunt nisi dolore dolores! Suscipit, neque aspernatur praesentium error nemo veritatis sapiente, nisi aut sunt distinctio facere? Porro dolor illo expedita beatae. Sed quod nemo excepturi facilis dolore ab. Aperiam pariatur sint, mollitia reprehenderit dolores veniam amet facere ad magnam optio eos eaque maiores quos. Sapiente placeat ipsum velit dicta iste! Qui a similique illo </p>

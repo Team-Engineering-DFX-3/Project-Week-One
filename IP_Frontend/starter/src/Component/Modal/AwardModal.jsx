@@ -73,13 +73,14 @@ export default function AwardModal() {
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td>
+                                    {/* <td>
                                         <Dropdown >
                                             <DropdownButton id="dropdown-basic-button" title="Please choose one" name="Type" onChange={handleChange}>
                                                 <Dropdown.Item href="#/action-1">Certificate</Dropdown.Item>
                                                 <Dropdown.Item href="#/action-2">Award</Dropdown.Item>
                                             </DropdownButton>
-                                        </Dropdown></td>
+                                        </Dropdown></td> */}
+                                    <td><Form.Control type="text" placeholder="Award or Certificate" name="Type" onChange={handleChange} /></td>
                                     <td><Form.Control type="text" placeholder="Issuer" name="issuer" onChange={handleChange} /></td>
                                     <td><Form.Control type="text" placeholder="Award" name="award" onChange={handleChange} /></td>
                                     <td><Form.Control type="text" placeholder="Grade" name="grade" onChange={handleChange} /></td>

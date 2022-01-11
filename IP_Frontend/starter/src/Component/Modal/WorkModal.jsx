@@ -74,19 +74,20 @@ export default function WorkModal() {
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td>
+                                    {/* <td>
                                         <Dropdown >
                                             <DropdownButton id="dropdown-basic-button" title="Experience" name="experience" onChange={handleChange}>
                                                 <Dropdown.Item href="#/action-1">Experience</Dropdown.Item>
                                                 <Dropdown.Item href="#/action-2">Position Held</Dropdown.Item>
                                                 <Dropdown.Item href="#/action-3">Work Abroad</Dropdown.Item>
                                             </DropdownButton>
-                                        </Dropdown></td>
-                                    <td><Form.Control type="text" placeholder="Institution name" name="institution" onChange={handleChange}/></td>
-                                    <td><Form.Control type="text" placeholder="Position" name="position" onChange={handleChange}/></td>
+                                        </Dropdown></td> */}
+                                    <td><Form.Control type="text" placeholder="Experience" name="experience" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Institution name" name="institution" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Job title" name="position" onChange={handleChange} /></td>
                                     <td><Form.Control type="date" placeholder="Starting date" name="dateFrom" onChange={handleChange} /></td>
-                                    <td><Form.Control type="date" placeholder="End date" name="dateTo" onChange={handleChange}/></td>
-                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange}/></td>
+                                    <td><Form.Control type="date" placeholder="End date" name="dateTo" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange} /></td>
 
                                 </tr>
                             </tbody>

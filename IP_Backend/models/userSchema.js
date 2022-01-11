@@ -11,8 +11,13 @@ const userSchema = new mongoose.Schema({
     learning: String,
     trainer: String,
     grade: String,
-    traineeFinishingDate: String
-
+    traineeFinishingDate: String,
+    challengeOne: String,
+    challengeTwo: String,
+    challengeThree: String,
+    challengeFour: String,
+    challengeFive: String,
+    challengeSix: String
 });
 
 const User = new mongoose.model("User", userSchema);

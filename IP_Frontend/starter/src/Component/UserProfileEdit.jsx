@@ -47,6 +47,12 @@ export default function UserProfileEdit() {
         trainer: ``,
         grade: ``,
         traineeFinishingDate: ``,
+        challengeOne: ``,
+        challengeTwo: ``,
+        challengeThree: ``,
+        challengeFour: ``,
+        challengeFive: ``,
+        challengeSix: ``,
     });
 
     const handleChange = e => {
@@ -389,23 +395,24 @@ export default function UserProfileEdit() {
                             <div className='sub-entry'>
                                 <ul className='list' id='left'>
                                     <li><label for="cohort">Cohort:</label><br></br></li>
-                                    <li><input className='input' type="text" id="name" name="name" placeholder="John Doe" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="cohort" name="cohort" placeholder="3" onChange={handleChange} /><br></br></li>
                                     <li><label for="learning">Learning:</label><br></br></li>
                                     <li><input className='input' type="text" id="learning" name="learning" placeholder="Learning path" onChange={handleChange} /><br></br></li>
                                     <li><label for="trainer">Trainer:</label><br></br></li>
                                     <li><input className='input' type="text" id="trainer" name="trainer" placeholder="John Doe" onChange={handleChange} /><br></br></li>
                                     <li><label for="trainer">Trainee finishing date:</label><br></br></li>
-                                    <li><input className='input' type="date" id="trainee" name="trainee" /><br></br></li>
+                                    <li><input className='input' type="date" id="traineeFinishingDate" name="traineeFinishingDate" onChange={handleChange} /><br></br></li>
                                 </ul>
                             </div>
                             <div className='sub-entry'>
                                 <ul className='list' id='right'>
                                     <li><label for="github">Challenges:</label><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-a" name="challenge-a" placeholder="Challenge A" onChange={handleChange} /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-b" name="challenge-b" placeholder="Challenge B" onChange={handleChange} /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-c" name="challenge-c" placeholder="Challenge C" onChange={handleChange} /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-d" name="challenge-d" placeholder="Challenge D" onChange={handleChange} /><br></br></li>
-                                    <li><input className='input' type="text" id="challenge-f" name="challenge-f" placeholder="Challenge F" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeOne" name="challengeOne" placeholder="Challenge A" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeTwo" name="challengeTwo" placeholder="Challenge B" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeThree" name="challengeThree" placeholder="Challenge C" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeFour" name="challengeFour" placeholder="Challenge D" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeFive" name="challengeFive" placeholder="Challenge E" onChange={handleChange} /><br></br></li>
+                                    <li><input className='input' type="text" id="challengeSix" name="challengeSix" placeholder="Challenge F" onChange={handleChange} /><br></br></li>
                                     <br></br>
                                 </ul>
                             </div>

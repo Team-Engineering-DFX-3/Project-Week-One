@@ -88,17 +88,9 @@ export default function DegreeModal() {
                                 <tr>
                                     {/* <td><Form.Control required type="text" placeholder="Institution name" onChange={this.handleChange} /></td> */}
                                     <td><Form.Control required type="text" placeholder="Institution name" name="institution" onChange={handleChange} /></td>
-                                    <td><Form.Control type="text" placeholder="Subject name" name="subject" onChange={handleChange} /></td>
-                                    <td>
-                                        <Dropdown >
-                                            <DropdownButton id="dropdown-basic-button" title="Degree level" name="level" onChange={handleChange}>
-                                                <Dropdown.Item href="#/action-1">Bachelors</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Masters</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Phd</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Certificate of higher education</Dropdown.Item>
-                                            </DropdownButton>
-                                        </Dropdown></td>
-                                    <td><Form.Control type="text" placeholder="Grade" name="grade" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="English" name="subject" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Bachelors" name="level" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="2:1" name="grade" onChange={handleChange} /></td>
                                     <td><Form.Control type="date" placeholder="Starting date" name="dateFrom" onChange={handleChange} /></td>
                                     <td><Form.Control type="date" placeholder="End date" name="dateTo" onChange={handleChange} /></td>
                                     <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange} /></td>
