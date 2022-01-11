@@ -53,68 +53,70 @@ const AddIndustry = () => {
 
     return (
         <>
-            <div>
-                {(industryData?._id) ?
-                    <>
-                        <Link to={`/industry/` + `${industryData._id}`}>
+            <div className="body nospacing">
+                <div>
+                    {(industryData?._id) ?
+                        <>
+                            <Link to={`/industry/` + `${industryData._id}`}>
+                                <button id="editButton" type="button" className="btn btn-primary">View Company Profile </button>
+                            </Link>
+                            <Link to={`/addVacancy/`}>
+                                <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
+                            </Link>
+                        </>
+                        :
+                        <Link to={``} className="disabledCursor" onClick={(event) => event.preventDefault()} >
                             <button id="editButton" type="button" className="btn btn-primary">View Company Profile </button>
                         </Link>
-                        <Link to={`/addVacancy/`}>
-                            <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
-                        </Link>
-                    </>
-                    :
-                    <Link to={``} className="disabledCursor" onClick={(event) => event.preventDefault()} >
-                        <button id="editButton" type="button" className="btn btn-primary">View Company Profile </button>
+                    }
+                    <Link to={`/industries`}>
+                        <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
-                }
-                <Link to={`/industries`}>
-                    <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
-                </Link>
-            </div>
-
-            <div className="container shadow mb-5 bg-body rounded">
-                <div className='row'>
-                    <ContainerHeader title="Add New Company" />
                 </div>
 
-                <form>
-                    <div className="container shadow mb-5 bg-body rounded" >
-                        <div className="row">
-                            <div className=" col-sm body-align-left" id='left'>
-                                <ul className="list">
-                                    <li><label htmlFor="company_name">Company Name</label></li>
-                                    <li><input className='input' type="text" id="company_name" name="name" onChange={handleChange} placeholder="Company Name" required /></li>
-                                    <li><label htmlFor="company_description">Company Description</label></li>
-                                    <li><input className='input' type="text" id="company_description" name="description" onChange={handleChange} placeholder="Company Description" required /></li>
-                                    <li><label htmlFor="company_location">Company Location</label></li>
-                                    <li><input className='input' type="text" id="company_location" name="location" onChange={handleChange} placeholder="Company Location" required /></li>
-                                </ul>
-                            </div>
-                            <div className='list col-md body-align-right' id='right'>
-                                <ul className='list body-align-right' id='right' >
-                                    <li><img src={image_holder} alt="Company Logo" className="img" /></li>
-                                    <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" required /></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div >
-                    <div className=' container shadow p-3 mb-5 bg-body rounded'>
-                        <div className="row">
-                            <div className="col-sm-5">
-                                <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Add Company</button>
-                            </div>
-                            <div className="col-sm-5">
-                                <Link to="/">
-                                    <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
-                                </Link>
-                            </div>
-                            <div className="col-sm-2">
-                                <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
-                            </div>
-                        </div>
+                <div className="container shadow mb-5 bg-body rounded">
+                    <div className='row'>
+                        <ContainerHeader title="Add New Company" />
                     </div>
-                </form >
+
+                    <form>
+                        <div className="container shadow mb-5 bg-body rounded" >
+                            <div className="row">
+                                <div className=" col-sm body-align-left" id='left'>
+                                    <ul className="list">
+                                        <li><label htmlFor="company_name">Company Name</label></li>
+                                        <li><input className='input' type="text" id="company_name" name="name" onChange={handleChange} placeholder="Company Name" required /></li>
+                                        <li><label htmlFor="company_description">Company Description</label></li>
+                                        <li><input className='input' type="text" id="company_description" name="description" onChange={handleChange} placeholder="Company Description" required /></li>
+                                        <li><label htmlFor="company_location">Company Location</label></li>
+                                        <li><input className='input' type="text" id="company_location" name="location" onChange={handleChange} placeholder="Company Location" required /></li>
+                                    </ul>
+                                </div>
+                                <div className='list col-md body-align-right' id='right'>
+                                    <ul className='list body-align-right' id='right' >
+                                        <li><img src={image_holder} alt="Company Logo" className="img" /></li>
+                                        <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" required /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div >
+                        <div className=' container shadow p-3 mb-5 bg-body rounded'>
+                            <div className="row">
+                                <div className="col-sm-5">
+                                    <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Add Company</button>
+                                </div>
+                                <div className="col-sm-5">
+                                    <Link to="/">
+                                        <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
+                                    </Link>
+                                </div>
+                                <div className="col-sm-2">
+                                    <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form >
+                </div>
             </div>
         </>
     )
