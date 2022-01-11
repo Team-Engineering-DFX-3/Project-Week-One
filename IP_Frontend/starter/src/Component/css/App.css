@@ -46,7 +46,12 @@
 
 .body {
   padding: 48px;
+  background-image: url("../images/DF_background.jpg");
   background-color: rgb(233, 233, 233);
+}
+
+.border {
+  padding: 10px;
 }
 
 .btn {

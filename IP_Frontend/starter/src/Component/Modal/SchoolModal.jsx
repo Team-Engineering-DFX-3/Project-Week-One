@@ -38,8 +38,8 @@ export default function SchoolModal() {
             const response = await axios.post('http://127.0.0.1:4000/editSchool', schoolData);
             console.log('hi');
             alert(response.data.message);
-            console.log(response.data.degree);
-            setSchoolData(response.data.degree);
+            console.log(response.data.school);
+            setSchoolData(response.data.school);
             navigate('/UserEdit', { state: response.data });
 
         }
@@ -75,8 +75,8 @@ export default function SchoolModal() {
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td><Form.Control type="text" placeholder="Institution name" name="school" onChange={handleChange}/></td>
-                                    <td>
+                                    <td><Form.Control type="text" placeholder="Institution name" name="school" onChange={handleChange} /></td>
+                                    {/* <td>
                                         <Dropdown >
                                             <DropdownButton id="dropdown-basic-button" title="Qualification level" name="exam" onChange={handleChange}>
                                                 <Dropdown.Item href="#/action-1">A-Level</Dropdown.Item>
@@ -88,12 +88,13 @@ export default function SchoolModal() {
                                                 <Dropdown.Item href="#/action-3">Esama de Stato</Dropdown.Item>
                                                 <Dropdown.Item href="#/action-3">HKDSE</Dropdown.Item>
                                             </DropdownButton>
-                                        </Dropdown></td>
-                                    <td><Form.Control type="text" placeholder="Subject" name="subject" onChange={handleChange}/></td>
+                                        </Dropdown></td> */}
+                                    <td><Form.Control type="text" placeholder="eg. A-level " name="exam" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Subject" name="subject" onChange={handleChange} /></td>
 
-                                    <td><Form.Control type="text" placeholder="Grade" onChange={handleChange}/></td>
-                                    <td><Form.Control type="text" placeholder="Year" name="year"onChange={handleChange}/></td>
-                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange}/></td>
+                                    <td><Form.Control type="text" placeholder="Grade" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Year" name="year" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange} /></td>
 
                                 </tr>
                             </tbody>
