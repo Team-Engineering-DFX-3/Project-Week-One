@@ -7,16 +7,18 @@ import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
 
 export default function UserProfileEdit() {
-    
+
     const [allDegreeData, setAllDegreeData] = useState([]);
     const [allWorkData, setAllWorkData] = useState([]);
     const [allSchoolData, setAllSchoolData] = useState([]);
+
+
 
 
     useEffect(() => {
@@ -49,7 +51,7 @@ export default function UserProfileEdit() {
     }, [])
 
 
-   
+
     return (
         <>
             <body className='body'>
@@ -86,24 +88,13 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                        {/* <tr>
-                            <th scope="row">1</th>
-                            <td>{state?.degree?.institution}</td>
-                            <td>{state?.degree?.subject}</td>
-                            <td>{state?.degree?.level}</td>
-                            <td>{state?.degree?.grade}</td>
-                            <td>{state?.degree?.dateFrom}</td>
-                            <td>{state?.degree?.dateTo}</td>
-                            <td>{state?.degree?.description}</td>
-                        </tr> */}
-                        
-                        <tr>
+                            <tr>
                                 <th scope="row">1</th>
                                 {allDegreeData[0] ? allDegreeData.map(degree =>
                                     <><td>{degree.institution}</td><td>{degree.subject}</td> <td>{degree.level}</td> <td>{degree.grade}</td><td>{degree.dateFrom}</td><td>{degree.dateT}</td> <td>{degree.description}</td></>) : <td> No Degree Found </td>}
-                                 
+
                             </tr>
-                        </tbody> 
+                        </tbody>
 
                     </table>
                 </div>
@@ -125,20 +116,11 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* <tr>
-                                <th scope="row">1</th>
-                                <td>{state?.school?.school}</td>
-                                <td>{state?.school?.examType}</td>
-                                <td>{state?.school?.subject}</td>
-                                <td>{state?.school?.grade}</td>
-                                <td>{state?.school?.year}</td>
-                                <td>{state?.school?.description}</td>
-                            </tr> */}
                             <tr>
                                 <th scope="row">1</th>
                                 {allSchoolData[0] ? allSchoolData.map(school =>
                                     <><td>{school.school}</td><td>{school.examType}</td> <td>{school.subject}</td> <td>{school.grade}</td><td>{school.year}</td> <td>{school.description}</td></>) : <td> No School Found </td>}
-                                 
+
                             </tr>
                         </tbody>
 
@@ -162,12 +144,12 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                           
+
                             <tr>
                                 <th scope="row">1</th>
                                 {allWorkData[0] ? allWorkData.map(work =>
                                     <><td>{work.experience}</td><td>{work.institution}</td> <td>{work.position}</td> <td>{work.dateFrom}</td><td>{work.dateTo}</td> <td>{work.description}</td></>) : <td> No Work Found </td>}
-                                 
+
                             </tr>
                         </tbody>
 
@@ -233,12 +215,6 @@ export default function UserProfileEdit() {
                         </div>
                     </div>
                 </div>
-
-                {/* <div className=' container shadow p-3 mb-5 bg-body rounded'>
-                    <input type="button" value="Submit profile changes" className="btn btn-primary btn-custom" /> */}
-                {/* <input type="button" value="Click Me!" onclick={submitForms()} /> */}
-                {/* </div> */}
-
             </body>
         </>
     )
