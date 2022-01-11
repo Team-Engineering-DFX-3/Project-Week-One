@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
 
 const vacancySchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    location: String,
+    designation: String,
+    company_name: String,
+    job_location: String,
+    mode: String,
+    qualification: String
 });
 
-const Vacancy = new mongoose.model("Vacancy", vacancySchema);
+const VacancyData = new mongoose.model("VacancyDetails", vacancySchema);
 
-export default Vacancy;
+export default VacancyData;
