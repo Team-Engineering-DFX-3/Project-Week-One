@@ -26,6 +26,7 @@ const Industry_Profile = () => {
         getIndustry().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setIndustry(resp.data);
+                // setDisplay(true);
             }
         }).catch((err) => {
             throw (err);
@@ -34,38 +35,40 @@ const Industry_Profile = () => {
 
     return (
         <>
-            <div>
-                <Link to={`/industries`}>
-                    <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
-                </Link>
-                <Link to={`/editIndustry/` + `${industry._id}`}>
-                    <button id="editButton" type="button" className="btn btn-primary">Edit </button>
-                </Link>
-            </div>
-            <div className="container shadow mb-5 bg-body rounded">
-                <div className='row'>
-                    <ContainerHeader title={state ? state.name : industry.name} />
+            <div className="body nospacing">
+                <div>
+                    <Link to={`/industries`}>
+                        <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
+                    </Link>
+                    <Link to={`/editIndustry/` + `${industry._id}`}>
+                        <button id="editButton" type="button" className="btn btn-primary">Edit </button>
+                    </Link>
                 </div>
-
-                <div className="container shadow mb-5 bg-body rounded" >
-                    <div className="row">
-                        <div className=" col-sm body-align-left" id='left'>
-                            <ul className="list">
-                                <li>{state ? state.description : industry.description}</li>
-                                <li>{state ? state.location : industry.location}</li>
-                            </ul>
-                        </div>
-                        <div className='list col-md body-align-right' id='right'>
-                            <li>
-                                <div>
-                                    <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/` + `${industry.image}` : `http://127.0.0.1:4000/` + `${state.image}`)} alt="Industry Logo" className="img" />
-                                </div>
-                            </li>
-                        </div>
+                <div className="container shadow mb-5 bg-body rounded">
+                    <div className='row'>
+                        <ContainerHeader title={state ? state.name : industry.name} />
                     </div>
-                </div >
+
+                    <div className="container shadow mb-5 bg-body rounded" >
+                        <div className="row">
+                            <div className=" col-sm body-align-left" id='left'>
+                                <ul className="list">
+                                    <li>{state ? state.description : industry.description}</li>
+                                    <li>{state ? state.location : industry.location}</li>
+                                </ul>
+                            </div>
+                            <div className='list col-md body-align-right' id='right'>
+                                <li>
+                                    <div>
+                                        <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/` + `${industry.image}` : `http://127.0.0.1:4000/` + `${state.image}`)} alt="Industry Logo" className="img" />
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                    </div >
+                </div>
+                {(industry || state) && <Vacancies companyName={state ? state.name : industry.name} />}
             </div>
-            <Vacancies />
         </>
     )
 }
