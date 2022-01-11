@@ -1,33 +1,71 @@
-import ContainerHeader from './Header/ContainerHeader'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../Component/css/App.css';
+import { Link } from "react-router-dom";
+import { useParams } from 'react-router';
+import ContainerHeader from './Header/ContainerHeader';
 
-const Vacancies = () => {
+const Vacancies = (props) => {
+    const cname = props.companyName;
+    const [vacancyData, setVacancyData] = useState([]);
+    const { name } = useParams();
+    const comp_name = props ? cname : name;
+    const getVacancyData = async () => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:4000/addVacancy/` + `${comp_name}`);
+            return response;
+        }
+        catch (e) {
+            return "failure";
+        }
+    };
 
+    useEffect(() => {
+        getVacancyData().then((resp) => {
+            if (resp !== "failure" && resp.status === 200) {
+                setVacancyData([...resp.data]);
+
+            }
+        }).catch((err) => {
+            throw (err);
+        })
+    }, [vacancyData]);
 
     return (
-        <div className="container shadow p-3 mb-5 bg-body rounded">
-            <div className='row'>
-
-                <ul className='list col-sm body-align-left container shadow p-3 mb-5 bg-body rounded' id='left'>
-                    <div className="card vacancy">
-                        <div className="card-body">
-                            <div className='row'>
-                                <ContainerHeader title="Card title" />
-                            </div>
-                            <h5 className="card-title">Card title</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" className="card-link">Card link</a>
-                            <a href="#" className="card-link">Another link</a>
-                        </div>
-                    </div>
-                </ul>
-                <ul className='list col-sm body-align-left container shadow p-3 mb-5 bg-body rounded' id='right'>
-                </ul>
-                <ul className='list col-sm body-align-left container shadow p-3 mb-5 bg-body rounded margin-right' id='right'>
-                </ul>
+        <> <h1> Vacancies</h1>
+            <div>
+                <div className="body-align-center body">
+                    {
+                        vacancyData.map(vacancy => {
+                            return (
+                                <div className="container shadow mb-5 bg-body rounded ">
+                                    <div className='row'>
+                                        <ContainerHeader key={vacancy._id} title={vacancy.designation} />
+                                    </div>
+                                    <div className="container shadow mb-5 bg-body rounded ">
+                                        <div className='row'>
+                                            <div className=" col-sm body-align-left" id='left'>
+                                                <ul className="list">
+                                                    <li className="card-text"><b>Company: </b>{vacancy.company_name}</li>
+                                                    <li className="card-text"><b>Job Location: </b>{vacancy.job_location}</li>
+                                                    <li className="card-text"><b>Mode of Work: </b>{vacancy.mode}</li>
+                                                    <li className="card-text"><b>Qualification Required: </b>{vacancy.qualification}</li>
+                                                </ul>
+                                                <Link to="/registerVacancy/">
+                                                    <button id="editButton" type="button" className="btn btn-primary">Register</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
-        </div >
+        </>
     )
+
 }
 
 export default Vacancies;
