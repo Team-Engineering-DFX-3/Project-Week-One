@@ -8,14 +8,12 @@ function Home() {
         <>
             <body className='body'>
                 <div>
-<<<<<<< HEAD
-                    <IndustryProfile industryData={industryData} />
-					<Vacancy  />
 					
-=======
+					
                     <IndustryProfile />
-                    <Vacancies />
->>>>>>> 0ef988dc2222971907a1536b11f59204739a99d1
+
+                    <Vacancy />
+    
                 </div>
             </body>
         </>

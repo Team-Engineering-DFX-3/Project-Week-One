@@ -1,18 +1,9 @@
-//import barclays from '../Component/images/barclays.png';
-import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Link, useLocation } from "react-router-dom";
-import ContainerHeader from './Header/ContainerHeader';
-import axios from 'axios';
+import ContainerHeader from './Header/ContainerHeader'
 
-const Vacancy_Details = ({vacanciesData}) => {
-	const [vacancy, setVacancy] = useState({});
-	const location = useLocation();
-    const state = location.state;
-	
+const Vacancies = () => {
 
-	return (
+
+    return (
         <div className="container shadow p-3 mb-5 bg-body rounded">
             <div className='row'>
 
@@ -24,11 +15,9 @@ const Vacancy_Details = ({vacanciesData}) => {
                             </div>
                             <h5 className="card-title">Card title</h5>
                             <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p className="card-text">Some  text of the card.</p>
-                            <Link to="/registerVacancy/">
-                            <button id="editButton" type="button" className="btn btn-primary">Register</button>
-                        	</Link>
-							
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" className="card-link">Card link</a>
+                            <a href="#" className="card-link">Another link</a>
                         </div>
                     </div>
                 </ul>
@@ -40,5 +29,5 @@ const Vacancy_Details = ({vacanciesData}) => {
         </div >
     )
 }
-export default Vacancy_Details;
 
+export default Vacancies;

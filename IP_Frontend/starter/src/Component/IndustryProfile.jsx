@@ -3,17 +3,12 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
-<<<<<<< HEAD
-
-const Industry_Profile = ({ industryData }) => {
-=======
 import Vacancies from './Vacancies';
 import axios from 'axios';
 
 const Industry_Profile = () => {
     const [industry, setIndustry] = useState({});
     const { id } = useParams();
->>>>>>> 0ef988dc2222971907a1536b11f59204739a99d1
     const location = useLocation();
     const state = location.states;
 
