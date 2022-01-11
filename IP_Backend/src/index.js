@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
-// import morgan from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import { addIndustry } from '../routes/addIndustry.js';
 import { editIndustry } from '../routes/editIndustry.js';
+import { addVacancy } from '../routes/addVacancy.js';
 import { editVacancy } from '../routes/editVacancy.js';
 import { industries } from '../routes/industries.js';
-import { industry } from '../routes/industry.js';
 import { editDegree } from '../routes/editDegree.js';
 import { editSchool } from '../routes/editSchool.js';
 import { editWork } from '../routes/editWork.js';
@@ -24,9 +24,11 @@ app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(`/addIndustry`, addIndustry);
 app.use(`/industry`, editIndustry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
+app.use(`/addVacancy`, addVacancy);
 app.use(`/editVacancy`, editVacancy);
 app.use(`/editDegree`, editDegree);
 app.use(`/editSchool`, editSchool);
