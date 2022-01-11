@@ -28,7 +28,7 @@ const Industry = () => {
     }, []);
 
     return (
-        <div className="body-align-center">
+        <div className="body-align-center body nospacing">
             {
                 industries.map(industry => {
                     return (
