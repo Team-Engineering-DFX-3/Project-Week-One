@@ -3,13 +3,7 @@ const router = express.Router();
 import VacancyRegisterData from '../models/vacancyRegisterSchema.js';
 
 router.route('/').post((req, res) => {
-    const { name,discipline,title, description, location} = req.body;
-    // IndustryProfile.findOne({ name }, (err, industryprofile) => {
-    //     if (industryprofile) {
-    //         res.send({ message: `Company exists` });
-    //     }
-    //     else {
-    const vacancy = new Vacancy(req.body);
+    const vacancy = new VacancyRegisterData(req.body);
     vacancy.save(err => {
         if (err) {
             res.send(err);
@@ -20,5 +14,5 @@ router.route('/').post((req, res) => {
     });
 });
 
-export { router as registerVacancy};
+export { router as registerVacancy };
 
