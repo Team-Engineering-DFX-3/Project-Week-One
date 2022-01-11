@@ -51,7 +51,6 @@ export default function IndustryProfileEdit() {
             ...industryData,
             [name]: value
         });
-        console.dir("Industry data: " + industryData);
     };
 
     const handleSubmit = async (e) => {
@@ -118,7 +117,8 @@ export default function IndustryProfileEdit() {
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                             </div>
                             <div className="col-sm-5">
-                                <Link to="/">
+                                <Link to={`/editIndustry/` + `${id}`}>
+                                    {/* <Link to="/"> */}
                                     <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                 </Link>
                             </div>
