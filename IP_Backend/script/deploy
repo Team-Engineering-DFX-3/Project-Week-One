@@ -18,7 +18,7 @@ ssh -t -t ec2-user@ip-172-31-95-86 <<EOF
 
   pm2 kill
 
-  pm2 start server.js -f
+  pm2 start index.js -f
 
   exit
 
