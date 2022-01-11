@@ -14,4 +14,12 @@ router.route(`/`).post(async function (req, res) {
     });
 });
 
+
+router.route(`/:name`).get((req, res) => {
+    const name = req.params.name;
+    VacancyData.find({ company_name: name }).exec((error, vacancydetails) => {
+        error ? res.status(400) : res.status(200).send(vacancydetails);
+    });
+});
+
 export { router as addVacancy };
