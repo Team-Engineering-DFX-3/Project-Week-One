@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, useLocation } from 'react-router-dom';
 import IndustryProfile from './IndustryProfile';
-import Vacancies from './Vacancies';
+import Vacancy from './Vacancy';
 
 function Home({ industryData }) {
     const location = useLocation();
@@ -10,7 +10,8 @@ function Home({ industryData }) {
             <body class='body'>
                 <div>
                     <IndustryProfile industryData={industryData} />
-                    <Vacancies />
+					<Vacancy  />
+					
                 </div>
             </body>
         </>

@@ -2,6 +2,7 @@ import barclays from '../Component/images/barclays.png';
 import '../Component/css/App.css';
 import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
+
 const Industry_Profile = ({ industryData }) => {
     const location = useLocation();
     const state = location.state || {
