@@ -32,7 +32,7 @@ app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/registerVacancy`, registerVacancy);
 app.use(`/addVacancy`, addVacancy);
-//app.use(`/editVacancy`, editVacancy);
+app.use(`/vacancies`, addVacancy);
 app.use(`/editDegree`, editDegree);
 app.use(`/editSchool`, editSchool);
 app.use(`/editWork`, editWork);
