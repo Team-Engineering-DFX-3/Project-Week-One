@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import axios from 'axios';
 import { Button, Modal, Form, Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
 
 export default function DegreeModal() {
@@ -10,27 +12,57 @@ export default function DegreeModal() {
     //     this.handleSubmit = this.handleSubmit.bind(this);
     // }
     const [show, setShow] = useState(false);
-    const [institutionValue, setInstitutionValue] = useState('')
-    const [subjectValue, setSubjectValue] = useState('')
-    const [degreeDetails, setDegreeDetails] = useState('')
-
+    // const [institutionValue, setInstitutionValue] = useState('')
+    // const [subjectValue, setSubjectValue] = useState('')
+    // const [degreeDetails, setDegreeDetails] = useState('')
+    const navigate = useNavigate();
+    const [degreeData, setDegreeData] = useState({
+        institution: ``,
+        subject: ``,
+        level: ``,
+        grade: ``,
+        dateFrom: ``,
+        dateTo: ``,
+        description: ``
+    });
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleSubmit = () => {
-        setShow(false);
-        // console.log(event.target.elements.institution.value) // from elements property 
-        setDegreeDetails(institutionValue + " " + subjectValue)
-    }
 
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setDegreeData({
+            ...degreeData,
+            [name]: value
+        });
+        console.dir("Degree data: " + degreeData);
+    };
+
+    const handleSubmit = async (e) => {
+        console.log("entered handle");
+        setShow(false);
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
+            console.log('hi');
+            alert(response.data.message);
+            console.log(response.data.degree);
+            setDegreeData(response.data.degree);
+            navigate('/UserEdit', { state: response.data });
+
+        }
+        catch (e) {
+            return "failure";
+        }
+    };
 
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add degree
+                Add Degree
             </Button>
 
-            <p>{degreeDetails}</p>
+            {/* <p>{degreeData}</p> */}
 
             <Modal size="xl" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -55,21 +87,13 @@ export default function DegreeModal() {
                             <tbody>
                                 <tr>
                                     {/* <td><Form.Control required type="text" placeholder="Institution name" onChange={this.handleChange} /></td> */}
-                                    <td><Form.Control required type="text" placeholder="Institution name" onChange={e => setInstitutionValue(e.target.value)} /></td>
-                                    <td><Form.Control type="text" placeholder="Subject name" onChange={e => setSubjectValue(e.target.value)} /></td>
-                                    <td>
-                                        <Dropdown >
-                                            <DropdownButton id="dropdown-basic-button" title="Degree level">
-                                                <Dropdown.Item href="#/action-1">Bachelors</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Masters</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Phd</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Certificate of higher education</Dropdown.Item>
-                                            </DropdownButton>
-                                        </Dropdown></td>
-                                    <td><Form.Control type="text" placeholder="Grade" /></td>
-                                    <td><Form.Control type="date" placeholder="Starting date" /></td>
-                                    <td><Form.Control type="date" placeholder="End date" /></td>
-                                    <td><Form.Control type="text" placeholder="Description" /></td>
+                                    <td><Form.Control required type="text" placeholder="Institution name" name="institution" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="English" name="subject" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Bachelors" name="level" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="2:1" name="grade" onChange={handleChange} /></td>
+                                    <td><Form.Control type="date" placeholder="Starting date" name="dateFrom" onChange={handleChange} /></td>
+                                    <td><Form.Control type="date" placeholder="End date" name="dateTo" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange} /></td>
 
                                 </tr>
                             </tbody>
@@ -84,7 +108,8 @@ export default function DegreeModal() {
                         Save Changes
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal >
         </>
     );
+
 }

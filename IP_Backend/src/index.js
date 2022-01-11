@@ -1,12 +1,24 @@
 import express from 'express';
 import mongoose from 'mongoose';
-// import morgan from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import { addIndustry } from '../routes/addIndustry.js';
 import { editIndustry } from '../routes/editIndustry.js';
+<<<<<<< HEAD
 import { registerVacancy } from '../routes/registerVacancy.js';
 
+=======
+import { addVacancy } from '../routes/addVacancy.js';
+import { editVacancy } from '../routes/editVacancy.js';
+import { industries } from '../routes/industries.js';
+import { editDegree } from '../routes/editDegree.js';
+import { editSchool } from '../routes/editSchool.js';
+import { editWork } from '../routes/editWork.js';
+import { editPortfolio } from '../routes/editPortfolio.js';
+import { editAward } from '../routes/editAward.js';
+import { editUser } from '../routes/editUser.js';
+>>>>>>> 0ef988dc2222971907a1536b11f59204739a99d1
 
 dotenv.config();
 const app = express();
@@ -14,10 +26,26 @@ const port = process.env.PORT;
 const host = process.env.HOST;
 
 app.use(bodyParser.json());
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(`/addIndustry`, addIndustry);
+app.use(`/industry`, editIndustry);
+app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
+<<<<<<< HEAD
 app.use(`/registerVacancy`, registerVacancy);
+=======
+app.use(`/addVacancy`, addVacancy);
+app.use(`/editVacancy`, editVacancy);
+app.use(`/editDegree`, editDegree);
+app.use(`/editSchool`, editSchool);
+app.use(`/editWork`, editWork);
+app.use(`/editPortfolio`, editPortfolio);
+app.use(`/editAward`, editAward);
+app.use(`/editUser`, editUser);
+
+>>>>>>> 0ef988dc2222971907a1536b11f59204739a99d1
 
 app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 

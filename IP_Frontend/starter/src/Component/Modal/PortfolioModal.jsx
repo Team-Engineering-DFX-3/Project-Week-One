@@ -1,12 +1,48 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { Button, Modal, Form, Container, Table } from 'react-bootstrap';
 
 export default function PortfolioModal() {
     const [show, setShow] = useState(false);
 
+    const navigate = useNavigate();
+    const [portfolioData, setPortfolioData] = useState({
+        title: ``,
+        url: ``,
+        description: ``,
+    });
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setPortfolioData({
+            ...portfolioData,
+            [name]: value
+        });
+        console.dir("Portfolio data: " + portfolioData);
+    };
+
+    const handleSubmit = async (e) => {
+        console.log("entered handle");
+        setShow(false);
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://127.0.0.1:4000/editPortfolio', portfolioData);
+            console.log('hi');
+            alert(response.data.message);
+            console.log(response.data.portfolio);
+            setPortfolioData(response.data.portfolio);
+            navigate('/UserEdit', { state: response.data });
+
+        }
+        catch (e) {
+            return "failure";
+        }
+    };
 
     return (
         <>
@@ -32,9 +68,9 @@ export default function PortfolioModal() {
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td><Form.Control type="text" placeholder="Title" /></td>
-                                    <td><Form.Control type="url" placeholder="Website Url" /></td>
-                                    <td><Form.Control type="text" placeholder="Description" /></td>
+                                    <td><Form.Control type="text" placeholder="Title" name="title" onChange={handleChange} /></td>
+                                    <td><Form.Control type="url" placeholder="Website Url" name="url" onChange={handleChange} /></td>
+                                    <td><Form.Control type="text" placeholder="Description" name="description" onChange={handleChange} /></td>
                                 </tr>
                             </tbody>
                         </Table>
@@ -44,7 +80,7 @@ export default function PortfolioModal() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={handleSubmit}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
