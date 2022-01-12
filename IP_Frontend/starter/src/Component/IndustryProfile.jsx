@@ -6,7 +6,7 @@ import ContainerHeader from './Header/ContainerHeader';
 import Vacancies from './Vacancies';
 import axios from 'axios';
 
-const Industry_Profile = () => {
+const IndustryProfile = () => {
     const [industry, setIndustry] = useState({});
     const { id } = useParams();
     const location = useLocation();
@@ -40,7 +40,7 @@ const Industry_Profile = () => {
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
                     <Link to={`/editIndustry/` + `${industry._id}`}>
-                        <button id="editButton" type="button" className="btn btn-primary">Edit </button>
+                        <button id="editButton" type="button" className="btn btn-primary">Edit Company</button>
                     </Link>
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
@@ -73,4 +73,4 @@ const Industry_Profile = () => {
     )
 }
 
-export default Industry_Profile;
+export default IndustryProfile;
