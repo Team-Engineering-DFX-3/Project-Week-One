@@ -22,7 +22,7 @@ export default function IndustryProfileEdit() {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://172.31.95.86:4000/editindustry/' + `${id}`);
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000/editindustry/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -60,7 +60,7 @@ export default function IndustryProfileEdit() {
             formData.append('industry', JSON.stringify(industryData));
             formData.append("image", file);
             const response = await axios({
-                method: 'put', url: `https://cors-anywhere.herokuapp.com/http://172.31.95.86:4000/editIndustry/` + `${id}`,
+                method: 'put', url: `https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/` + `${id}`,
                 data: formData,
                 headers: {
                     'content-type': 'multipart/form-data'
@@ -105,7 +105,7 @@ export default function IndustryProfileEdit() {
 
                             <div className=' col-sm body-align-right' id='right'>
                                 <ul className='list body-align-right' id='right' >
-                                    <li><img src={state.image && `https://cors-anywhere.herokuapp.com/http://172.31.95.86:4000/` + `${state.image}`} alt="Industry Logo" className="img" /></li>
+                                    <li><img src={state.image && `https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000` + `${state.image}`} alt="Industry Logo" className="img" /></li>
                                     <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} required /></li>
                                 </ul>
                             </div>
