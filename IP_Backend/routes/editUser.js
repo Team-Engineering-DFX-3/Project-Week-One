@@ -23,7 +23,7 @@ router.route('/').get((req, res) => {
             res.send(err);
             next();
         }
-        res.send({ users });
+        res.send({ result: users });
     })
 })
 

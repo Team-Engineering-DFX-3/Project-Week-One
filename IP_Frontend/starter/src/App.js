@@ -14,7 +14,7 @@ import Industry from './Component/Industry';
 import Vacancies from './Component/Vacancies';
 import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
-
+import Users from './Component/Users'; 
 function App() {
  
   return (
@@ -38,6 +38,7 @@ function App() {
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
+        <Route path="/users" element={<Users/>}  /> 
       </Routes>
     </div>
   )
