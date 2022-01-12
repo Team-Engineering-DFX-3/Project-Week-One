@@ -9,6 +9,7 @@ import FormData from 'form-data';
 
 export default function IndustryProfileEdit() {
     const navigate = useNavigate();
+    // const [messageField, setMessageField] = useState({ messageField: `` });
     const [state, setState] = useState({});
     const [file, setFile] = useState();
     const [industryData, setIndustryData] = useState({
@@ -19,6 +20,15 @@ export default function IndustryProfileEdit() {
     });
 
     const { id } = useParams();
+
+    // const handleReset = () => {
+    //     Array.from(document.querySelectorAll("input")).forEach(
+    //         input => (input.value = "")
+    //     );
+    //     setMessageField({
+    //         messageField: ''
+    //     });
+    // };
 
     const getIndustry = async () => {
         try {
@@ -73,6 +83,7 @@ export default function IndustryProfileEdit() {
         catch (ex) {
             throw ex;
         }
+        // handleReset();
     };
 
     return (
