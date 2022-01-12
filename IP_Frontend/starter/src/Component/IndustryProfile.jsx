@@ -26,7 +26,6 @@ const Industry_Profile = () => {
         getIndustry().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setIndustry(resp.data);
-                // setDisplay(true);
             }
         }).catch((err) => {
             throw (err);
@@ -53,8 +52,8 @@ const Industry_Profile = () => {
                         <div className="row">
                             <div className=" col-sm body-align-left" id='left'>
                                 <ul className="list">
-                                    <li>{state ? state.description : industry.description}</li>
-                                    <li>{state ? state.location : industry.location}</li>
+                                    <li><b>Description: </b>{state ? state.description : industry.description}</li>
+                                    <li><b>Location: </b>{state ? state.location : industry.location}</li>
                                 </ul>
                             </div>
                             <div className='list col-md body-align-right' id='right'>
@@ -68,6 +67,7 @@ const Industry_Profile = () => {
                     </div >
                 </div>
                 {(industry || state) && <Vacancies companyName={state ? state.name : industry.name} />}
+
             </div>
         </>
     )
