@@ -43,7 +43,7 @@ export default function DegreeModal() {
         setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://172.31.95.86:4000/editDegree', degreeData);
             console.log('hi');
             alert(response.data.message);
             console.log(response.data.degree);
