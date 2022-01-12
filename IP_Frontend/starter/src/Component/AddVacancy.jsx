@@ -35,7 +35,6 @@ const AddVacancy = () => {
                     'Content-Type': 'application/json; charset=UTF-8'
                 },
             });
-            alert(response.status);
             alert(response.data.message);
         }
         catch (ex) {
