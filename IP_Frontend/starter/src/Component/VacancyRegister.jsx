@@ -56,19 +56,19 @@ export default function VacanciesRegister() {
 					<div class='modal-div container shadow mb-5 bg-body rounded '>
 						<ul className='list body-align-left' id='left' >
 
-							<li><label for="applicant_name">Applicant Name:</label><br></br></li>
+							<li><label htmlFor="applicant_name">Applicant Name:</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_name" name="name" onChange={handleChange} placeholder="Applicant Name" required /><br></br></li>
 
-							<li><label for="applicant_discipline"> Applicant Discipline:</label><br></br></li>
+							<li><label htmlFor="applicant_discipline"> Applicant Discipline:</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_discipline" name="discipline" onChange={handleChange} placeholder=" Applicant Discipline" required /><br></br></li>
 
-							<li><label for="applicant_jobtitle"> Applicant JobTitle:</label><br></br></li>
+							<li><label htmlFor="applicant_jobtitle"> Applicant JobTitle:</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_jobtitle" name="title" onChange={handleChange} placeholder="Applicant JobTitle" required /><br></br></li>
 
-							<li><label for="applicant_jobdescription"> Applicant JobDescription</label><br></br></li>
+							<li><label htmlFor="applicant_jobdescription"> Applicant JobDescription</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_jobdescription" name="description" onChange={handleChange} placeholder="Applicant JobDescription" required /><br></br></li>
 
-							<li><label for="applicant_location"> Applicant Location:</label><br></br></li>
+							<li><label htmlFor="applicant_location"> Applicant Location:</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_location" name="location" onChange={handleChange} placeholder="Applicant Location" required /><br></br></li>
 
 						</ul>
