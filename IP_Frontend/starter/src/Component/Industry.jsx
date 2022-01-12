@@ -32,7 +32,7 @@ const Industry = () => {
             {
                 industries.map(industry => {
                     return (
-                        <div className="container shadow mb-5 bg-body rounded ">
+                        <div className="container shadow mb-5 bg-body rounded">
                             <div className='row'>
                                 <Link to={`/industry/` + `${industry._id}`}>
                                     <ContainerHeader key={industry._id} title={industry.name} />
@@ -42,8 +42,8 @@ const Industry = () => {
                                 <div className='row'>
                                     <div className=" col-sm body-align-left" id='left'>
                                         <ul className="list">
-                                            <li className="card-title mb-2 text-muted">{industry.description}</li>
-                                            <li className="card-text">{industry.location}</li>
+                                            <li className="card-title mb-2 text-muted"><b>Description: </b>{industry.description}</li>
+                                            <li className="card-text"><b>Location: </b>{industry.location}</li>
                                         </ul>
                                     </div>
                                     <div className='list col-md body-align-right' id='right'>
