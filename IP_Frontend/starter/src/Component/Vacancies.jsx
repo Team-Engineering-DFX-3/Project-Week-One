@@ -43,7 +43,9 @@ const Vacancies = (props) => {
 
                                 <div className="container shadow mb-5 bg-body rounded ">
                                     <div className='row'>
-                                        <ContainerHeader key={vacancy._id} title={vacancy.designation} />
+                                        <Link to={`/vacancyProfile/` + `${vacancy._id}`}>
+                                            <ContainerHeader key={vacancy._id} title={vacancy.designation} />
+                                        </Link>
                                     </div>
                                     <div className="container shadow mb-5 bg-body rounded ">
                                         <div className='row'>
