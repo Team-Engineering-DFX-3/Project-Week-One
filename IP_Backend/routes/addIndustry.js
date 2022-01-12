@@ -9,7 +9,7 @@ router.route(`/`).post(upload.single('image'), async function (req, res) {
     const image = req.file.path;
     const imagePath = image.substring(7);
     const newIndustry = { name: name, description: description, location: location, image: imagePath };
-    IndustryProfile.findOne({ name }, (err, industryprofiles) => {
+    IndustryProfile.findOne({ name: name }, (err, industryprofiles) => {
         if (industryprofiles) {
             res.send({ message: `Company already exists`, industryprofile: industryprofiles });
         }
