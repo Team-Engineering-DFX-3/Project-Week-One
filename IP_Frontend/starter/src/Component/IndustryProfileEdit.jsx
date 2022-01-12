@@ -9,7 +9,6 @@ import FormData from 'form-data';
 
 export default function IndustryProfileEdit() {
     const navigate = useNavigate();
-    // const [messageField, setMessageField] = useState({ messageField: `` });
     const [state, setState] = useState({});
     const [file, setFile] = useState();
     const [industryData, setIndustryData] = useState({
@@ -21,18 +20,15 @@ export default function IndustryProfileEdit() {
 
     const { id } = useParams();
 
-    // const handleReset = () => {
-    //     Array.from(document.querySelectorAll("input")).forEach(
-    //         input => (input.value = "")
-    //     );
-    //     setMessageField({
-    //         messageField: ''
-    //     });
-    // };
+    const handleReset = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+        );
+    };
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editindustry/' + `${id}`);
+            const response = await axios.get('http://127.0.0.1:4000/editIndustry/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -83,7 +79,7 @@ export default function IndustryProfileEdit() {
         catch (ex) {
             throw ex;
         }
-        // handleReset();
+        handleReset();
     };
 
     return (
@@ -98,7 +94,7 @@ export default function IndustryProfileEdit() {
                 </div>
                 <div className='container shadow mb-5 bg-body rounded'>
                     <div className='row'>
-                        <ContainerHeader title="Edit profile" />
+                        <ContainerHeader title="Edit Company Profile" />
                     </div>
 
                     <form >
@@ -134,7 +130,7 @@ export default function IndustryProfileEdit() {
                                     </Link>
                                 </div>
                                 <div className="col-sm-2">
-                                    <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
+                                    <button type="submit" className="btn btn-danger btn-custom" onClick={handleReset} form="industryProfileForm">Reset</button>
                                 </div>
                             </div>
                         </div>
