@@ -9,7 +9,7 @@ const Industry = () => {
 
     const getIndustries = async () => {
         try {
-            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/industries');
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-3-219-197-22.compute-1.amazonaws.com:4000/industries');
             return response;
         }
         catch (e) {
