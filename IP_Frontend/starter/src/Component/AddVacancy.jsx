@@ -6,11 +6,21 @@ import axios from 'axios';
 
 const AddVacancy = () => {
     const [vacancyData, setVacancyData] = useState({});
+    const [messageField, setMessageField] = useState({ messageField: `` });
     const handleChange = e => {
         const { name, value } = e.target;
         setVacancyData({
             ...vacancyData,
             [name]: value
+        });
+    };
+
+    const handleReset = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+        );
+        setMessageField({
+            messageField: ''
         });
     };
 
@@ -25,11 +35,13 @@ const AddVacancy = () => {
                     'Content-Type': 'application/json; charset=UTF-8'
                 },
             });
+            alert(response.status);
             alert(response.data.message);
         }
         catch (ex) {
             throw ex;
         }
+        handleReset();
     };
 
     return (
