@@ -2,7 +2,7 @@ import React from 'react';
 import '../Component/css/App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 import FormData from 'form-data';
@@ -22,7 +22,7 @@ export default function IndustryProfileEdit() {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editindustry/' + `${id}`);
+            const response = await axios.get(`http://127.0.0.1:4000/editindustry/${id}`);
             return response;
         }
         catch (e) {
@@ -60,14 +60,14 @@ export default function IndustryProfileEdit() {
             formData.append('industry', JSON.stringify(industryData));
             formData.append("image", file);
             const response = await axios({
-                method: 'put', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
+                method: 'put', url: `http://127.0.0.1:4000/editIndustry/${id}`,
                 data: formData,
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             });
             setIndustryData(response.data);
-            navigate(`/industry/` + `${id}`, { states: response.data });
+            navigate(`/industry/${id}`, { states: response.data });
 
         }
         catch (ex) {
@@ -78,7 +78,7 @@ export default function IndustryProfileEdit() {
     return (
         <>
             <div>
-                <Link to={`/industry/` + `${id}`}>
+                <Link to={`/industry/${id}`}>
                     <button id="editButton" type="button" class="btn btn-primary">
                         Back to Company
                     </button>
@@ -105,7 +105,7 @@ export default function IndustryProfileEdit() {
 
                             <div className=' col-sm body-align-right' id='right'>
                                 <ul className='list body-align-right' id='right' >
-                                    <li><img src={state.image && `http://127.0.0.1:4000/` + `${state.image}`} alt="Industry Logo" className="img" /></li>
+                                    <li><img src={state.image && `http://127.0.0.1:4000/${state.image}`} alt="Industry Logo" className="img" /></li>
                                     <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} required /></li>
                                 </ul>
                             </div>
@@ -117,8 +117,7 @@ export default function IndustryProfileEdit() {
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                             </div>
                             <div className="col-sm-5">
-                                <Link to={`/editIndustry/` + `${id}`}>
-                                    {/* <Link to="/"> */}
+                                <Link to={`/editIndustry/${id}`}>
                                     <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                 </Link>
                             </div>

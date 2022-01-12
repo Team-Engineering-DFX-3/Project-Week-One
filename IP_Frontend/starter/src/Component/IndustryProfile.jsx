@@ -14,7 +14,7 @@ const Industry_Profile = () => {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editIndustry/' + `${id}`);
+            const response = await axios.get(`http://127.0.0.1:4000/editIndustry/${id}`);
             return response;
         }
         catch (e) {
@@ -38,7 +38,7 @@ const Industry_Profile = () => {
                 <Link to={`/industries`}>
                     <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                 </Link>
-                <Link to={`/editIndustry/` + `${industry._id}`}>
+                <Link to={`/editIndustry/${industry._id}`}>
                     <button id="editButton" type="button" className="btn btn-primary">Edit </button>
                 </Link>
             </div>
@@ -58,7 +58,7 @@ const Industry_Profile = () => {
                         <div className='list col-md body-align-right' id='right'>
                             <li>
                                 <div>
-                                    <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/` + `${industry.image}` : `http://127.0.0.1:4000/` + `${state.image}`)} alt="Industry Logo" className="img" />
+                                    <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/${industry.image}` : `http://127.0.0.1:4000/${state.image}`)} alt="Industry Logo" className="img" />
                                 </div>
                             </li>
                         </div>

@@ -56,7 +56,7 @@ const AddIndustry = () => {
             <div>
                 {(industryData?._id) ?
                     <>
-                        <Link to={`/industry/` + `${industryData._id}`}>
+                        <Link to={`/industry/${industryData._id}`}>
                             <button id="editButton" type="button" className="btn btn-primary">View Company Profile </button>
                         </Link>
                         <Link to={`/addVacancy/`}>

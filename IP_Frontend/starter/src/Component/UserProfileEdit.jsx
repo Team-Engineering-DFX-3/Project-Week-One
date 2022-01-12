@@ -7,7 +7,7 @@ import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
@@ -196,7 +196,7 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                         
+
                             {allDegreeData.map(degree => {
                                 return (
                                     <tr>

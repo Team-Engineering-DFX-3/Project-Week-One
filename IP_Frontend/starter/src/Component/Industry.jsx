@@ -34,7 +34,7 @@ const Industry = () => {
                     return (
                         <div className="container shadow mb-5 bg-body rounded ">
                             <div className='row'>
-                                <Link to={`/industry/` + `${industry._id}`}>
+                                <Link to={`/industry/${industry._id}`}>
                                     <ContainerHeader key={industry._id} title={industry.name} />
                                 </Link>
                             </div>
@@ -47,7 +47,7 @@ const Industry = () => {
                                         </ul>
                                     </div>
                                     <div className='list col-md body-align-right' id='right'>
-                                        <img src={`http://127.0.0.1:4000/` + `${industry.image}`} alt="Industry Logo" className="img" />
+                                        <img src={`http://127.0.0.1:4000/${industry.image}`} alt="Industry Logo" className="img" />
                                     </div>
                                 </div>
                             </div>
