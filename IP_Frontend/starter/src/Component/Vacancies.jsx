@@ -2,17 +2,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Component/css/App.css';
 import { Link } from "react-router-dom";
-import { useParams } from 'react-router';
+
 import ContainerHeader from './Header/ContainerHeader';
 
 const Vacancies = (props) => {
     const cname = props.companyName;
     const [vacancyData, setVacancyData] = useState([]);
-    const { name } = useParams();
-    const comp_name = props ? cname : name;
+    // console.log(cname)
     const getVacancyData = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:4000/addVacancy/` + `${comp_name}`);
+            const response = await axios.get(`http://127.0.0.1:4000/addVacancy/` + `${cname}`);
             return response;
         }
         catch (e) {
@@ -24,20 +23,24 @@ const Vacancies = (props) => {
         getVacancyData().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setVacancyData([...resp.data]);
-
             }
         }).catch((err) => {
             throw (err);
-        })
-    }, [vacancyData]);
+        });
+    }, [cname]);
 
     return (
-        <> <h1> Vacancies</h1>
+        <>
+            {
+                (vacancyData.length > 0) ? <h1> Vacancies</h1> : <h1> Sorry!! No Vacancies Currently.</h1>
+            }
             <div>
                 <div className="body-align-center body">
+
                     {
                         vacancyData.map(vacancy => {
                             return (
+
                                 <div className="container shadow mb-5 bg-body rounded ">
                                     <div className='row'>
                                         <ContainerHeader key={vacancy._id} title={vacancy.designation} />
@@ -58,6 +61,7 @@ const Vacancies = (props) => {
                                         </div>
                                     </div>
                                 </div>
+
                             )
                         })
                     }
@@ -67,5 +71,6 @@ const Vacancies = (props) => {
     )
 
 }
+
 
 export default Vacancies;
