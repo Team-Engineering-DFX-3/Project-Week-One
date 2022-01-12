@@ -8,11 +8,21 @@ import axios from 'axios';
 
 const AddIndustry = () => {
     const [industryData, setIndustryData] = useState({});
+    const [messageField, setMessageField] = useState({ messageField: `` });
     const [file, setFile] = useState();
     const handleChangeFile = (e) => {
         const file = e.target.files[0];
         setFile(file);
     }
+
+    const handleReset = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+        );
+        setMessageField({
+            messageField: ''
+        });
+    };
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -49,7 +59,10 @@ const AddIndustry = () => {
         catch (ex) {
             throw ex;
         }
+        handleReset();
     };
+
+
 
     return (
         <>
@@ -100,6 +113,7 @@ const AddIndustry = () => {
                                 </div>
                             </div>
                         </div >
+
                         <div className=' container shadow p-3 mb-5 bg-body rounded'>
                             <div className="row">
                                 <div className="col-sm-5">
@@ -118,6 +132,7 @@ const AddIndustry = () => {
                     </form >
                 </div>
             </div>
+
         </>
     )
 }
