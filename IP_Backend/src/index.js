@@ -17,6 +17,8 @@ import { editPortfolio } from '../routes/editPortfolio.js';
 import { editAward } from '../routes/editAward.js';
 import { editUser } from '../routes/editUser.js';
 
+const cors = require('cors')
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
@@ -40,6 +42,7 @@ app.use(`/editPortfolio`, editPortfolio);
 app.use(`/editAward`, editAward);
 app.use(`/editUser`, editUser);
 
+app.use(cors())
 
 app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 
