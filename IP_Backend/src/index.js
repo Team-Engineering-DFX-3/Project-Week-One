@@ -6,9 +6,8 @@ import bodyParser from 'body-parser';
 import { addIndustry } from '../routes/addIndustry.js';
 import { editIndustry } from '../routes/editIndustry.js';
 import { registerVacancy } from '../routes/registerVacancy.js';
-
 import { addVacancy } from '../routes/addVacancy.js';
-//import { editVacancy } from '../routes/editVacancy.js';
+import { editVacancy } from '../routes/editVacancy.js';
 import { industries } from '../routes/industries.js';
 import { editDegree } from '../routes/editDegree.js';
 import { editSchool } from '../routes/editSchool.js';
@@ -31,6 +30,7 @@ app.use(`/industry`, editIndustry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/registerVacancy`, registerVacancy);
+app.use(`/editVacancy`, editVacancy);
 app.use(`/addVacancy`, addVacancy);
 app.use(`/vacancies`, addVacancy);
 app.use(`/editDegree`, editDegree);
