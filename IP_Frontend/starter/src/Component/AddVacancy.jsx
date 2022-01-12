@@ -28,7 +28,7 @@ const AddVacancy = () => {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'post', url: `https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy`,
+                method: 'post', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy`,
                 data: vacancyData,
                 headers: {
                     'Accept': 'application/json',

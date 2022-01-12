@@ -28,7 +28,7 @@ export default function VacanciesRegister() {
 		console.log("entered handle");
 		e.preventDefault();
 		try {
-			const response = await axios.post('https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000/registerVacancy', vacanciesData);
+			const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/registerVacancy', vacanciesData);
 			alert(response.data.message);
 			setVacanciesData(response.data.registration);
 			navigate('/', { state: response.data });

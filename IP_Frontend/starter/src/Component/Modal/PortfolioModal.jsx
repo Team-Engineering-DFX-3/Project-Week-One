@@ -31,7 +31,7 @@ export default function PortfolioModal() {
         setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000/editPortfolio', portfolioData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editPortfolio', portfolioData);
             console.log('hi');
             alert(response.data.message);
             console.log(response.data.portfolio);
