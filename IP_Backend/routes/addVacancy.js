@@ -5,12 +5,10 @@ import IndustryProfile from '../models/industryProfileSchema.js';
 
 router.route(`/`).post(async function (req, res) {
     const { designation, company_name, job_location, mode, qualification } = req.body;
-
     VacancyData.findOne({ designation: designation, company_name: company_name, job_location: job_location, mode: mode, qualification: qualification }).exec((err, vacancydetails) => {
         if (vacancydetails) {
             res.send({ message: `Vacancy already exists`, vacancydetails: vacancydetails });
         }
-
         else {
             if (err) {
                 res.status(400);
