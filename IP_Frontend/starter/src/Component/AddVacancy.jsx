@@ -1,7 +1,6 @@
 import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Link, useLocation } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 // import image_holder from './images/image_holder.png';
 import ContainerHeader from './Header/ContainerHeader';
 // import FormData from 'form-data';

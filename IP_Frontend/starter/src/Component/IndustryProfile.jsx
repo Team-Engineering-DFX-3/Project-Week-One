@@ -38,7 +38,7 @@ const Industry_Profile = () => {
                 <Link to={`/industries`}>
                     <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                 </Link>
-                <Link to={`/editIndustry/` + `${industry._id}`}>
+                <Link to={`/editIndustry/${industry._id}`}>
                     <button id="editButton" type="button" className="btn btn-primary">Edit </button>
                 </Link>
             </div>

@@ -1,13 +1,15 @@
 import React from 'react';
 import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 import FormData from 'form-data';
+import Regex from '../services/validation.regex'
 
 export default function IndustryProfileEdit() {
+    const form = useRef();
     const navigate = useNavigate();
     const [state, setState] = useState({});
     const [file, setFile] = useState();
@@ -55,6 +57,7 @@ export default function IndustryProfileEdit() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        form.current.validateAll();
         try {
             const formData = new FormData();
             formData.append('industry', JSON.stringify(industryData));
@@ -67,7 +70,7 @@ export default function IndustryProfileEdit() {
                 }
             });
             setIndustryData(response.data);
-            navigate(`/industry/` + `${id}`, { states: response.data });
+            navigate(`/industry/${id}`, { states: response.data });
 
         }
         catch (ex) {
@@ -78,7 +81,7 @@ export default function IndustryProfileEdit() {
     return (
         <>
             <div>
-                <Link to={`/industry/` + `${id}`}>
+                <Link to={`/industry/${id}`}>
                     <button id="editButton" type="button" class="btn btn-primary">
                         Back to Company
                     </button>
@@ -117,8 +120,7 @@ export default function IndustryProfileEdit() {
                                 <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                             </div>
                             <div className="col-sm-5">
-                                <Link to={`/editIndustry/` + `${id}`}>
-                                    {/* <Link to="/"> */}
+                                <Link to={`/editIndustry/${id}`}>
                                     <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                 </Link>
                             </div>

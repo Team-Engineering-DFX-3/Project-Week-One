@@ -7,7 +7,7 @@ import SchoolModal from './Modal/SchoolModal';
 import WorkModal from './Modal/WorkModal'
 import AwardModal from './Modal/AwardModal';
 import PortfolioModal from './Modal/PortfolioModal';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import FormOne from './Forms/FormOne'
 import ContainerHeader from './Header/ContainerHeader'
 
@@ -84,9 +84,6 @@ export default function UserProfileEdit() {
         }
     };
 
-
-
-
     useEffect(() => {
         async function getDegrees() {
             let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editDegree');
@@ -96,6 +93,7 @@ export default function UserProfileEdit() {
 
         getDegrees()
     }, [])
+
     useEffect(() => {
         async function getWork() {
             let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editWork');
