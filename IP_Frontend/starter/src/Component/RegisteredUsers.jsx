@@ -35,6 +35,14 @@ const RegisteredUsers = () => {
 
     return (
         <>
+            <div>
+                <Link to={`/industries`}>
+                    <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
+                </Link>
+                <Link to={`/allVacancies`}>
+                    <button id="editButton" type="button" className="btn btn-primary">View all Vacancies </button>
+                </Link>
+            </div>
             <div className="body-align-center body">
                 <div className="list container body-align-center shadow p-3 mb-5 bg-body rounded">
                     <form>
@@ -52,36 +60,41 @@ const RegisteredUsers = () => {
                     <div className="body-align-center">
 
                         <div className="container body-align-center shadow p-3 mb-5 bg-body rounded">
+
                             <div className="row">
+                                {/* <div className="row"> */}
                                 {
                                     (registeredUser.length > 0) ? <h1> </h1> : <h1> Sorry!! No Registered Users.</h1>
                                 }
-                            </div>
-                            {
-                                registeredUser.map(user => {
-                                    return (
-                                        <div className="container_small card-body">
+                                {/* </div> */}
+                                {
 
-                                            <div className="container shadow mb-5 bg-body rounded ">
-                                                <div className='row'>
-                                                    <div className=" col-sm body-align-left" id='left'>
-                                                        <ul className="list">
-                                                            <li className="card-text"><b>Applicant Name: </b>{user.applicant_name}</li>
-                                                            <li className="card-text"><b>Company: </b>{user.company_name}</li>
-                                                            <li className="card-text"><b>Designation: </b>{user.designation}</li>
-                                                            <li className="card-text"><b>Applicant Experience: </b>{user.applicant_experience}years</li>
-                                                            <li className="card-text"><b>Applicant Location: </b>{user.applicant_location}</li>
-                                                        </ul>
+                                    registeredUser.map(user => {
+                                        return (
 
+                                            <div className="container_small card-body">
+
+                                                <div className="container shadow mb-5 bg-body rounded ">
+                                                    <div className='row'>
+                                                        <div className=" col-sm body-align-left" id='left'>
+                                                            <ul className="list">
+                                                                <li className="card-text"><b>Applicant Name: </b>{user.applicant_name}</li>
+                                                                <li className="card-text"><b>Company: </b>{user.company_name}</li>
+                                                                <li className="card-text"><b>Designation: </b>{user.designation}</li>
+                                                                <li className="card-text"><b>Applicant Experience: </b>{user.applicant_experience}years</li>
+                                                                <li className="card-text"><b>Applicant Location: </b>{user.applicant_location}</li>
+                                                            </ul>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )
+                                        )
 
-                                })
+                                    })
 
-                            }
+                                }
+                            </div>
                         </div></div>
 
 
