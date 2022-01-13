@@ -30,6 +30,18 @@ router.route(`/:id`).get((req, res) => {
     });
 });
 
+router.route(`/:id`).delete((req, res) => {
+    const id = req.params.id;
+    IndustryProfile.findByIdAndDelete({ _id: id }).exec((error, industryprofiles) => {
+        if (error) {
+            res.status(400).send({ message: error });
+        }
+        else {
+            res.status(200).send({ message: `Company deleted successfully`, company: industryprofiles });
+        }
+    });
+});
+
 export { router as editIndustry };
 
 
