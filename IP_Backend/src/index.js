@@ -51,7 +51,7 @@ app.use(`/editUser`, editUser);
 
 const main = async () => {
     console.log(`Connecting to DB @ mongodb`);
-    await mongoose.connect(`${uri}`);
+    await mongoose.connect("mongodb+srv://TeamEngineering:DFATeamEngineering@cluster0.k6gvg.mongodb.net/DFXProfile?retryWrites=true&w=majority");
 };
 
 main().then(() => console.log(`Connected to DB`))
