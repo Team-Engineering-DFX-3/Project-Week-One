@@ -44,4 +44,10 @@ router.route(`/:name`).get((req, res) => {
     });
 });
 
+router.route(`/`).get((req, res) => {
+    VacancyData.find().exec((error, vacancydetails) => {
+        error ? res.status(400) : res.status(200).send(vacancydetails);
+    });
+});
+
 export { router as addVacancy };
