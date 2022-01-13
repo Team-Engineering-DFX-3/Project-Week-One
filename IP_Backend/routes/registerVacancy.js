@@ -17,5 +17,14 @@ router.route('/').post((req, res) => {
     });
 });
 
+router.route(`/:discipline`).get((req, res) => {
+    const discipline = req.params.apply_discipline;
+
+    console.log(discipline);
+    VacancyRegisterData.find({ apply_discipline: discipline }).exec((error, registeredusers) => {
+        error ? res.status(400) : res.status(200).send(registeredusers);
+    });
+});
+
 export { router as registerVacancy };
 
