@@ -18,6 +18,8 @@ ssh -v -t -t ec2-user@ip-172-31-95-86 <<EOF
 
   pm2 kill
 
+  cd IP_Backend
+
   pm2 start src/index.js -f
 
   exit
