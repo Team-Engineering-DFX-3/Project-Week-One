@@ -48,6 +48,9 @@ const IndustryProfile = () => {
                     <Link to={`/editIndustry/` + `${industry._id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Delete Company</button>
                     </Link>
+                    <Link to={`/registeredUsers/`}>
+                        <button id="editButton" type="button" className="btn btn-primary">View Registered Users</button>
+                    </Link>
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
                     <div className='row'>
