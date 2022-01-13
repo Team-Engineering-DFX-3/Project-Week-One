@@ -26,12 +26,12 @@ function App() {
         <Route path="/" element={<Home />} />
 
 
-        <Route path="/editIndustry" element={<IndustryProfileEdit />} />
+        {/* <Route path="/editIndustry" element={<IndustryProfileEdit />} /> */}
 
         <Route path="/vacancy" element={<Vacancy />} />
         <Route path="/registerVacancy" element={<VacancyRegister />} />
 
-        <Route path="/user" element={<UserProfile />} />
+      
         <Route path="/addIndustry" element={<AddIndustry />} />
         <Route path="/addVacancy" element={<AddVacancy />} />
         <Route path="/industries" element={<Industry />} />
