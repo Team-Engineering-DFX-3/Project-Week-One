@@ -75,7 +75,7 @@ export default function PortfolioModal() {
                                 <Modal.Body>
                                     <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fportrait-smart-male-profile-symbol-portrait-smart-male-profile-symbol-minimal-cartoon-style-image166146967&psig=AOvVaw3udTIUQROPhikHlenVIuUV&ust=1642022483828000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNi7hMnQqvUCFQAAAAAdAAAAABAD" alt="User" className="user-picture" />
                         <li><strong>Digital Futures email:</strong>{user[0] ? user.map(user => <div>{user.name}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
-                        <li><strong>Digital Futures email:</strong>{user[0] ? user.map(user => <div>{user.pemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
+                        <li><strong>Digital Futures email:</strong>{user[0] ? user.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
                         <li><strong>Digital Futures email:</strong>{user[0] ? user.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
                                     <Container align="center">
 
@@ -85,15 +85,15 @@ export default function PortfolioModal() {
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={handleClose}>
                                         Close
-                                    </Button>
-                                    <Button variant="primary" onClick={handleSubmit}>
-                                        Add 
-                                    </Button>
+                                     </Button>
+                        <Link to="user"> <Button variant="primary" onClick={handleSubmit}>
+                            View Full Profile 
+                        </Button></Link>
+                                    
                                 </Modal.Footer>
                             </Modal>
                         </div>
-                
-
+                 
         </>
         
     );

@@ -15,7 +15,6 @@ import Vacancies from './Component/Vacancies';
 import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
 import Users from './Component/Users'; 
-import ProfileModal from './Component/Modal/ProfileModal';
 function App() {
  
   return (
@@ -30,7 +29,6 @@ function App() {
         <Route path="/vacancy" element={<Vacancy />} />
 		<Route path="/registerVacancy" element={<VacancyRegister />} />
 
-        <Route path="/user" element={<UserProfile /> } />
         <Route path="/addIndustry" element={<AddIndustry />} />
         <Route path="/addVacancy" element={<AddVacancy />} />
         <Route path="/industries" element={<Industry />} />
