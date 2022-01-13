@@ -32,8 +32,6 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-
-
         <Route path="/vacancy" element={<Vacancy />} />
         <Route path="/editVacancy/:id" element={<VacancyProfileEdit />} />
         <Route path="/registerVacancy/:id" element={<VacancyRegister />} />

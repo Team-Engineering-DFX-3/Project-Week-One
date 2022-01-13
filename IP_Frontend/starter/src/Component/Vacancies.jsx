@@ -31,7 +31,7 @@ const Vacancies = (props) => {
 
     return (
         <>
-            <div className="body-align-center body">
+            <div className="body-align-center body-align-midcenter body">
                 <div className="container body-align-center shadow p-3 mb-5 bg-body rounded">
                     {
                         (vacancyData.length > 0) ? <h1> Vacancies</h1> : <h1> Sorry!! No Vacancies Currently.</h1>

@@ -12,7 +12,7 @@ const Vacancy_Details = ({ vacanciesData }) => {
     const state = location.state;
 
     return (
-        <div className="container shadow p-3 mb-5 bg-body rounded body">
+        <div className="container shadow p-3 mb-5 bg-body body-align-midcenter rounded body">
             <div className='row'>
                 <ul className='list col-sm body-align-left container shadow p-3 mb-5 bg-body rounded' id='left'>
                     <div className="card vacancy">
