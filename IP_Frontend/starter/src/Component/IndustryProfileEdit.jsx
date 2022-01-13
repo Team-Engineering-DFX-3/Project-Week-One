@@ -98,18 +98,18 @@ export default function IndustryProfileEdit() {
                             <div className=" col-sm body-align-left" id='left'>
                                 <ul className='list body-align-left' id='left' >
                                     <li><label htmlFor="company_name">Company Name: </label><br /></li>
-                                    <li><input className='input' type="text" id="company_name" name="name" defaultValue={state.name} onChange={handleChange} placeholder="Company Name" required /><br></br></li>
+                                    <li><input className='input' type="text" id="company_name" name="name" defaultValue={state.name} onChange={handleChange} validations={[Regex.required]} placeholder="Company Name" /><br></br></li>
                                     <li><label htmlFor="description">Company Description: </label><br /></li>
-                                    <li><input className='input' type="text" id="description" name="description" defaultValue={state.description} onChange={handleChange} placeholder="Company Description" required /><br></br></li>
+                                    <li><input className='input' type="text" id="description" name="description" defaultValue={state.description} onChange={handleChange} validations={[Regex.required]} placeholder="Company Description" /><br></br></li>
                                     <li><label htmlFor="location">Company Location: </label><br /></li>
-                                    <li><input className='input' type="text" id="location" name="location" defaultValue={state.location} onChange={handleChange} placeholder="Company Location" required /><br /></li>
+                                    <li><input className='input' type="text" id="location" name="location" defaultValue={state.location} onChange={handleChange} placeholder="Company Location" validations={[Regex.required]} /><br /></li>
                                 </ul>
                             </div>
 
                             <div className=' col-sm body-align-right' id='right'>
                                 <ul className='list body-align-right' id='right' >
                                     <li><img src={state.image && `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000` + `${state.image}`} alt="Industry Logo" className="img" /></li>
-                                    <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} required /></li>
+                                    <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} validations={[Regex.required]} /></li>
                                 </ul>
                             </div>
                         </div>
