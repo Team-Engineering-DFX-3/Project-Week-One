@@ -1,7 +1,12 @@
 import '../Component/css/App.css';
 import { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate, Link } from "react-router-dom";
 import { useParams } from 'react-router';
+=======
+import { Link } from "react-router-dom";
+// import image_holder from './images/image_holder.png';
+>>>>>>> main
 import ContainerHeader from './Header/ContainerHeader';
 import axios from 'axios';
 
@@ -27,7 +32,7 @@ const AddVacancy = () => {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'post', url: `http://127.0.0.1:4000/addVacancy`,
+                method: 'post', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy`,
                 data: vacancyData,
                 headers: {
                     'Accept': 'application/json',

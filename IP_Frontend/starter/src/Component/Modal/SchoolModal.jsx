@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Button, Modal, Form, Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Button, Modal, Form, Container, Table } from 'react-bootstrap';
 
 export default function SchoolModal() {
     const [show, setShow] = useState(false);
@@ -35,7 +35,7 @@ export default function SchoolModal() {
         setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editSchool', schoolData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editSchool', schoolData);
             console.log('hi');
             alert(response.data.message);
             console.log(response.data.school);

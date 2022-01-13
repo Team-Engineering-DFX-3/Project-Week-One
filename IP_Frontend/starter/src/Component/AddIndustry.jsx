@@ -35,7 +35,7 @@ const AddIndustry = () => {
             formData.append('industry', JSON.stringify(industryData));
             formData.append("image", file);
             const response = await axios({
-                method: 'post', url: `http://127.0.0.1:4000/addIndustry`,
+                method: 'post', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addIndustry`,
                 data: formData,
                 headers: {
                     'content-type': 'multipart/form-data'

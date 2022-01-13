@@ -1,11 +1,12 @@
 import React from 'react';
 import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 import FormData from 'form-data';
+import Regex from '../services/validation.regex'
 
 export default function IndustryProfileEdit() {
     const { id } = useParams();
@@ -29,7 +30,7 @@ export default function IndustryProfileEdit() {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editIndustry/' + `${id}`);
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editindustry/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -62,19 +63,20 @@ export default function IndustryProfileEdit() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // form.current.validateAll();
         try {
             const formData = new FormData();
             formData.append('industry', JSON.stringify(industryData));
             formData.append("image", file);
             const response = await axios({
-                method: 'put', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
+                method: 'put', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/` + `${id}`,
                 data: formData,
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             });
             setIndustryData(response.data);
-            navigate(`/industry/` + `${id}`, { states: response.data });
+            navigate(`/industry/${id}`, { states: response.data });
 
         }
         catch (ex) {
@@ -87,7 +89,7 @@ export default function IndustryProfileEdit() {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'delete', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
+                method: 'delete', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/` + `${id}`,
             });
             alert(response.data.message);
         }

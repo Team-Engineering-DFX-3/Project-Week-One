@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, Modal, Form, Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Button, Modal, Form, Container, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function AwardModal() {
@@ -34,7 +34,7 @@ export default function AwardModal() {
         setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editAward', awardData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editAward', awardData);
             console.log('hi');
             alert(response.data.message);
             console.log(response.data.award);

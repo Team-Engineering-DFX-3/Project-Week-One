@@ -9,7 +9,7 @@ const Industry = () => {
 
     const getIndustries = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/industries');
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/industries');
             return response;
         }
         catch (e) {
@@ -39,7 +39,7 @@ const Industry = () => {
                     return (
                         <div className="container_medium shadow mb-5 body-align-midcenter rounded">
                             <div className='row'>
-                                <Link to={`/industry/` + `${industry._id}`}>
+                                <Link to={`/industry/${industry._id}`}>
                                     <ContainerHeader key={industry._id} title={industry.name} />
                                 </Link>
                             </div>
@@ -52,7 +52,7 @@ const Industry = () => {
                                         </ul>
                                     </div>
                                     <div className='list col-md body-align-right' id='right'>
-                                        <img src={`http://127.0.0.1:4000/` + `${industry.image}`} alt="Industry Logo" className="img" />
+                                        <img src={`http://127.0.0.1:4000/${industry.image}`} alt="Industry Logo" className="img" />
                                     </div>
                                 </div>
                             </div>
