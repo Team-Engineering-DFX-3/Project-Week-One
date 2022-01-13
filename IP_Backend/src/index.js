@@ -58,6 +58,6 @@ main().then(() => console.log(`Connected to DB`))
     .catch(err => console.log("failed " + err));
 
 // app.listen(4000, () => console.log("Server started"));
-const server = app.listen(4000, "0.0.0.0", () => console.log(`Server is listening on http://localhost:4000`));
+const server = app.listen(port, host, () => console.log(`Server is listening on http://localhost:4000`));
 
 export default server
