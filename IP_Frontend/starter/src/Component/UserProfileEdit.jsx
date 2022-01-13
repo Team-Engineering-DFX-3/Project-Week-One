@@ -12,7 +12,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ContainerHeader from './Header/ContainerHeader'
 
 
-export default function UserProfileEdit() {
+export default function UserProfileEdit({setUserData}) {
 
     const [allDegreeData, setAllDegreeData] = useState([]);
     const [allWorkData, setAllWorkData] = useState([]);
@@ -71,7 +71,7 @@ export default function UserProfileEdit() {
         // setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editUser', userData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser', userData);
             alert(response.data.message);
             console.log(response.data.user);
             setUserData(response.data.user);
@@ -89,7 +89,7 @@ export default function UserProfileEdit() {
 
     useEffect(() => {
         async function getDegrees() {
-            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editDegree');
             setAllDegreeData(response.data.degrees)
             console.log(response.data.degrees);
         }
@@ -98,7 +98,7 @@ export default function UserProfileEdit() {
     }, [])
     useEffect(() => {
         async function getWork() {
-            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editWork');
             setAllWorkData(response.data.work)
             console.log(response.data.work);
         }
@@ -108,7 +108,7 @@ export default function UserProfileEdit() {
 
     useEffect(() => {
         async function getSchool() {
-            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editSchool');
             setAllSchoolData(response.data.schools)
             console.log(response.data.schools);
         }
@@ -118,7 +118,7 @@ export default function UserProfileEdit() {
 
     useEffect(() => {
         async function getPortfolio() {
-            let response = await axios.get('http://127.0.0.1:4000/editPortfolio');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editPortfolio');
             setAllPortfolioData(response.data.portfolio)
             console.log(response.data.portfolio);
         }
@@ -128,7 +128,7 @@ export default function UserProfileEdit() {
 
     useEffect(() => {
         async function getAward() {
-            let response = await axios.get('http://127.0.0.1:4000/editAward');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editAward');
             setAllAwardData(response.data.awards)
             console.log(response.data.awards);
         }
@@ -181,7 +181,7 @@ export default function UserProfileEdit() {
                     <div className='row'>
                         <ContainerHeader title={"Degree"} />
                     </div>
-                    <DegreeModal />
+                    <DegreeModal setUserData={setUserData}/>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -196,7 +196,7 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                         
+
                             {allDegreeData.map(degree => {
                                 return (
                                     <tr>
@@ -223,7 +223,7 @@ export default function UserProfileEdit() {
                     <div className='row'>
                         <ContainerHeader title={"School Qualifications"} />
                     </div>
-                    <SchoolModal />
+                    <SchoolModal setUserData={setUserData} />
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -306,7 +306,7 @@ export default function UserProfileEdit() {
                     <div className='row'>
                         <ContainerHeader title={"Certificates and Awards"} />
                     </div>
-                    <AwardModal />
+                    <AwardModal setUserData={setUserData} />
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -348,7 +348,7 @@ export default function UserProfileEdit() {
                     <div className='row'>
                         <ContainerHeader title={"Portfolio"} />
                     </div>
-                    <PortfolioModal />
+                    <PortfolioModal setUserData={setUserData} />
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>

@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Modal, Form, Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
 
-export default function DegreeModal() {
+export default function DegreeModal({ setUserData, userData }) {
     // constructor(props) {
     //     super(props);
     //     this.state = { value: '' };
@@ -31,11 +31,11 @@ export default function DegreeModal() {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setDegreeData({
-            ...degreeData,
+        setUserData({
+            ...userData,
             [name]: value
         });
-        console.dir("Degree data: " + degreeData);
+        console.dir("User data: " + userData);
     };
 
     const handleSubmit = async (e) => {
@@ -43,7 +43,7 @@ export default function DegreeModal() {
         setShow(false);
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:4000/editDegree', degreeData);
+            const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editDegree', degreeData);
             console.log('hi');
             alert(response.data.message);
             console.log(response.data.degree);

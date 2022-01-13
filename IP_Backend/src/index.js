@@ -17,6 +17,8 @@ import { editPortfolio } from '../routes/editPortfolio.js';
 import { editAward } from '../routes/editAward.js';
 import { editUser } from '../routes/editUser.js';
 
+// const cors = require('cors');
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
@@ -41,7 +43,6 @@ app.use(`/editAward`, editAward);
 app.use(`/editUser`, editUser);
 
 
-app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
 
 const main = async () => {
     console.log(`Connecting to DB @ mongodb`);
@@ -51,4 +52,5 @@ const main = async () => {
 main().then(() => console.log(`Connected to DB`))
     .catch(err => console.log("failed " + err));
 
-app.listen(4000, () => console.log("Server started"));
+// app.listen(4000, () => console.log("Server started"));
+app.listen(4000, "0.0.0.0", () => console.log(`Server is listening on http://localhost:4000`));

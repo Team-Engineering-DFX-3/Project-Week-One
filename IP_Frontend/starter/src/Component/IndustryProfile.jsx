@@ -14,7 +14,7 @@ const Industry_Profile = () => {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editIndustry/' + `${id}`);
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -58,7 +58,7 @@ const Industry_Profile = () => {
                         <div className='list col-md body-align-right' id='right'>
                             <li>
                                 <div>
-                                    <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/` + `${industry.image}` : `http://127.0.0.1:4000/` + `${state.image}`)} alt="Industry Logo" className="img" />
+                                    <img src={(industry?.image || state?.image) && (industry ? `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000` + `${industry.image}` : `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000` + `${state.image}`)} alt="Industry Logo" className="img" />
                                 </div>
                             </li>
                         </div>

@@ -4,48 +4,57 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Modal, Form, Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
 
-export default function WorkModal() {
+export default function WorkModal({ setUserData, userData }) {
     const [show, setShow] = useState(false);
 
-    const navigate = useNavigate();
-    const [workData, setWorkData] = useState({
-        experience: ``,
-        institution: ``,
-        position: ``,
-        dateFrom: ``,
-        dateTo: ``,
-        description: ``
-    });
+    //const navigate = useNavigate();
+    // const [workData, setWorkData] = useState({
+    //     workExperience: ``,
+    //     workInstitution: ``,
+    //     workPosition: ``,
+    //     workDateFrom: ``,
+    //     workDateTo: ``,
+    //     workDescription: ``
+    // });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     const handleChange = e => {
         const { name, value } = e.target;
-        setWorkData({
-            ...workData,
+        setUserData({
+            ...userData,
             [name]: value
         });
-        console.dir("Degree data: " + workData);
+        console.dir("User data: " + userData);
     };
 
-    const handleSubmit = async (e) => {
-        console.log("entered handle");
-        setShow(false);
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://127.0.0.1:4000/editWork', workData);
-            console.log('hi');
-            alert(response.data.message);
-            console.log(response.data.degree);
-            setWorkData(response.data.degree);
-            navigate('/UserEdit', { state: response.data });
+    // const handleChange = e => {
+    //     const { name, value } = e.target;
+    //     setWorkData({
+    //         ...workData,
+    //         [name]: value
+    //     });
+    //     console.dir("Degree data: " + workData);
+    // };
 
-        }
-        catch (e) {
-            return "failure";
-        }
-    };
+    // const handleSubmit = async (e) => {
+    //     console.log("entered handle");
+    //     setShow(false);
+    //     e.preventDefault();
+    //     try {
+    //         const response = await axios.post('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editWork', workData);
+    //         console.log('hi');
+    //         alert(response.data.message);
+    //         console.log(response.data.degree);
+    //         setWorkData(response.data.degree);
+    //         navigate('/UserEdit', { state: response.data });
+
+    //     }
+    //     catch (e) {
+    //         return "failure";
+    //     }
+    // };
 
     return (
         <>
@@ -98,7 +107,7 @@ export default function WorkModal() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
+                    <Button variant="primary" onClick={handleClose}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

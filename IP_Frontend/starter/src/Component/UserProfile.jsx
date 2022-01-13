@@ -15,7 +15,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getDegrees() {
-            let response = await axios.get('http://127.0.0.1:4000/editDegree');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editDegree');
             setAllDegreeData(response.data.degrees)
         }
 
@@ -26,7 +26,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getWork() {
-            let response = await axios.get('http://127.0.0.1:4000/editWork');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editWork');
             setAllWorkData(response.data.work)
         }
 
@@ -35,7 +35,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getSchool() {
-            let response = await axios.get('http://127.0.0.1:4000/editSchool');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editSchool');
             setAllSchoolData(response.data.schools)
         }
 
@@ -44,7 +44,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getPortfolio() {
-            let response = await axios.get('http://127.0.0.1:4000/editPortfolio');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editPortfolio');
             setAllPortfolioData(response.data.portfolio)
             console.log(response.data.portfolio);
         }
@@ -54,7 +54,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getAward() {
-            let response = await axios.get('http://127.0.0.1:4000/editAward');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editAward');
             setAllAwardData(response.data.awards)
             console.log(response.data.awards);
         }
@@ -63,7 +63,7 @@ export default function UserProfile() {
 
     useEffect(() => {
         async function getUser() {
-            let response = await axios.get('http://127.0.0.1:4000/editUser');
+            let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser');
             setAllUserData(response.data.users)
             console.log(response.data.users);
         }

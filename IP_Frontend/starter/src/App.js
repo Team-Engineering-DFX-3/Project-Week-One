@@ -14,30 +14,81 @@ import Industry from './Component/Industry';
 import Vacancies from './Component/Vacancies';
 import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
-import Users from './Component/Users'; 
+import GraduateSpotlight from './Component/GraduateSpotlight';
+
 function App() {
- 
+  // const serverURL = 'https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000'
+
+  const [userData, setUserData] = useState({
+    name: ``,
+    pemail: ``,
+    dfemail: ``,
+    github: ``,
+    linkedin: ``,
+    phone: ``,
+    cohort: ``,
+    learning: ``,
+    trainer: ``,
+    grade: ``,
+    traineeFinishingDate: ``,
+    challengeOne: ``,
+    challengeTwo: ``,
+    challengeThree: ``,
+    challengeFour: ``,
+    challengeFive: ``,
+    challengeSix: ``,
+    degreeInstitution: ``,
+    degreeSubject: ``,
+    degreeLevel: ``,
+    degreeGrade: ``,
+    degreeDateFrom: ``,
+    degreeDateTo: ``,
+    degreeDescription: ``,
+    school: ``,
+    schoolExamType: ``,
+    schoolSubject: ``,
+    schoolGrade: ``,
+    schoolYear: ``,
+    schoolDescription: ``,
+    workExperience: ``,
+    workInstitution: ``,
+    workPosition: ``,
+    workDateFrom: ``,
+    workDateTo: ``,
+    workDescription: ``,
+    awardType: ``,
+    awardIssuer: ``,
+    award: ``,
+    awardGrade: ``,
+    dateAwarded: ``,
+    awardDescription: ``,
+    portfolioTitle: ``,
+    url: ``,
+    portfolioDescription: ``,
+  });
+
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
 
-        
-        <Route path="/editIndustry" element={<IndustryProfileEdit />} />
+
+        {/* <Route path="/editIndustry" element={<IndustryProfileEdit />} /> */}
 
         <Route path="/vacancy" element={<Vacancy />} />
-		<Route path="/registerVacancy" element={<VacancyRegister />} />
+        <Route path="/registerVacancy" element={<VacancyRegister />} />
 
+      
         <Route path="/addIndustry" element={<AddIndustry />} />
         <Route path="/addVacancy" element={<AddVacancy />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
-        <Route path="/user" element={<UserProfile />} />
-        <Route path="/UserEdit" element={<UserProfileEdit />} />
-        <Route path="/users" element={<Users />} /> 
+        <Route path="/user" element={<UserProfile setUserData={setUserData} />} />
+        <Route path="/UserEdit" element={<UserProfileEdit setUserData={setUserData}/>} />
+        <Route path="/GraduateSpotlight" element={<GraduateSpotlight setUserData={setUserData} />} />
       </Routes>
     </div>
   )
