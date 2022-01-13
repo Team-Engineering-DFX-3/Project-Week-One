@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
-// import Vacancies from './Vacancies';
 import axios from 'axios';
 
 const VacancyProfile = () => {
@@ -40,6 +39,9 @@ const VacancyProfile = () => {
                     <Link to={`/industries`}>
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
+                    <Link to={`/addVacancy/` + `${id}`}>
+                        <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
+                    </Link>
                     <Link to={`/editVacancy/` + `${vacancy._id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Edit Vacancy</button>
                     </Link>
@@ -49,7 +51,9 @@ const VacancyProfile = () => {
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
                     <div className='row'>
-                        <ContainerHeader title={state ? state.designation : vacancy.designation} />
+                        <Link to={`/editVacancy/` + `${vacancy._id}`}>
+                            <ContainerHeader title={state ? state.designation : vacancy.designation} />
+                        </Link>
                     </div>
 
                     <div className="container shadow mb-5 bg-body rounded" >
