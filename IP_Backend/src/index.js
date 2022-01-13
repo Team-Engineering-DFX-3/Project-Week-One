@@ -53,4 +53,4 @@ main().then(() => console.log(`Connected to DB`))
     .catch(err => console.log("failed " + err));
 
 // app.listen(4000, () => console.log("Server started"));
-app.listen(4000, "localhost", () => console.log(`Server is listening on http://localhost:4000`));
+app.listen(4000, "0.0.0.0", () => console.log(`Server is listening on http://localhost:4000`));
