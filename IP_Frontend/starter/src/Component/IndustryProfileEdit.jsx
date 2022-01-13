@@ -57,7 +57,7 @@ export default function IndustryProfileEdit() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        form.current.validateAll();
+        // form.current.validateAll();
         try {
             const formData = new FormData();
             formData.append('industry', JSON.stringify(industryData));
