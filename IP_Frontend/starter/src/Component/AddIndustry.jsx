@@ -8,7 +8,6 @@ import axios from 'axios';
 
 const AddIndustry = () => {
     const [industryData, setIndustryData] = useState({});
-    const [messageField, setMessageField] = useState({ messageField: `` });
     const [file, setFile] = useState();
     const handleChangeFile = (e) => {
         const file = e.target.files[0];
@@ -19,9 +18,6 @@ const AddIndustry = () => {
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
         );
-        setMessageField({
-            messageField: ''
-        });
     };
 
     const handleChange = e => {
@@ -73,7 +69,7 @@ const AddIndustry = () => {
                             <Link to={`/industry/` + `${industryData._id}`}>
                                 <button id="editButton" type="button" className="btn btn-primary">View Company Profile </button>
                             </Link>
-                            <Link to={`/addVacancy/`}>
+                            <Link to={`/addVacancy/` + `${industryData._id}`}>
                                 <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
                             </Link>
                         </>
@@ -120,12 +116,12 @@ const AddIndustry = () => {
                                     <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Add Company</button>
                                 </div>
                                 <div className="col-sm-5">
-                                    <Link to="/">
+                                    <Link to={`/industries`}>
                                         <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                     </Link>
                                 </div>
                                 <div className="col-sm-2">
-                                    <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
+                                    <button type="submit" className="btn btn-danger btn-custom" onClick={handleReset} form="industryProfileForm">Reset</button>
                                 </div>
                             </div>
                         </div>
