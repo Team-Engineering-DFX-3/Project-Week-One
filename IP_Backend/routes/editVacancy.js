@@ -31,7 +31,7 @@ router.route(`/:id`).delete((req, res) => {
             res.status(400).send({ message: error });
         }
         else {
-            res.status(200).send({ message: `vacancy deleted successfully`, vacancy: vacancydetails });
+            res.status(200).send({ message: `Vacancy deleted successfully`, vacancy: vacancydetails });
         }
     });
 });
