@@ -21,8 +21,8 @@ const GraduateSpotlight = () => {
     useEffect(() => {
         getSpUser().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
-                setSpUser([...resp.data.result]);
-                console.log(resp.data.result);
+                setSpUser([...resp.data]);
+                console.log(resp.data);
 
             }
         }).catch((err) => {

@@ -13,7 +13,7 @@ export default function PortfolioModal() {
 
     const getSpUserData = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editUser');
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser');
             return response;
         }
         catch (e) {
@@ -24,8 +24,8 @@ export default function PortfolioModal() {
     useEffect(() => {
         getSpUserData().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
-                setSpUserData([...resp.data.result]);
-                console.log(resp.data.result);
+                setSpUserData([...resp.data]);
+                console.log(resp.data);
 
             }
         }).catch((err) => {
