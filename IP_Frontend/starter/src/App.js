@@ -4,6 +4,7 @@ import Home from './Component/Home';
 import Header from './Component/Header/Header';
 import IndustryProfile from './Component/IndustryProfile';
 import IndustryProfileEdit from './Component/IndustryProfileEdit';
+import RegisteredUsers from './Component/RegisteredUsers';
 import VacancyProfile from './Component/VacancyProfile';
 import VacancyProfileEdit from './Component/VacancyProfileEdit';
 import AllVacancies from './Component/AllVacancies';
@@ -33,6 +34,7 @@ function App() {
         <Route path="/vacancyProfile/:id" element={<VacancyProfile />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile />} />
+        <Route path="/registeredUsers" element={<RegisteredUsers />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/allVacancies" element={<AllVacancies />} />
