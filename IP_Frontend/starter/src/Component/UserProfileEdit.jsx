@@ -27,12 +27,6 @@ export default function UserProfileEdit() {
     let awardTableRow = 1;
 
 
-    //const [show, setShow] = useState(false);
-
-
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     const navigate = useNavigate();
     const [userData, setUserData] = useState({
@@ -54,6 +48,12 @@ export default function UserProfileEdit() {
         challengeFive: ``,
         challengeSix: ``,
     });
+
+    const handleReset = () => {
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+        );
+    };
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -196,7 +196,7 @@ export default function UserProfileEdit() {
                             </tr>
                         </thead>
                         <tbody>
-                         
+
                             {allDegreeData.map(degree => {
                                 return (
                                     <tr>
@@ -422,7 +422,7 @@ export default function UserProfileEdit() {
                             <button type="button" className="btn btn-info btn-custom">Cancel Changes </button>
                         </div>
                         <div className="col-sm-2">
-                            <button type="reset" className="btn btn-danger btn-custom">Reset</button>
+                            <button type="submit" className="btn btn-danger btn-custom" onClick={handleReset}>Reset</button>
                         </div>
                     </div>
                 </div>
