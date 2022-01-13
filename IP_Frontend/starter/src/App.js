@@ -23,40 +23,38 @@ import VacancyRegister from './Component/VacancyRegister';
 function App() {
   // const serverURL = 'https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000'
 
-  function App() {
+  const [user, setLoginUser] = useState({});
 
-    const [user, setLoginUser] = useState({});
+  return (
 
-    return (
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          exact path="/"
+          element={
+            <>
+              {user && user._id ? <Home setLoginUser={setLoginUser} user={user} /> : <Login setLoginUser={setLoginUser} />}
+            </>
+          } />
+        <Route path="/login" element={<Login setLoginUser={setLoginUser} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/editIndustry" element={<IndustryProfileEdit />} />
+        <Route path="/vacancy" element={<Vacancy />} />
+        <Route path="/registerVacancy" element={<VacancyRegister />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/addIndustry" element={<AddIndustry />} />
+        <Route path="/addVacancy" element={<AddVacancy />} />
+        <Route path="/industries" element={<Industry />} />
+        <Route path="/industry/:id" element={<IndustryProfile />} />
+        <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
+        <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/UserEdit" element={<UserProfileEdit />} />
+        <Route path="/GraduateSpotlight" element={<GraduateSpotlight />} />
+      </Routes >
+    </div >
+  )
+}
 
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            exact path="/"
-            element={
-              <>
-                {user && user._id ? <Home setLoginUser={setLoginUser} user={user} /> : <Login setLoginUser={setLoginUser} />}
-              </>
-            } />
-          <Route path="/login" element={<Login setLoginUser={setLoginUser} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/editIndustry" element={<IndustryProfileEdit />} />
-          <Route path="/vacancy" element={<Vacancy />} />
-          <Route path="/registerVacancy" element={<VacancyRegister />} />
-          <Route path="/user" element={<UserProfile />} />
-          <Route path="/addIndustry" element={<AddIndustry />} />
-          <Route path="/addVacancy" element={<AddVacancy />} />
-          <Route path="/industries" element={<Industry />} />
-          <Route path="/industry/:id" element={<IndustryProfile />} />
-          <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
-          <Route path="/vacancies" element={<Vacancies />} />
-          <Route path="/UserEdit" element={<UserProfileEdit />} />
-          <Route path="/GraduateSpotlight" element={<GraduateSpotlight />} />
-        </Routes >
-      </div >
-    )
-  }
-
-  export default App;
+export default App;
