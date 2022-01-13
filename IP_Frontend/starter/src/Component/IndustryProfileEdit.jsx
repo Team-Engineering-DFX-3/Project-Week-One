@@ -102,9 +102,9 @@ export default function IndustryProfileEdit() {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industry/` + `${id}`}>
+                    <Link to={`/industries`}>
                         <button id="editButton" type="button" class="btn btn-primary">
-                            Back to Company
+                            All Companies
                         </button>
                     </Link>
                 </div>
