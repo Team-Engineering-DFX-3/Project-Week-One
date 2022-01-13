@@ -41,6 +41,7 @@ const AddIndustry = () => {
                     'content-type': 'multipart/form-data'
                 }
             });
+
             if (response.data.message === `Company already exists`) {
                 setIndustryData(response.data.industryprofile);
                 alert(response.data.message);
