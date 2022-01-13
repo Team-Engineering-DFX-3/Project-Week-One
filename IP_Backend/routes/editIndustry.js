@@ -1,18 +1,24 @@
 import express from 'express';
 const router = express.Router();
 import multer from 'multer';
-const upload = multer({ dest: './public/data/uploads/' })
+const upload = multer({ dest: './public/data/uploads/' });
 import IndustryProfile from '../models/industryProfileSchema.js';
 
 router.route('/:id').put(upload.single('image'), async function (req, res) {
+    var imagePath, updatedData;
     const id = req.params.id;
-    const imagePath = req.file.path;
-    const image = imagePath.substring(7);
-
     const { name, description, location } = JSON.parse(req.body.industry);
+    const image = req?.file?.path;
+    if (image !== undefined) {
+        imagePath = image.substring(7);
+        updatedData = { name: name, description: description, location: location, image: imagePath };
+    }
+    else {
+        updatedData = { name: name, description: description, location: location };
+    }
     let updatedIndustry = await IndustryProfile.findOneAndUpdate(
-        { _id: id },
-        { name: name, description: description, location: location, image: image }
+        { _id: id }, updatedData,
+        { new: true }
     );
     res.status(200).send(updatedIndustry);
 });
@@ -25,5 +31,10 @@ router.route(`/:id`).get((req, res) => {
 });
 
 export { router as editIndustry };
+
+
+
+
+
 
 

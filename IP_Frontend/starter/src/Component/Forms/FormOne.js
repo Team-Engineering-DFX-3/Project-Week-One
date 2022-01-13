@@ -1,6 +1,9 @@
 import React from 'react'
 
 const FormOne = () => {
+
+
+
     return (
         <>
             <form action="/" id="1" >
@@ -9,9 +12,9 @@ const FormOne = () => {
                         <li><label for="name">Full Name:</label><br></br></li>
                         <li><input class='input' type="text" id="name" name="name" placeholder="John Doe" /><br></br></li>
                         <li><label for="pemail">Personal Email:</label><br></br></li>
-                        <li><input class='input' type="email" id="pemail" name="email" placeholder="JohnDoe@email.com" /><br></br></li>
+                        <li><input class='input' type="email" id="pemail" name="pemail" placeholder="JohnDoe@email.com" /><br></br></li>
                         <li><label for="demail">Digital Futures Email:</label><br></br></li>
-                        <li><input class='input' type="email" id="demail" name="email" placeholder="JohnDoe@DFemail.com" /><br></br></li>
+                        <li><input class='input' type="email" id="demail" name="dfemail" placeholder="JohnDoe@DFemail.com" /><br></br></li>
                     </ul>
                 </div>
                 <div class='sub-entry'>

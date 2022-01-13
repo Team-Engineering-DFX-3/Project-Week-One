@@ -26,7 +26,6 @@ const Industry_Profile = () => {
         getIndustry().then((resp) => {
             if (resp !== "failure" && resp.status === 200) {
                 setIndustry(resp.data);
-                console.log(resp.data);
             }
         }).catch((err) => {
             throw (err);
@@ -59,7 +58,7 @@ const Industry_Profile = () => {
                         <div className='list col-md body-align-right' id='right'>
                             <li>
                                 <div>
-                                    <img src={state ? 'http://127.0.0.1:4000/' + `${state.image}` : 'http://127.0.0.1:4000/' + `${industry.image}`} alt="Industry Logo" className="img" />
+                                    <img src={(industry?.image || state?.image) && (industry ? `http://127.0.0.1:4000/` + `${industry.image}` : `http://127.0.0.1:4000/` + `${state.image}`)} alt="Industry Logo" className="img" />
                                 </div>
                             </li>
                         </div>
