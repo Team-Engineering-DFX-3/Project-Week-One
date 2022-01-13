@@ -85,6 +85,10 @@
   text-align: center;
 }
 
+.body-align-midcenter{
+  margin-left:200px;
+  margin-right:200px;
+}
 .card-body {
   padding-top: 0px;
   padding-left: 12px;
@@ -104,6 +108,14 @@
 
 .containerHeight {
   max-height: 200px;
+}
+
+.container_medium{
+  max-width:70%;
+}
+
+.container_small{
+  max-width:50%;
 }
 
 .colForm {
@@ -153,7 +165,7 @@
   margin-bottom: 20px;
 }
 
-.input {
+.input{
 width: 400px;
 margin-top: 5px;
 margin-bottom: 5px;
@@ -202,11 +214,12 @@ padding:0px;
   border-radius: 4px;
 }
 
-.searchbar{
-width:10cm;
-margin-left:20px;
-
+.selectmenu{
+width: 400px;
+margin-top: 5px;
+margin-bottom: 5px;
 }
+
 
 .sub-entry {
   width: 50%;
