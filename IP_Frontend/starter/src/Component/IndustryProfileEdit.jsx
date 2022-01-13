@@ -108,7 +108,7 @@ export default function IndustryProfileEdit() {
 
                             <div className=' col-sm body-align-right' id='right'>
                                 <ul className='list body-align-right' id='right' >
-                                    <li><img src={state.image && `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000` + `${state.image}`} alt="Industry Logo" className="img" /></li>
+                                    <li><img src={state.image && `http://127.0.0.1:4000` + `${state.image}`} alt="Industry Logo" className="img" /></li>
                                     <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} validations={[Regex.required]} /></li>
                                 </ul>
                             </div>
