@@ -52,7 +52,7 @@ const Industry = () => {
                                         </ul>
                                     </div>
                                     <div className='list col-md body-align-right' id='right'>
-                                        <img src={`http://127.0.0.1:4000/${industry.image}`} alt="Industry Logo" className="img" />
+                                        <img src={`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/${industry.image}`} alt="Industry Logo" className="img" />
                                     </div>
                                 </div>
                             </div>

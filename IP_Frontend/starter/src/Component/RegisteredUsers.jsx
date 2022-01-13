@@ -18,7 +18,7 @@ const RegisteredUsers = () => {
             // setDiscipline(apply_discipline);
             // discipline = apply_discipline;
             const response = await axios({
-                method: 'get', url: `http://127.0.0.1:4000/registerVacancy/` + apply_discipline,
+                method: 'get', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/registerVacancy/` + apply_discipline,
 
                 headers: {
                     'Accept': 'application/json',

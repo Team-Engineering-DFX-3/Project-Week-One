@@ -21,7 +21,7 @@ const Register = () => {
         e.preventDefault();
         const { name, email, password } = user;
         if (name && email && password) {
-            const res = await axios.post(`http://localhost:4000/register`, user);
+            const res = await axios.post(`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/register`, user);
             alert(res.data.message);
             return;
         }

@@ -27,7 +27,7 @@ export default function VacancyProfileEdit() {
 
     const getVacancy = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:4000/editVacancy/' + `${id}`);
+            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editVacancy/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -58,7 +58,7 @@ export default function VacancyProfileEdit() {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'put', url: `http://127.0.0.1:4000/editVacancy/` + `${id}`,
+                method: 'put', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editVacancy/` + `${id}`,
                 data: vacancyData,
                 headers: {
                     'Accept': 'application/json',
@@ -80,7 +80,7 @@ export default function VacancyProfileEdit() {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'delete', url: `http://127.0.0.1:4000/editVacancy/` + `${id}`,
+                method: 'delete', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editVacancy/` + `${id}`,
                 data: vacancyData,
             });
             alert(response.data.message);
