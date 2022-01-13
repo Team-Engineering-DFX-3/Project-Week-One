@@ -53,7 +53,6 @@ export default function PortfolioModal() {
                         <Modal.Title>Scorecard </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fportrait-smart-male-profile-symbol-portrait-smart-male-profile-symbol-minimal-cartoon-style-image166146967&psig=AOvVaw3udTIUQROPhikHlenVIuUV&ust=1642022483828000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNi7hMnQqvUCFQAAAAAdAAAAABAD" alt="User" className="user-picture" /> */}
                         <li><strong>Name:</strong>{spUserData[0] ? spUserData.map(spUserData => <div>{spUserData.name}<br></br> </div>) : <div >No Name found!</div>} </li>
                         <li><strong>Digital Futures email:</strong>{spUserData[0] ? spUserData.map(spUserData => <div>{spUserData.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
                         <li><strong>Personal Email :</strong>{spUserData[0] ? spUserData.map(spUserData => <div>{spUserData.pemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li>
