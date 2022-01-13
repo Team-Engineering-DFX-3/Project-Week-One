@@ -2,7 +2,6 @@ import '../Component/css/App.css';
 import { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useParams } from 'react-router';
-import { Link } from "react-router-dom";
 // import image_holder from './images/image_holder.png';
 import ContainerHeader from './Header/ContainerHeader';
 import axios from 'axios';
