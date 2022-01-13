@@ -1,13 +1,15 @@
 import React from 'react';
 import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 import FormData from 'form-data';
+import Regex from '../services/validation.regex'
 
 export default function IndustryProfileEdit() {
+    const form = useRef();
     const navigate = useNavigate();
     const [state, setState] = useState({});
     const [file, setFile] = useState();
@@ -55,6 +57,7 @@ export default function IndustryProfileEdit() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        form.current.validateAll();
         try {
             const formData = new FormData();
             formData.append('industry', JSON.stringify(industryData));

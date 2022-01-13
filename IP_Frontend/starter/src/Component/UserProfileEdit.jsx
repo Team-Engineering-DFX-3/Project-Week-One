@@ -84,9 +84,6 @@ export default function UserProfileEdit() {
         }
     };
 
-
-
-
     useEffect(() => {
         async function getDegrees() {
             let response = await axios.get('http://127.0.0.1:4000/editDegree');
@@ -96,6 +93,7 @@ export default function UserProfileEdit() {
 
         getDegrees()
     }, [])
+
     useEffect(() => {
         async function getWork() {
             let response = await axios.get('http://127.0.0.1:4000/editWork');
