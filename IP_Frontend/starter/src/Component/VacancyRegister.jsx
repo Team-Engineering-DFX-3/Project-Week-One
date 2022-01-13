@@ -37,6 +37,7 @@ export default function VacanciesRegister() {
 			...vacancyData,
 			[name]: value
 		});
+
 	};
 
 	const handleReset = () => {
@@ -51,7 +52,7 @@ export default function VacanciesRegister() {
 			const response = await axios.post('http://127.0.0.1:4000/registerVacancy', vacancyData);
 			alert(response.data.message);
 			setVacancyData(response.data.registration);
-			// navigate('/vacancies', { state: response.data });
+
 		}
 		catch (e) {
 			return "failure";
@@ -84,10 +85,11 @@ export default function VacanciesRegister() {
 							<li><label htmlFor="applicant_name">Applicant Name</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_name" name="applicant_name" onChange={handleChange} placeholder="Applicant's Name" required /><br></br></li>
 							<li><label htmlFor="applicant_discipline"> Applicant Discipline</label><br></br></li>
-							<li><select name="apply_discipline" className="selectmenu" required>
-								<option value="mse">Modern Software Engineering</option>
-								<option value="ds">Data Science</option>
-								<option value="ce">Cloud Engineering</option>
+							<li><select name="apply_discipline" onChange={handleChange} className="selectmenu" required>
+								<option selected disabled>Please select discipline</option>
+								<option value="Modern Software Engineering">Modern Software Engineering</option>
+								<option value="Data Science">Data Science</option>
+								<option value="Cloud Engineering">Cloud Engineering</option>
 							</select>
 							</li>
 							<li><label htmlFor="apply_company"> Applying in Company</label><br></br></li>
