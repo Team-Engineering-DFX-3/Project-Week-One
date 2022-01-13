@@ -7,14 +7,27 @@ export default function Header() {
         <>
             <header className='dfxHeader'>
                 <div className="inside">
-                    <img src={logo} alt="logo" className="header-img" width={100} /> <h1 class="header-text" style={{ float: 'right' }}>DFX</h1>
-                    <nav class="nav">
-                        <ul>
-                            {/* <li class="list-items"><a class="nav-link" href="./index.html">Home</a></li>
-                            <li class="list-items"><a class="nav-link" href="./signupmm.html">Sign Up</a></li> */}
-                        </ul>
-                    </nav>
+                    <img src={logo} alt="logo" className="header-img" width={100} /><h1 class="header-text" style={{ float: 'right' }}>DFX</h1>
                 </div>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/User">Graduates</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/industries">Industries</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                {/* <h2 className="nav-text" >Home</h2> */}
             </header>
         </>
     )

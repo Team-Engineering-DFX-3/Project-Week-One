@@ -44,7 +44,7 @@ app.use(`/editUser`, editUser);
 
 app.use(cors())
 
-app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
+
 
 const main = async () => {
     console.log(`Connecting to DB @ mongodb`);
@@ -54,4 +54,5 @@ const main = async () => {
 main().then(() => console.log(`Connected to DB`))
     .catch(err => console.log("failed " + err));
 
-app.listen(4000, () => console.log("Server started"));
+// app.listen(4000, () => console.log("Server started"));
+app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));

@@ -2,7 +2,7 @@
 
 ssh -v -t -t ec2-user@ip-172-31-95-86 <<EOF 
 
-  cd ~/Project-Week-One/IP_Backend
+  cd ~/Project-Week-One
 
   git pull origin main
 
