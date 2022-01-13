@@ -29,10 +29,15 @@ const Industry = () => {
 
     return (
         <div className="body-align-center body nospacing">
+            <div>
+                <Link to={`/allVacancies`}>
+                    <button id="editButton" type="button" className="btn btn-primary">View all Vacancies </button>
+                </Link>
+            </div>
             {
                 industries.map(industry => {
                     return (
-                        <div className="container shadow mb-5 bg-body rounded">
+                        <div className="container_medium shadow mb-5 body-align-midcenter rounded">
                             <div className='row'>
                                 <Link to={`/industry/` + `${industry._id}`}>
                                     <ContainerHeader key={industry._id} title={industry.name} />
@@ -42,7 +47,7 @@ const Industry = () => {
                                 <div className='row'>
                                     <div className=" col-sm body-align-left" id='left'>
                                         <ul className="list">
-                                            <li className="card-title mb-2 text-muted"><b>Description: </b>{industry.description}</li>
+                                            <li className="card-text"><b>Description: </b>{industry.description}</li>
                                             <li className="card-text"><b>Location: </b>{industry.location}</li>
                                         </ul>
                                     </div>
