@@ -2,12 +2,13 @@ import React from 'react';
 import '../Component/css/App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader'
 import FormData from 'form-data';
 
 export default function IndustryProfileEdit() {
+    const { id } = useParams();
     const navigate = useNavigate();
     const [state, setState] = useState({});
     const [file, setFile] = useState();
@@ -18,7 +19,7 @@ export default function IndustryProfileEdit() {
         image: state.image
     });
 
-    const { id } = useParams();
+
 
     const handleReset = () => {
         Array.from(document.querySelectorAll("input")).forEach(
@@ -82,6 +83,21 @@ export default function IndustryProfileEdit() {
         handleReset();
     };
 
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios({
+                method: 'delete', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
+            });
+            alert(response.data.message);
+        }
+        catch (ex) {
+            throw ex;
+        }
+        handleReset();
+    };
+
+
     return (
         <>
             <div className="body nospacing">
@@ -121,15 +137,18 @@ export default function IndustryProfileEdit() {
                         </div>
                         <div className=' container shadow p-3 mb-5 bg-body rounded'>
                             <div className="row">
-                                <div className="col-sm-5">
+                                <div className="col-sm-3">
                                     <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit Profile Changes</button>
                                 </div>
-                                <div className="col-sm-5">
-                                    <Link to={`/editIndustry/` + `${id}`}>
+                                <div className="col-sm-3">
+                                    <button type="submit" className="btn btn-danger btn-custom" onClick={handleDelete}>Delete Company</button>
+                                </div>
+                                <div className="col-sm-3">
+                                    <Link to={`/industry/` + `${id}`}>
                                         <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                     </Link>
                                 </div>
-                                <div className="col-sm-2">
+                                <div className="col-sm-3">
                                     <button type="submit" className="btn btn-danger btn-custom" onClick={handleReset} form="industryProfileForm">Reset</button>
                                 </div>
                             </div>
