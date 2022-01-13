@@ -42,8 +42,6 @@ app.use(`/editPortfolio`, editPortfolio);
 app.use(`/editAward`, editAward);
 app.use(`/editUser`, editUser);
 
-app.use(cors())
-
 
 
 const main = async () => {
@@ -55,4 +53,4 @@ main().then(() => console.log(`Connected to DB`))
     .catch(err => console.log("failed " + err));
 
 // app.listen(4000, () => console.log("Server started"));
-app.listen(port, host, () => console.log(`Server is listening on http://${host}:${port}`));
+app.listen(4000, "localhost", () => console.log(`Server is listening on http://localhost:4000`));
