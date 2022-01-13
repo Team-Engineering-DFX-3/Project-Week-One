@@ -3,6 +3,11 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+
+import { login } from '../routes/login.js';
+import { register } from '../routes/register.js';
+//import { filterDiscipline } from '../routes/filterDiscipline.js';
+
 import { addIndustry } from '../routes/addIndustry.js';
 import { editIndustry } from '../routes/editIndustry.js';
 import { registerVacancy } from '../routes/registerVacancy.js';
@@ -27,11 +32,15 @@ app.use(bodyParser.json());
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use(`/login`, login);
+app.use(`/register`, register);
 app.use(`/addIndustry`, addIndustry);
 app.use(`/industry`, editIndustry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/registerVacancy`, registerVacancy);
+
 app.use(`/addVacancy`, addVacancy);
 app.use(`/editDegree`, editDegree);
 app.use(`/editSchool`, editSchool);
