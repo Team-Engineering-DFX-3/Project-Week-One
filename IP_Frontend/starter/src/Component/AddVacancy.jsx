@@ -1,12 +1,14 @@
 import '../Component/css/App.css';
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useParams } from 'react-router';
 import ContainerHeader from './Header/ContainerHeader';
 import axios from 'axios';
 
 const AddVacancy = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [vacancyData, setVacancyData] = useState({});
-    const [messageField, setMessageField] = useState({ messageField: `` });
     const handleChange = e => {
         const { name, value } = e.target;
         setVacancyData({
@@ -19,9 +21,6 @@ const AddVacancy = () => {
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
         );
-        setMessageField({
-            messageField: ''
-        });
     };
 
     const handleSubmit = async (e) => {
@@ -36,6 +35,7 @@ const AddVacancy = () => {
                 },
             });
             alert(response.data.message);
+            navigate(`/industry/` + `${id}`, { states: response.data });
         }
         catch (ex) {
             throw ex;
@@ -84,12 +84,12 @@ const AddVacancy = () => {
                                     <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Add Vacancy</button>
                                 </div>
                                 <div className="col-sm-5">
-                                    <Link to="/">
+                                    <Link to={`/industry/` + `${id}`}>
                                         <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                     </Link>
                                 </div>
                                 <div className="col-sm-2">
-                                    <button type="reset" className="btn btn-danger btn-custom" form="industryProfileForm">Reset</button>
+                                    <button type="submit" className="btn btn-danger btn-custom" onClick={handleReset} form="industryProfileForm">Reset</button>
                                 </div>
                             </div>
                         </div>
