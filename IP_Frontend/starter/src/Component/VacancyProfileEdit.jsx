@@ -84,6 +84,7 @@ export default function VacancyProfileEdit() {
                 data: vacancyData,
             });
             alert(response.data.message);
+            navigate(`/industry/` + `${id}`, { states: response.data });
         }
         catch (ex) {
             throw ex;
@@ -95,9 +96,9 @@ export default function VacancyProfileEdit() {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industry/` + `${id}`}>
+                    <Link to={`/vacancyProfile/` + `${id}`}>
                         <button id="editButton" type="button" class="btn btn-primary">
-                            Back to Company
+                            Back to Vacancy
                         </button>
                     </Link>
                 </div>
@@ -134,7 +135,7 @@ export default function VacancyProfileEdit() {
                                     <button type="submit" className="btn btn-danger btn-custom" onClick={handleDelete}>Delete Vacancy</button>
                                 </div>
                                 <div className="col-sm-3">
-                                    <Link to={`/editIndustry/` + `${id}`}>
+                                    <Link to={`/vacancyProfile/` + `${id}`}>
                                         <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                     </Link>
                                 </div>
