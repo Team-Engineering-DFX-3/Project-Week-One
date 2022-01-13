@@ -39,14 +39,9 @@ app.use(`/industry`, editIndustry);
 app.use(`/industries`, industries);
 app.use(`/editIndustry`, editIndustry);
 app.use(`/registerVacancy`, registerVacancy);
-<<<<<<< HEAD
 app.use(`/editVacancy`, editVacancy);
 app.use(`/addVacancy`, addVacancy);
 app.use(`/vacancies`, addVacancy);
-=======
-
-app.use(`/addVacancy`, addVacancy);
->>>>>>> main
 app.use(`/editDegree`, editDegree);
 app.use(`/editSchool`, editSchool);
 app.use(`/editWork`, editWork);

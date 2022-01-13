@@ -11,14 +11,6 @@ const Vacancy_Details = ({ vacanciesData }) => {
     const location = useLocation();
     const state = location.state;
 
-<<<<<<< HEAD
-=======
-
-    return (
-        <div className="container shadow p-3 mb-5 bg-body rounded">
-            <div className='row'>
->>>>>>> main
-
     return (
         <div className="container shadow p-3 mb-5 bg-body rounded body">
             <div className='row'>

@@ -116,7 +116,6 @@ import axios from 'axios';
 import ContainerHeader from './Header/ContainerHeader';
 
 export default function VacanciesRegister() {
-<<<<<<< HEAD
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [vacancyData, setVacancyData] = useState({});
@@ -186,42 +185,41 @@ export default function VacanciesRegister() {
 				<div class='container shadow mb-5 bg-body rounded'>
 					<div class='row'>
 						<ContainerHeader title="Job Application" />
-=======
-    const navigate = useNavigate();
-    const [vacanciesData, setVacanciesData] = useState({
+	const navigate = useNavigate();
+	const [vacanciesData, setVacanciesData] = useState({
 		name:``,
 		discipline:``,
-        title: ``,
+		title: ``,
 		description:``,
-        location: ``    
-    });
+		location: ``    
+	});
 
 	const [filterInput, setFilterInput] = useState("");
 
 
-    const handleChange = e => {
-        const { name, value } = e.target;
-        setVacanciesData({
-            ...vacanciesData,
-            [name]: value
-        });
-        console.dir("Vacancy data: " + vacanciesData);
-    };
+	const handleChange = e => {
+		const { name, value } = e.target;
+		setVacanciesData({
+			...vacanciesData,
+			[name]: value
+		});
+		console.dir("Vacancy data: " + vacanciesData);
+	};
 
-    const handleSubmit = async (e) => {
-        console.log("entered handle");
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://127.0.0.1:4000/registerVacancy', vacanciesData);
-            alert(response.data.message);
-            setVacanciesData(response.data.registration);
-            navigate('/', { state: response.data });
+	const handleSubmit = async (e) => {
+		console.log("entered handle");
+		e.preventDefault();
+		try {
+			const response = await axios.post('http://127.0.0.1:4000/registerVacancy', vacanciesData);
+			alert(response.data.message);
+			setVacanciesData(response.data.registration);
+			navigate('/', { state: response.data });
 
-        }
-        catch (e) {
-            return "failure";
-        }
-    };
+		}
+		catch (e) {
+			return "failure";
+		}
+	};
 
 
 	const handleFilterChange = e => {
@@ -242,14 +240,12 @@ export default function VacanciesRegister() {
 								</button>
 							</Link>
 						</div>
->>>>>>> main
 					</div>
 				</div>
 				<form id="vacancyRegisterForm">
 					<div class='modal-div container shadow mb-5 bg-body rounded '>
 						<ul className='list body-align-left' id='left' >
 
-<<<<<<< HEAD
 							<li><label htmlFor="applicant_name">Applicant Name</label><br></br></li>
 							<li><input className='input' type="text" id="applicant_name" name="applicant_name" onChange={handleChange} placeholder="Applicant's Name" required /><br></br></li>
 							<li><label htmlFor="applicant_discipline"> Applicant Discipline</label><br></br></li>
@@ -262,13 +258,11 @@ export default function VacanciesRegister() {
 							</li>
 							<li><label htmlFor="apply_company"> Applying in Company</label><br></br></li>
 							<li><input className='input' type="text" id="apply_company" name="company_name" onChange={handleChange} defaultValue={vacancyData.company_name} disabled placeholder="Applying for Company" required /><br></br></li>
-=======
 								<li><label for="applicant_name">Applicant Name:</label><br></br></li>
 								<li><input className='input' type="text" id="applicant_name" name="name"  onChange={handleChange} placeholder="Applicant Name" required /><br></br></li>
 								
 								<li><label for="applicant_discipline"> Applicant Discipline:</label><br></br></li>
 								<li><input className='input' type="text" id="applicant_discipline" name="discipline" value={filterInput} onChange={handleFilterChange} placeholder={"Search discipline"} required /><br></br></li>
->>>>>>> main
 
 							<li><label htmlFor="apply_designation"> Applying for Designation</label><br></br></li>
 							<li><input className='input' type="text" id="apply_designation" name="designation" onChange={handleChange} defaultValue={vacancyData.designation} disabled placeholder="Applying for Designation" required /><br></br></li>
@@ -299,7 +293,6 @@ export default function VacanciesRegister() {
 
 
 						</div>
-<<<<<<< HEAD
 					</div>
 
 				</form >
@@ -308,7 +301,6 @@ export default function VacanciesRegister() {
 		</>
 	)
 }
-=======
 	
 					</form >
 	
@@ -316,5 +308,4 @@ export default function VacanciesRegister() {
 			</>
 		)
 }*/
->>>>>>> main
 
