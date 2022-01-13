@@ -39,8 +39,14 @@ const IndustryProfile = () => {
                     <Link to={`/industries`}>
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
+                    <Link to={`/addVacancy/` + `${industry._id}`}>
+                        <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
+                    </Link>
                     <Link to={`/editIndustry/` + `${industry._id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Edit Company</button>
+                    </Link>
+                    <Link to={`/editIndustry/` + `${industry._id}`}>
+                        <button id="editButton" type="button" className="btn btn-primary">Delete Company</button>
                     </Link>
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
@@ -64,10 +70,9 @@ const IndustryProfile = () => {
                                 </li>
                             </div>
                         </div>
-                    </div >
+                    </div>
                 </div>
                 {(industry || state) && <Vacancies companyName={state ? state.name : industry.name} />}
-
             </div>
         </>
     )
