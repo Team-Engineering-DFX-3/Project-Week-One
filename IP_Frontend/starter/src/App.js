@@ -14,6 +14,7 @@ import Industry from './Component/Industry';
 import Vacancies from './Component/Vacancies';
 import UserProfile from './Component/UserProfile';
 import UserProfileEdit from './Component/UserProfileEdit';
+import GraduateSpotlight from './Component/GraduateSpotlight';
 
 function App() {
   // const serverURL = 'https://cors-anywhere.herokuapp.com/ec2-34-206-125-202.compute-1.amazonaws.com:4000'
@@ -39,6 +40,7 @@ function App() {
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
+        <Route path="/GraduateSpotlight" element={<GraduateSpotlight/>} />
       </Routes>
     </div>
   )
