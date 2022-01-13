@@ -45,25 +45,14 @@ const RegisteredUsers = () => {
                             <option value="Cloud Engineering">Cloud Engineering</option>
                         </select>
                         </li>
-
-                        <div className='modal-div container shadow p-3 mb-5 bg-body rounded'>
-                            <div className="row">
-                                <div className="col-sm-5">
-                                    <button type="submit" className="btn btn-primary btn-custom" onClick={handleSubmit}>Submit</button>
-                                </div>
-                            </div>
-                        </div>
+                        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
                     </form>
 
 
                     <div className="body-align-center">
 
                         <div className="container body-align-center shadow p-3 mb-5 bg-body rounded">
-                            {/* <div className="row">
-                                <ContainerHeader title={discipline} />
-                            </div> */}
                             <div className="row">
-
                                 {
                                     (registeredUser.length > 0) ? <h1> </h1> : <h1> Sorry!! No Registered Users.</h1>
                                 }
