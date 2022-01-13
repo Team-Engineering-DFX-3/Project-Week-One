@@ -6,6 +6,7 @@ import IndustryProfile from './Component/IndustryProfile';
 import IndustryProfileEdit from './Component/IndustryProfileEdit';
 import VacancyProfile from './Component/VacancyProfile';
 import VacancyProfileEdit from './Component/VacancyProfileEdit';
+import AllVacancies from './Component/AllVacancies';
 import Vacancy from './Component/Vacancy';
 import VacancyRegister from './Component/VacancyRegister';
 import AddIndustry from './Component/AddIndustry';
@@ -25,15 +26,16 @@ function App() {
         <Route path="/editIndustry" element={<IndustryProfileEdit />} />
         <Route path="/vacancy" element={<Vacancy />} />
         <Route path="/editVacancy/:id" element={<VacancyProfileEdit />} />
-        <Route path="/registerVacancy" element={<VacancyRegister />} />
+        <Route path="/registerVacancy/:id" element={<VacancyRegister />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/addIndustry" element={<AddIndustry />} />
-        <Route path="/addVacancy" element={<AddVacancy />} />
+        <Route path="/addVacancy/:id" element={<AddVacancy />} />
         <Route path="/vacancyProfile/:id" element={<VacancyProfile />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/allVacancies" element={<AllVacancies />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
       </Routes>
