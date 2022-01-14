@@ -12,17 +12,14 @@ export default function Header() {
                 <nav class="navbar navbar-expand-lg">
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/">Home</a>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/User">Graduates</a>
+                                <a class="nav-link" href="/User">User Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/industries">Industries</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Login</a>
+                                <a class="nav-link" href="/">Login</a>
                             </li>
                         </ul>
                     </div>

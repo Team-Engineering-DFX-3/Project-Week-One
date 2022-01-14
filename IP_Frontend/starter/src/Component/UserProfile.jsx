@@ -65,7 +65,6 @@ export default function UserProfile() {
         async function getUser() {
             let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser');
             setAllUserData(response.data)
-            console.log(response.data.users);
         }
         getUser()
     }, [])
@@ -89,22 +88,22 @@ export default function UserProfile() {
                         </h1>
 
                         <ul className='list col-sm body-align-left' id='left'>
-                            <li><strong>Name:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.name}<br></br> </div>) : <div >No Name found!</div>} </li> <br />
-                            <li><strong>Personal email:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.pemail}<br></br> </div>) : <div >No personal email found!</div>} </li><br />
-                            <li><strong>Digital Futures email:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li> <br />
-                            <li><strong>Github:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.github}<br></br> </div>) : <div >No github found!</div>} </li> <br />
-                            <li><strong>LinkedIn:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.linkedin}<br></br> </div>) : <div >No LinkedIn found!</div>} </li> <br />
-                            <li><strong>Phone:</strong>{allUserData[0] ? allUserData.map(user => <div>{user.phone}<br></br> </div>) : <div >No Number found!</div>} </li> <br />
+                            <li><strong>Name:</strong>{allUserData ? allUserData.map(user => <div>{user.name}<br></br> </div>) : <div >No Name found!</div>} </li> <br />
+                            <li><strong>Personal email:</strong>{allUserData ? allUserData.map(user => <div>{user.pemail}<br></br> </div>) : <div >No personal email found!</div>} </li><br />
+                            <li><strong>Digital Futures email:</strong>{allUserData ? allUserData.map(user => <div>{user.dfemail}<br></br> </div>) : <div >No Digital Futures email found!</div>} </li> <br />
+                            <li><strong>Github:</strong>{allUserData ? allUserData.map(user => <div>{user.github}<br></br> </div>) : <div >No github found!</div>} </li> <br />
+                            <li><strong>LinkedIn:</strong>{allUserData ? allUserData.map(user => <div>{user.linkedin}<br></br> </div>) : <div >No LinkedIn found!</div>} </li> <br />
+                            <li><strong>Phone:</strong>{allUserData ? allUserData.map(user => <div>{user.phone}<br></br> </div>) : <div >No Number found!</div>} </li> <br />
                         </ul>
                         <ul className='list col-md body-align-left' id='right'>
                             <li><strong>Personal Story Summary</strong></li>
                             <div className='container shadow p-3 mb-5 bg-body rounded'>
                                 <ul className='list col-sm'>
-                                    <li><strong>Degree:</strong>{allDegreeData[0] ? allDegreeData.map(degree => <div className="p-3 mb-2 bg-light text-dark">{degree.institution}<br></br>{degree.subject}<br></br> {degree.level}<br></br> {degree.grade}<br></br> {degree.dateFrom}<br></br> {degree.dateTo}<br></br> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br />
-                                    <li><strong>School qualifications: </strong> {allSchoolData[0] ? allSchoolData.map(school => <div className="p-3 mb-2 bg-light text-dark">{school.school}<br></br>{school.examType}<br></br> {school.subject}<br></br> {school.grade}<br></br> {school.year}<br></br>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br />
-                                    <li><strong>Work experience:</strong>{allWorkData[0] ? allWorkData.map(work => <div className="p-3 mb-2 bg-light text-dark">{work.experience}<br></br>{work.institution}<br></br> {work.position}<br></br> {work.dateFrom}<br></br> {work.dateTo}<br></br>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br />
-                                    <li><strong>Personal Achievements:</strong>{allAwardData[0] ? allAwardData.map(award => <div className="p-3 mb-2 bg-light text-dark">{award.type}<br></br>{award.issuer}<br></br> {award.award}<br></br>{award.grade}<br></br>{award.dateAwarded}<br></br>{award.description}<br></br></div>) : <div >No Award found!</div>}</li><br />
-                                    <li><strong>Portfolio:</strong>{allPortfolioData[0] ? allPortfolioData.map(portfolio => <div className="p-3 mb-2 bg-light text-dark">{portfolio.title}<br></br>{portfolio.url}<br></br> {portfolio.description}<br></br></div>) : <div >No Portfolio found!</div>}</li>  <br />
+                                    <li><strong>Degree:</strong>{allDegreeData[0] ? allDegreeData.map(degree => <div className="p-3 mb-2 bg-light text-dark"><b>Institution: </b>{degree.institution}<br></br><b>Subject: </b>{degree.subject}<br></br><b>Level: </b> {degree.level}<br></br><b>Grade: </b> {degree.grade}<br></br><b>Start Date: </b> {degree.dateFrom}<br></br><b>End Date: </b> {degree.dateTo}<br></br><b>Description: </b> {degree.description}<br></br> </div>) : <div >No Degrees found!</div>}</li> <br />
+                                    <li><strong>School qualifications: </strong> {allSchoolData[0] ? allSchoolData.map(school => <div className="p-3 mb-2 bg-light text-dark"><b>School: </b>{school.school}<br></br><b>Exam: </b>{school.examType}<br></br><b>Subject: </b> {school.subject}<br></br> <b>Grade: </b>{school.grade}<br></br><b>Year: </b> {school.year}<br></br><b>Description: </b>  {school.description}<br></br> </div>) : <div >No School found!</div>}</li> <br />
+                                    <li><strong>Work experience:</strong>{allWorkData[0] ? allWorkData.map(work => <div className="p-3 mb-2 bg-light text-dark"><b>Experience: </b>{work.experience}<br></br><b>Institution: </b>{work.institution}<br></br><b>Position: </b> {work.position}<br></br><b>Start Date: </b>{work.dateFrom}<br></br><b>End Date: </b> {work.dateTo}<br></br><b>Description: </b>  {work.description}<br></br> </div>) : <div >No Work found!</div>}</li> <br />
+                                    <li><strong>Personal Achievements:</strong>{allAwardData[0] ? allAwardData.map(award => <div className="p-3 mb-2 bg-light text-dark"><b>Type: </b>{award.type}<br></br><b>Issuer: </b>{award.issuer}<br></br><b>Award: </b> {award.award}<br></br><b>Grade: </b>{award.grade}<br></br><b>Date Awarded: </b>{award.dateAwarded}<br></br><b>Description: </b>{award.description}<br></br></div>) : <div >No Award found!</div>}</li><br />
+                                    <li><strong>Portfolio:</strong>{allPortfolioData[0] ? allPortfolioData.map(portfolio => <div className="p-3 mb-2 bg-light text-dark"><b>Title: </b>{portfolio.title}<br></br><b>URL: </b>{portfolio.url}<br></br><b>Description: </b> {portfolio.description}<br></br></div>) : <div >No Portfolio found!</div>}</li>  <br />
                                 </ul>
                             </div>
                         </ul>
