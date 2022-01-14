@@ -64,7 +64,7 @@ export default function UserProfile() {
     useEffect(() => {
         async function getUser() {
             let response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser');
-            setAllUserData(response.data.users)
+            setAllUserData(response.data)
             console.log(response.data.users);
         }
         getUser()
