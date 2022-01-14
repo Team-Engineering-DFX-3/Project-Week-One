@@ -141,7 +141,7 @@ export default function UserProfile() {
                     </div>
                 </div>
 
-                <div className='container shadow mb-5 bg-body rounded'>
+                {/* <div className='container shadow mb-5 bg-body rounded'>
                     <div className='row'>
                         <ContainerHeader title={"Your Information"} />
                     </div>
@@ -173,7 +173,7 @@ export default function UserProfile() {
                             </div>
                         </ul>
                     </div>
-                </div>
+                </div> */}
             </body>
         </>
     )
