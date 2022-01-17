@@ -28,7 +28,7 @@ const AddVacancy = () => {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'post', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy`,
+                method: 'post', url: `http://127.0.0.1:4000/addVacancy`,
                 data: vacancyData,
                 headers: {
                     'Accept': 'application/json',
@@ -36,7 +36,7 @@ const AddVacancy = () => {
                 },
             });
             alert(response.data.message);
-            navigate(`/industry/` + `${id}`, { states: response.data });
+            navigate(`/industryFunctions/` + `${id}`, { states: response.data });
         }
         catch (ex) {
             throw ex;
@@ -48,7 +48,7 @@ const AddVacancy = () => {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industries`}>
+                    <Link to={`/forIndustry`}>
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
                 </div>

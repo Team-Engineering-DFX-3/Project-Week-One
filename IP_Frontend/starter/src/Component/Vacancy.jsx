@@ -1,10 +1,8 @@
 //import barclays from '../Component/images/barclays.png';
 import '../Component/css/App.css';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
-import axios from 'axios';
 
 const Vacancy_Details = ({ vacanciesData }) => {
     const [vacancy, setVacancy] = useState({});

@@ -18,11 +18,24 @@ router.route('/').post((req, res) => {
 
 });
 
-router.route(`/:discipline`).get((req, res) => {
-    const discipline = req.params.apply_discipline;
+router.route(`/:apply_discipline`).get((req, res) => {
+    const apply_discipline = req.params.apply_discipline;
+    const position = apply_discipline.indexOf('&');
+    const company_name = apply_discipline.substring(position + 1);
+    const discipline = apply_discipline.substring(0, position);
+    VacancyRegisterData.find({ apply_discipline: discipline, company_name: company_name }).exec((error, registeredusers) => {
+        // if (error) {
+        //     res.status(400)
+        // }
+        // else {
+        //     if (registeredusers === []) {
+        //         res.send({ message: `Sorry!! No Registered Users.` });
+        //     }
+        //     else {
+        //         res.status(200).send(registeredusers);
+        //     }
+        // }
 
-    console.log(discipline);
-    VacancyRegisterData.find({ apply_discipline: discipline }).exec((error, registeredusers) => {
         error ? res.status(400) : res.status(200).send(registeredusers);
     });
 });

@@ -33,16 +33,16 @@ const Industry = () => {
                 <Link to={`/allVacancies`}>
                     <button id="editButton" type="button" className="btn btn-primary">View all Vacancies </button>
                 </Link>
-                {/* <Link to={`/addIndustry`}>
+                <Link to={`/addIndustry`}>
                     <button id="editButton" type="button" className="btn btn-primary">Add Company </button>
-                </Link> */}
+                </Link>
             </div>
             {
                 industries.map(industry => {
                     return (
                         <div className="container_medium shadow mb-5 body-align-midcenter rounded">
                             <div className='row'>
-                                <Link to={`/industry/${industry._id}`}>
+                                <Link to={`/industryFunctions/${industry._id}`}>
                                     <ContainerHeader key={industry._id} title={industry.name} />
                                 </Link>
                             </div>

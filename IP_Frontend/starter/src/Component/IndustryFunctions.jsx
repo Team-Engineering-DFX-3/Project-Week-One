@@ -36,10 +36,10 @@ const IndustryProfile = () => {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industries`}>
+                    <Link to={`/forIndustry`}>
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
-                    {/* <Link to={`/addVacancy/` + `${industry._id}`}>
+                    <Link to={`/addVacancy/` + `${industry._id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
                     </Link>
                     <Link to={`/editIndustry/` + `${industry._id}`}>
@@ -50,7 +50,7 @@ const IndustryProfile = () => {
                     </Link>
                     <Link to={`/registeredUsers/`}>
                         <button id="editButton" type="button" className="btn btn-primary">View Registered Users</button>
-                    </Link> */}
+                    </Link>
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
                     <div className='row'>

@@ -9,7 +9,7 @@ const AllVacancies = () => {
 
     const getVacancies = async () => {
         try {
-            const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy`);
+            const response = await axios.get(`http://127.0.0.1:4000/addVacancy`);
             return response;
         }
         catch (e) {
@@ -35,7 +35,7 @@ const AllVacancies = () => {
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
                 </div>
-                <div className="container body-align-left shadow p-3 mb-5 bg-body rounded">
+                <div className="container body-align-mid shadow p-3 mb-5 bg-body rounded">
                     <div className='row'>
                         {
                             vacancies.map(vacancy => {
@@ -55,6 +55,9 @@ const AllVacancies = () => {
                                                         <li className="card-text"><b>Mode of Work: </b>{vacancy.mode}</li>
                                                         <li className="card-text"><b>Qualification: </b>{vacancy.qualification}</li>
                                                     </ul>
+                                                    <Link to={`/registerVacancy/` + `${vacancy._id}`}>
+                                                        <button id="editButton" type="button" className="btn btn-primary">Register</button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

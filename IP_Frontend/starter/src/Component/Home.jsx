@@ -6,10 +6,10 @@ function Home() {
     return (
         <>
             <body className='body'>
-                <div>
+                {/* <div>
                     <IndustryProfile />
                     <Vacancy />
-                </div>
+                </div> */}
             </body>
         </>
     )

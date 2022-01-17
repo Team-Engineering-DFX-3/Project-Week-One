@@ -19,8 +19,11 @@ import AddVacancy from './Component/AddVacancy';
 import Industry from './Component/Industry';
 import Vacancies from './Component/Vacancies';
 import UserProfile from './Component/UserProfile';
+import IndustryFunctions from './Component/IndustryFunctions';
 import UserProfileEdit from './Component/UserProfileEdit';
 import GraduateSpotlight from './Component/GraduateSpotlight';
+import VacancyFunctions from './Component/VacancyFunctions';
+import ForIndustry from './Component/ForIndustry';
 
 function App() {
 
@@ -50,12 +53,17 @@ function App() {
         <Route path="/vacancyProfile/:id" element={<VacancyProfile />} />
         <Route path="/industries" element={<Industry />} />
         <Route path="/industry/:id" element={<IndustryProfile />} />
+        <Route path="/industryFunctions/:id" element={<IndustryFunctions />} />
         <Route path="/registeredUsers" element={<RegisteredUsers />} />
         <Route path="/editIndustry/:id" element={<IndustryProfileEdit />} />
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/allVacancies" element={<AllVacancies />} />
+        <Route path="/forIndustry" element={<ForIndustry />} />
         <Route path="/UserEdit" element={<UserProfileEdit />} />
+        <Route path="/vacancyFunctions" element={<VacancyFunctions />} />
         <Route path="/GraduateSpotlight" element={<GraduateSpotlight />} />
+        <Route path="/registerVacancy/:id" element={<VacancyRegister />} />
+
       </Routes >
     </div >
   )

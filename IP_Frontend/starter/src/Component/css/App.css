@@ -89,6 +89,15 @@
 
 .body-align-midcenter{
 text-align: center;
+margin-left:200px;
+}
+
+.body-align-mid{
+margin-left:50px;
+}
+
+.body-align-vacancy{
+  margin-left:50px;
 }
 
 .card-body {

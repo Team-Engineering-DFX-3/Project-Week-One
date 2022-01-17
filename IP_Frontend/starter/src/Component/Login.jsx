@@ -22,8 +22,8 @@ const Login = ({ setLoginUser }) => {
     const login = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post(`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/login`, user);
-        alert(res.data.message);
+        const res = await axios.post(`http://127.0.0.1:4000/login`, user);
+        // alert(res.data.message);
         setLoggedIn(res.data.user ? true : false);
         setUser({ email: ``, password: `` });
         setLoginUser(res.data.user);
@@ -35,9 +35,9 @@ const Login = ({ setLoginUser }) => {
             <h3>Log in to your account</h3>
             <form onSubmit={login}>
                 <input type="email" id="sign-in-email" name="email" value={user.email} onChange={handleChange} placeholder="Your email" />
-                <br />
+                <br /><br />
                 <input type="password" id="sign-in-password" name="password" value={user.password} onChange={handleChange} placeholder="Your password" />
-                <br />
+                <br /><br />
                 <input type="submit" value="Login" />
             </form>
             <Link to="/register">

@@ -21,7 +21,7 @@ const Register = () => {
         e.preventDefault();
         const { name, email, password } = user;
         if (name && email && password) {
-            const res = await axios.post(`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/register`, user);
+            const res = await axios.post(`http://127.0.0.1:4000/register`, user);
             alert(res.data.message);
             return;
         }
@@ -36,11 +36,11 @@ const Register = () => {
             </p>
             <form onSubmit={register}>
                 <input type="text" id="create-account-pseudo" name="name" value={user.name} onChange={handleChange} placeholder="FullName" />
-                <br />
+                <br /> <br />
                 <input type="email" id="create-account-first-name" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
-                <br />
+                <br /><br />
                 <input type="password" id="create-account-email" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
-                <br />
+                <br /><br />
                 <button type="submit">
                     Register
                 </button>

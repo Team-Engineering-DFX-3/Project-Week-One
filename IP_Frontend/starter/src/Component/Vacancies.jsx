@@ -11,7 +11,7 @@ const Vacancies = (props) => {
     // console.log(cname)
     const getVacancyData = async () => {
         try {
-            const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/addVacancy/` + `${cname}`);
+            const response = await axios.get(`http://127.0.0.1:4000/addVacancy/` + `${cname}`);
             return response;
         }
         catch (e) {
@@ -31,7 +31,7 @@ const Vacancies = (props) => {
 
     return (
         <>
-            <div className="body-align-center body-align-midcenter body">
+            <div className="body-align-vacancy">
                 <div className="container body-align-center shadow p-3 mb-5 bg-body rounded">
                     {
                         (vacancyData.length > 0) ? <h1> Vacancies</h1> : <h1> Sorry!! No Vacancies Currently.</h1>
@@ -55,6 +55,7 @@ const Vacancies = (props) => {
                                                         <li className="card-text"><b>Mode of Work: </b>{vacancy.mode}</li>
                                                         <li className="card-text"><b>Qualification Required: </b>{vacancy.qualification}</li>
                                                     </ul>
+                                                    {/* <Link to={`/registerVacancy/` + `${vacancy._id}`}> */}
                                                     <Link to={`/registerVacancy/` + `${vacancy._id}`}>
                                                         <button id="editButton" type="button" className="btn btn-primary">Register</button>
                                                     </Link>

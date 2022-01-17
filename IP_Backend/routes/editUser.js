@@ -17,20 +17,21 @@ router.route('/').post((req, res) => {
     });
 });
 
-// router.route('/').get((req, res) => {
-//     User.find({}, (err, users) => {
-//         if (err) {
-//             res.send(err);
-//             next();
-//         }
-//         res.send({ users });
-//     })
-// })
-
 router.route('/').get((req, res) => {
-    User.find().exec((error, users) => {
-    error ? res.status(400) : res.status(200).send(users);
-});
-});
+    User.find({}, (err, users) => {
+        if (err) {
+            res.send(err);
+            next();
+        }
+        res.send({ users });
+    })
+})
+
+// router.route('/:name').get((req, res) => {
+//     const user_name = req.params.name;
+//     User.find({ name: user_name }).exec((error, users) => {
+//         error ? res.status(400) : res.status(200).send(users);
+//     });
+// });
 
 export { router as editUser };

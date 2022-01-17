@@ -10,7 +10,7 @@ const GraduateSpotlight = () => {
 
     const getSpUser = async () => {
         try {
-            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editUser');
+            const response = await axios.get('http://127.0.0.1:4000/editUser');
             return response;
         }
         catch (e) {
@@ -33,8 +33,7 @@ const GraduateSpotlight = () => {
     return (
         <div className="body-align-center">
             {
-                //user.map(spotlight => {
-                //return (
+
 
                 <body className="body">
                     <div className="container body-align-left shadow p-3 mb-5 bg-body rounded" >

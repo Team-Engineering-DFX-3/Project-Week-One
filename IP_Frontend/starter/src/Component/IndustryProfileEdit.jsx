@@ -30,7 +30,7 @@ export default function IndustryProfileEdit() {
 
     const getIndustry = async () => {
         try {
-            const response = await axios.get('https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editindustry/' + `${id}`);
+            const response = await axios.get('http://127.0.0.1:4000/editindustry/' + `${id}`);
             return response;
         }
         catch (e) {
@@ -69,14 +69,14 @@ export default function IndustryProfileEdit() {
             formData.append('industry', JSON.stringify(industryData));
             formData.append("image", file);
             const response = await axios({
-                method: 'put', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/` + `${id}`,
+                method: 'put', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
                 data: formData,
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             });
             setIndustryData(response.data);
-            navigate(`/industry/${id}`, { states: response.data });
+            navigate(`/industryFunctions/${id}`, { states: response.data });
 
         }
         catch (ex) {
@@ -89,7 +89,7 @@ export default function IndustryProfileEdit() {
         e.preventDefault();
         try {
             const response = await axios({
-                method: 'delete', url: `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/editIndustry/` + `${id}`,
+                method: 'delete', url: `http://127.0.0.1:4000/editIndustry/` + `${id}`,
             });
             alert(response.data.message);
         }
@@ -104,7 +104,7 @@ export default function IndustryProfileEdit() {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industries`}>
+                    <Link to={`/forIndustry`}>
                         <button id="editButton" type="button" class="btn btn-primary">
                             All Companies
                         </button>
@@ -131,7 +131,7 @@ export default function IndustryProfileEdit() {
 
                                 <div className=' col-sm body-align-right' id='right'>
                                     <ul className='list body-align-right' id='right' >
-                                        <li><img src={state.image && `https://cors-anywhere.herokuapp.com/http://ec2-34-206-125-202.compute-1.amazonaws.com:4000/` + `${state.image}`} alt="Industry Logo" className="img" /></li>
+                                        <li><img src={state.image && `http://127.0.0.1:4000/` + `${state.image}`} alt="Industry Logo" className="img" /></li>
                                         <li><input className="inputImage" type="file" name="image" onChange={handleChangeFile} accept="image/png, image/jpeg" defaultValue={state.image} required /></li>
                                     </ul>
                                 </div>
@@ -146,7 +146,7 @@ export default function IndustryProfileEdit() {
                                     <button type="submit" className="btn btn-danger btn-custom" onClick={handleDelete}>Delete Company</button>
                                 </div>
                                 <div className="col-sm-3">
-                                    <Link to={`/industry/` + `${id}`}>
+                                    <Link to={`/industryFunctions/` + `${id}`}>
                                         <button type="button" className="btn btn-info btn-custom">Cancel Changes</button>
                                     </Link>
                                 </div>

@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import ContainerHeader from './Header/ContainerHeader';
 import axios from 'axios';
 
-const VacancyProfile = () => {
+const VacancyFunctions = () => {
     const [vacancy, setVacancy] = useState({});
     const { id } = useParams();
     const location = useLocation();
@@ -36,10 +36,10 @@ const VacancyProfile = () => {
         <>
             <div className="body nospacing">
                 <div>
-                    <Link to={`/industries`}>
+                    <Link to={`/forIndustry`}>
                         <button id="editButton" type="button" className="btn btn-primary">View all Companies </button>
                     </Link>
-                    {/* <Link to={`/addVacancy/` + `${id}`}>
+                    <Link to={`/addVacancy/` + `${id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Add Vacancy</button>
                     </Link>
                     <Link to={`/editVacancy/` + `${vacancy._id}`}>
@@ -47,12 +47,11 @@ const VacancyProfile = () => {
                     </Link>
                     <Link to={`/editVacancy/` + `${vacancy._id}`}>
                         <button id="editButton" type="button" className="btn btn-primary">Delete Vacancy</button>
-                    </Link> */}
+                    </Link>
                 </div>
                 <div className="container shadow mb-5 bg-body rounded">
                     <div className='row'>
-                        {/* <Link to={`/editVacancy/` + `${vacancy._id}`}> */}
-                        <Link to={''}>
+                        <Link to={`/editVacancy/` + `${vacancy._id}`}>
                             <ContainerHeader title={state ? state.designation : vacancy.designation} />
                         </Link>
                     </div>
@@ -75,4 +74,4 @@ const VacancyProfile = () => {
     )
 }
 
-export default VacancyProfile;
+export default VacancyFunctions;
